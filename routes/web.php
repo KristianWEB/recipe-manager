@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/recipes', function () {
+    return view('recipes');
 });
+// Route::post('/recipes', 'RecipeController@store');
+Route::post('/recipes', 'RecipeController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
