@@ -2017,6 +2017,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2035,28 +2041,26 @@ __webpack_require__.r(__webpack_exports__);
 
     var appId = process.env.RECIPE_ID;
     var appKey = process.env.RECIPE_KEY;
-    axios.get("https://api.edamam.com/search?q=pizza&app_id=".concat(appId, "&app_key=").concat(appKey)).then(function (_ref) {
+    axios.get("https://api.edamam.com/search?q=chocolate&app_id=".concat(appId, "&app_key=").concat(appKey, "&from=0&to=9")).then(function (_ref) {
       var data = _ref.data;
       data.hits.forEach(function (_ref2) {
         var recipe = _ref2.recipe;
 
-        _this.recipe.title.push(recipe.label);
-
-        _this.recipe.imageURL.push(recipe.image);
-
-        _this.recipe.dietLabels.push(recipe.dietLabels);
-
-        _this.recipe.calories.push(recipe.calories);
-
-        _this.recipe.ingredients.push(recipe.ingredientLines);
-
-        _this.recipe.sourceURL.push(recipe.url);
+        _this.pushRecipeItems(_this.recipe, recipe);
       });
     });
   },
   methods: {
     showModal: function showModal() {
       this.$modal.show("search");
+    },
+    pushRecipeItems: function pushRecipeItems(dataArr, newItems) {
+      dataArr.title.push(newItems.label);
+      dataArr.imageURL.push(newItems.image);
+      dataArr.dietLabels.push(newItems.dietLabels);
+      dataArr.calories.push(newItems.calories);
+      dataArr.ingredients.push(newItems.ingredientLines);
+      dataArr.sourceURL.push(newItems.url);
     },
     detailedSearching: function detailedSearching(data) {
       var _this2 = this;
@@ -2071,18 +2075,10 @@ __webpack_require__.r(__webpack_exports__);
         data.hits.forEach(function (_ref4) {
           var recipe = _ref4.recipe;
 
-          _this2.recipe.title.push(recipe.label);
-
-          _this2.recipe.imageURL.push(recipe.image);
-
-          _this2.recipe.dietLabels.push(recipe.dietLabels);
-
-          _this2.recipe.calories.push(recipe.calories);
-
-          _this2.recipe.ingredients.push(recipe.ingredientLines);
-
-          _this2.recipe.sourceURL.push(recipe.url);
+          _this2.pushRecipeItems(_this2.recipe, recipe);
         });
+      })["catch"](function (err) {
+        return console.log(err);
       });
       this.$modal.hide("search");
     }
@@ -20046,7 +20042,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("h3", { staticClass: "text-gray-700 text-base" }, [
-                  _vm._v("\n\t\t\t\t\tIngredients:\n\t\t\t\t\t"),
+                  _vm._v("\n          Ingredients:\n          "),
                   _c(
                     "ul",
                     _vm._l(ingredient, function(item, index) {
@@ -20054,26 +20050,40 @@ var render = function() {
                     }),
                     0
                   ),
-                  _vm._v("Diet Labels:\n\t\t\t\t\t"),
+                  _vm._v("Diet Labels:\n          "),
                   _c(
                     "ul",
                     _vm._l(_vm.recipe.dietLabels, function(diet, dietId) {
                       return _c("li", { key: dietId }, [
-                        _vm._v(_vm._s(_vm.recipe.dietLabels[index][dietId]))
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.recipe.dietLabels[index][dietId]) +
+                            "\n            "
+                        )
                       ])
                     }),
                     0
                   ),
-                  _vm._v("Calories:\n\t\t\t\t\t"),
+                  _vm._v("Calories:\n          "),
                   _c("ul", [
                     _c("li", [_vm._v(_vm._s(_vm.recipe.calories[index]))])
                   ])
                 ]),
                 _vm._v(" "),
-                _c("p", [
+                _c("div", { staticClass: "flex items-center justify-end" }, [
                   _c("a", { attrs: { href: _vm.recipe.sourceURL[index] } }, [
-                    _vm._v("Source URL")
-                  ])
+                    _vm._v("Read More")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "bg-blue-500 hover:bg-blue-700 text-white font-bold ml-3 py-2 px-4 rounded",
+                      attrs: { href: "#" }
+                    },
+                    [_vm._v("Save")]
+                  )
                 ])
               ])
             ]
@@ -32534,8 +32544,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Kristian\Desktop\Programming etc\recipe-manager\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Kristian\Desktop\Programming etc\recipe-manager\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\Users\User\Desktop\Programming etc\recipe-manager\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Programming etc\recipe-manager\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })
