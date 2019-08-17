@@ -32,17 +32,12 @@
                 @if(Route::has('login'))
                         @auth
                         <li>
-                            <a href="{{ url('/home') }}">{{ __('Home') }}</a>
+                            <a href="{{ url('/home') }}">{{ __('Account') }}</a>
                         </li>
                         @else
                         <li>
-                            <a href="{{ route('login') }}" class="mr-6">{{ __('LOGIN') }}</a>
+                            <a href="{{ route('login') }}" class="mr-6">{{ __('SIGN IN') }}</a>
                         </li>
-                            @if (Route::has('register'))
-                            <li>
-                                <a href="{{ route('register') }}">{{ __('REGISTER') }}</a>
-                            </li>
-                            @endif
                         @endauth
                 @endif
             </div>
