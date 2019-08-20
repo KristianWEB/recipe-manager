@@ -4,7 +4,7 @@
     <div class="flex justify-end mt-6 mx-8">
       <button
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        @click="showModal"
+        @click="$modal.show('search')"
       >Search</button>
     </div>
     <div class="flex flex-wrap w-full justify-center mt-5">
@@ -35,14 +35,15 @@
           </h3>
           <div class="flex items-center justify-end">
             <a :href="recipe.sourceURL[index]">Read More</a>
-            <a
-              href="#"
+            <button
+              @click="authenticateUser"
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold ml-3 py-2 px-4 rounded"
-            >Save</a>
+            >Save</button>
           </div>
         </div>
       </div>
     </div>
+    <login></login>
   </div>
 </template>
 
@@ -74,9 +75,6 @@ export default {
       });
   },
   methods: {
-    showModal() {
-      this.$modal.show("search");
-    },
     pushRecipeItems(dataArr, newItems) {
       dataArr.title.push(newItems.label);
       dataArr.imageURL.push(newItems.image);
@@ -84,6 +82,17 @@ export default {
       dataArr.calories.push(newItems.calories);
       dataArr.ingredients.push(newItems.ingredientLines);
       dataArr.sourceURL.push(newItems.url);
+    },
+
+    authenticateUser() {
+      axios
+        .get("/storage")
+        .then(() => {
+          window.location.pathname = "/storage";
+        })
+        .catch(() => {
+          this.$modal.show("login");
+        });
     },
 
     detailedSearching(data) {

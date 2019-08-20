@@ -11,13 +11,7 @@ class AuthenticationTest extends DuskTestCase
 {
 
     use DatabaseMigrations;
-    public function setUp(): void
-    {
-        parent::setUp();
-        factory('App\User')->create();
-    }
 
-    // given that I am a guest, I should see a sign in button to login into the application 
     /** @test */
     public function a_guest_will_see_a_sign_in_button_to_login()
     {
@@ -28,10 +22,12 @@ class AuthenticationTest extends DuskTestCase
         });
     }
 
-    // given that I am an authenticated user, I should see an account button 
+
     /** @test */
     public function an_authenticated_user_will_see_an_account_button()
     {
+        factory('App\User')->create();
+
         $this->browse(function (Browser $browser) {
             $browser
                 ->loginAs(User::find(1))
@@ -39,11 +35,56 @@ class AuthenticationTest extends DuskTestCase
                 ->assertSee('Account');
         });
     }
-    // given that I am a guest, when I get to STORAGE page I should be prompted to SIGN IN before continuing.
-
-    // given that I am an authenticated user I should be able to get to STORAGE page and If I don't have recipes saved, I should be prompted to RECIPES page to save some
 
 
-    // given that I am a guest, if I try to save a recipe I should be prompted to SIGN IN before continuing.
+    /** @test */
+    public function a_guest_will_be_prompted_to_login_before_accessing_storage()
+    {
 
+        $this->browse(function (Browser $browser) {
+            $browser
+                ->visit('/recipes')
+                ->waitForText('Save')
+                ->press('Save')
+                ->waitForText('Login')
+                ->assertSee('Login');
+        });
+    }
+
+    /** @test */
+    public function if_login_is_successful_user_will_be_prompted_to_storage()
+    {
+
+        factory('App\User')->create();
+
+        $this->browse(function (Browser $browser) {
+            $browser
+                ->loginAs(User::find(1))
+                ->visit('/recipes')
+                ->waitForText('Save')
+                ->press('Save')
+                ->waitForLocation('/storage')
+                ->assertSee('this is the storage page.');
+        });
+    }
+
+    /** @test */
+    public function if_login_is_unsuccessful_errors_will_be_shown_under_form_inputs_using_AJAX()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser
+                ->visit('/recipes')
+                ->waitForText('Save')
+                ->press('Save')
+                ->waitForText('Login')
+                ->type('email', 'kristian@kristian.com')
+                ->type('password', 'asdfasdf')
+                ->press('Login')
+                ->pause(1000)
+                ->assertSee('These credentials do not match our records.');
+        });
+    }
+
+    public function an_authenticated_user_with_no_recipes_will_be_prompted_to_recipes_when_accessing_storage()
+    { }
 }

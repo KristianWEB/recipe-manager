@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/recipes', function () {
-    return view('recipes');
-});
-// Route::post('/recipes', 'RecipeController@store');
+Route::get('/recipes', 'RecipeController@index');
+Route::get('/storage', 'StorageController@index')->middleware('auth');
+
 Route::post('/recipes', 'RecipeController@store');
 
 Auth::routes();

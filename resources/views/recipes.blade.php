@@ -45,7 +45,7 @@
     </navBar>
     <main>
             <recipes>
-            </recipes>
+        </recipes>
     </main>
 </div>
 
