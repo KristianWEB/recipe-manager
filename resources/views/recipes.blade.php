@@ -24,25 +24,26 @@
                 <li class='mr-6'>
                     <a href='#'>RECIPES</a>
                 </li>
-                <li class='mr-6'>
-                    <a href='#'>STORAGE</a>
-                </li>
+                @if(Auth::user())
+                        <li class='mr-6'>
+                            <a href="/storage">STORAGE</a>
+                        </li>
+                        @else
+                        <li class="mr-6">
+                            <button @click="$modal.show('login')" >STORAGE</li>
+                        </li>
+                @endif
             </div>
             <div class="flex">
                 @if(Route::has('login'))
                         @auth
                         <li>
-                            <a href="{{ url('/home') }}">{{ __('Home') }}</a>
+                            <a href="{{ url('/home') }}">{{ __('Account') }}</a>
                         </li>
                         @else
                         <li>
-                            <a href="{{ route('login') }}" class="mr-6">{{ __('LOGIN') }}</a>
+                            <button @click="$modal.show('login')" class="mr-6">{{ __('SIGN IN') }}</button>
                         </li>
-                            @if (Route::has('register'))
-                            <li>
-                                <a href="{{ route('register') }}">{{ __('REGISTER') }}</a>
-                            </li>
-                            @endif
                         @endauth
                 @endif
             </div>
@@ -50,7 +51,7 @@
     </navBar>
     <main>
             <recipes>
-            </recipes>
+        </recipes>
     </main>
 </div>
 
