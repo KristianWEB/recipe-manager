@@ -35,40 +35,43 @@ class UserTest extends TestCase
     }
 
 
-    // this doesnt work
 
-    // we need a way of checking if the user is authenticated, if he is then we persist the data into the database. if not then we redirect him to /login or show the modal on the same page and not persist it in the database
+    /** @test */
+    public function guests_may_not_view_projects()
+    {
+        $this->get('/storage')->assertRedirect('login');
+    }
 
     /** @test */
     public function a_guest_cannot_create_recipes()
     {
-        $recipe = factory(Recipe::class)->create(['title' => 'Pizza Dough']);
-
         $this->post('/recipes')->assertRedirect('login');
-
-        $this->assertDatabaseMissing('recipes', [
-            'title' => $recipe->title,
-            'user_id' => $recipe->owner->id
-        ]);
     }
 
-    // this is simply wrong you don't need to be redirected to / route. you have to stay on the same page. 
     /** @test */
     public function an_authenticated_user_can_create_projects()
     {
-        $owner = factory(User::class)->create();
 
-        $this->actingAs($owner);
+        $this->withoutExceptionHandling();
 
-        $recipes = factory(Recipe::class, 2)->create(['title' => 'Pizza Dough', 'user_id' => 1]);
+        $this->actingAs(factory('App\User')->create());
 
-        $this->post('/recipes')->assertRedirect('/');
+        $attributes = [
+            'image' => 'https://www.edamam.com/web-img/9ce/9ceb6392ae7f8a76979b87e5645559e3.jpg',
+            'title' => 'Pizza Bianco',
+            'ingredients' => ['olive oil, 1 sliced SPanish onion, sliced'],
+            'diet_label' => ['balanced'],
+            'calories' => 1805
+        ];
+
+        $this->post('/recipes', $attributes)->assertRedirect('/storage');
 
         $this->assertDatabaseHas('recipes', [
-            'title' => $recipes[0]->title,
-            'user_id' => $owner->id
+            'image' => $attributes['image'],
+            'title' => $attributes['title'],
+            'ingredients' => json_encode($attributes['ingredients']),
+            'diet_label' => json_encode($attributes['diet_label']),
+            'calories' => $attributes['calories']
         ]);
     }
-
-    // a guest should not be able to create recipes
 }

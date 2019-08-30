@@ -12,18 +12,23 @@ class RecipeController extends Controller
         return view('recipes');
     }
 
-    public function store(Request $request)
+    public function store()
     {
         // validate
-        $validatedData = $request->validate([
+
+        $attributes = request()->validate([
+            'image' => 'required',
             'title' => 'required',
-            'ingredients' => 'required',
-            'diet_label' => 'required',
-            'health_label' => 'required',
+            'ingredients' => 'required|array',
+            'diet_label' => 'required|array',
             'calories' => 'required',
         ]);
 
-        // persist
-        Recipe::create($validatedData);
+        $attributes['ingredients'] = json_encode($attributes['ingredients']);
+        $attributes['diet_label'] = json_encode($attributes['diet_label']);
+
+        auth()->user()->recipes()->create($attributes);
+
+        return redirect('/storage');
     }
 }

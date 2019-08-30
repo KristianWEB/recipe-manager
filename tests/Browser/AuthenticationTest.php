@@ -11,6 +11,14 @@ class AuthenticationTest extends DuskTestCase
 {
 
     use DatabaseMigrations;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        foreach (static::$browsers as $browser) {
+            $browser->driver->manage()->deleteAllCookies();
+        }
+    }
     /** @test */
     public function a_guest_will_see_a_sign_in_button_to_login()
     {
@@ -51,19 +59,20 @@ class AuthenticationTest extends DuskTestCase
     }
 
     /** @test */
-    public function if_login_is_successful_user_will_be_prompted_to_storage()
+    public function if_login_is_successful_user_will_be_prompted_to_account()
     {
 
-        factory('App\User')->create();
+        factory('App\User')->create(['email' => 'kristian@kristian.com', 'password' => bcrypt('asdfasdf')]);
 
         $this->browse(function (Browser $browser) {
             $browser
-                ->loginAs(User::find(1))
                 ->visit('/recipes')
-                ->waitForText('Save')
-                ->press('Save')
-                ->waitForLocation('/storage')
-                ->assertSee('this is the storage page.');
+                ->press('SIGN IN')
+                ->type('email', 'kristian@kristian.com')
+                ->type('password', 'asdfasdf')
+                ->press('Login')
+                ->waitForLocation('/account')
+                ->assertPathIs('/account');
         });
     }
 
@@ -135,31 +144,6 @@ class AuthenticationTest extends DuskTestCase
     }
 
     /** @test */
-    public function if_a_guest_tries_to_enter_an_email_that_is_already_taken_an_error_message_will_be_shown()
-    {
-
-        factory('App\User')->create([
-            'email' => 'kristian@kristian.com'
-        ]);
-
-        $this->browse(function (Browser $browser) {
-            $browser
-                ->visit('/recipes')
-                ->press('SIGN IN')
-                ->waitForText('Login')
-                ->press('Don\'t have an account? Register')
-                ->pause(2000)
-                ->type('name', 'kristian')
-                ->type('email', 'kristian@kristian.com')
-                ->type('password', 'fkfkfkfk')
-                ->type('password_confirmation', 'fkfkfkfk')
-                ->press('Register')
-                ->pause(2000)
-                ->assertSee('The email has already been taken.');
-        });
-    }
-
-    /** @test */
     public function if_a_guest_tries_to_enter_wrong_password_confirmation_error_mesage_will_be_shown()
     {
         $this->browse(function (Browser $browser) {
@@ -192,6 +176,21 @@ class AuthenticationTest extends DuskTestCase
                 ->assertSee('Reset Password');
         });
     }
-    public function an_authenticated_user_with_no_recipes_will_be_prompted_to_recipes_when_accessing_storage()
-    { }
+
+    //TODO: Fetch the saved recipes associated with the User on the storage page
+    /** @test */
+    // public function an_authenticated_user_will_save_a_recipe_to_their_storage_when_clicking_save_on_a_recipe()
+    // {
+    //     factory('App\User')->create();
+
+    //     $this->browse(function (Browser $browser) {
+    //         $browser
+    //             ->loginAs(User::find(1))
+    //             ->visit('/recipes')
+    //             ->press('Save')
+    //             ->waitForLocation('/storage')
+    //             ->assertPathIs('/storage')
+    //             ->assertSee('Serious Chocolate');
+    //     });
+    // }
 }

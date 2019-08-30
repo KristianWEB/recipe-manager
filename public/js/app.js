@@ -1923,7 +1923,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post("/login", this.$data).then(function () {
-        window.location.pathname = "/storage";
+        window.location.pathname = "/account";
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
       });
@@ -2311,8 +2311,26 @@ __webpack_require__.r(__webpack_exports__);
     authenticateUser: function authenticateUser() {
       var _this2 = this;
 
+      for (var _len = arguments.length, recipeData = new Array(_len), _key = 0; _key < _len; _key++) {
+        recipeData[_key] = arguments[_key];
+      }
+
+      if (recipeData[3].length === 0) {
+        recipeData[3] = ["None"];
+      }
+
       axios.get("/storage").then(function () {
-        window.location.pathname = "/storage";
+        axios.post("/recipes", {
+          image: recipeData[0],
+          title: recipeData[1],
+          ingredients: recipeData[2],
+          diet_label: recipeData[3],
+          calories: recipeData[4]
+        }).then(function (res) {
+          return console.log(res.config.data);
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
       })["catch"](function () {
         _this2.$modal.show("login");
       });
@@ -2338,7 +2356,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$modal.hide("search");
     }
   }
-}); // recipe title, diet label, health label, calories
+});
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
@@ -20991,12 +21009,12 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("div", { staticClass: "px-6 py-4" }, [
-                _c("div", { staticClass: "font-bold text-xl mb-2" }, [
+                _c("h2", { staticClass: "font-bold text-xl mb-2" }, [
                   _vm._v(_vm._s(_vm.recipe.title[index]))
                 ]),
                 _vm._v(" "),
                 _c("h3", { staticClass: "text-gray-700 text-base" }, [
-                  _vm._v("\n\t\t\t\t\tIngredients:\n\t\t\t\t\t"),
+                  _vm._v("\n          Ingredients:\n          "),
                   _c(
                     "ul",
                     _vm._l(ingredient, function(item, index) {
@@ -21004,21 +21022,21 @@ var render = function() {
                     }),
                     0
                   ),
-                  _vm._v("Diet Labels:\n\t\t\t\t\t"),
+                  _vm._v("Diet Labels:\n          "),
                   _c(
                     "ul",
                     _vm._l(_vm.recipe.dietLabels, function(diet, dietId) {
                       return _c("li", { key: dietId }, [
                         _vm._v(
-                          "\n\t\t\t\t\t\t\t" +
+                          "\n              " +
                             _vm._s(_vm.recipe.dietLabels[index][dietId]) +
-                            "\n\t\t\t\t\t\t"
+                            "\n            "
                         )
                       ])
                     }),
                     0
                   ),
-                  _vm._v("Calories:\n\t\t\t\t\t"),
+                  _vm._v("Calories:\n          "),
                   _c("ul", [
                     _c("li", [_vm._v(_vm._s(_vm.recipe.calories[index]))])
                   ])
@@ -21041,7 +21059,17 @@ var render = function() {
                     {
                       staticClass:
                         "bg-blue-500 hover:bg-blue-700 text-white font-bold ml-3 py-2 px-4 rounded",
-                      on: { click: _vm.authenticateUser }
+                      on: {
+                        click: function($event) {
+                          return _vm.authenticateUser(
+                            _vm.recipe.imageURL[index],
+                            _vm.recipe.title[index],
+                            _vm.recipe.ingredients[index],
+                            _vm.recipe.dietLabels[index],
+                            _vm.recipe.calories[index]
+                          )
+                        }
+                      }
                     },
                     [_vm._v("Save")]
                   )
@@ -33701,8 +33729,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\recipe-manager\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\recipe-manager\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! E:\XAMPP\htdocs\projects\recipe-manager\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\XAMPP\htdocs\projects\recipe-manager\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })

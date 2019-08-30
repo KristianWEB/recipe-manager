@@ -30,11 +30,11 @@ $factory->define(User::class, function (Faker $faker) {
 
 $factory->define(Recipe::class, function (Faker $faker) {
     return [
+        'image' => 'https://www.edamam.com/web-img/9ce/9ceb6392ae7f8a76979b87e5645559e3.jpg',
         'title' => 'Pizza Dough',
         'user_id' => factory(User::class)->create()->id,
         'ingredients' => 'tomato, cheese',
         'diet_label' => 'High Fiber',
-        'health_label' => 'Balanced',
         'calories' => 1200,
     ];
 });

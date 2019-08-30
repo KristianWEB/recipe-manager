@@ -16,13 +16,14 @@ class CreateRecipesTable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('image');
             $table->string('title');
-            $table->string('ingredients');
+            $table->text('ingredients');
             $table->string('diet_label');
-            $table->string('health_label');
             $table->bigInteger('calories');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
