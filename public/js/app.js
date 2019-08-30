@@ -2205,7 +2205,7 @@ __webpack_require__.r(__webpack_exports__);
     search: function search() {
       var _this = this;
 
-      axios.post("/recipes", this.$data).then(function (res) {
+      axios.post("/search-recipes", this.$data).then(function (res) {
         _this.$emit("recipeData", JSON.parse(res.config.data));
       });
     }

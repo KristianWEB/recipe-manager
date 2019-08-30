@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Recipe;
 
 class RecipeController extends Controller
 {
@@ -13,10 +14,16 @@ class RecipeController extends Controller
 
     public function store(Request $request)
     {
+        // validate
         $validatedData = $request->validate([
-            'name' => 'required',
+            'title' => 'required',
+            'ingredients' => 'required',
+            'diet_label' => 'required',
+            'health_label' => 'required',
             'calories' => 'required',
         ]);
-        return response()->json($validatedData);
+
+        // persist
+        Recipe::create($validatedData);
     }
 }
