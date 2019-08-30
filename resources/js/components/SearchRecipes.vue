@@ -97,7 +97,7 @@ export default {
 	},
 	methods: {
 		search() {
-			axios.post("/recipes", this.$data).then(res => {
+			axios.post("/search-recipes", this.$data).then(res => {
 				this.$emit("recipeData", JSON.parse(res.config.data));
 			});
 		}

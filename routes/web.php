@@ -12,10 +12,12 @@
 */
 
 Route::get('/recipes', 'RecipeController@index');
-Route::get('/storage', 'StorageController@index')->middleware('auth');
+Route::get('/storage', 'StorageController@index');
 Route::get('/account', 'AccountController@index')->middleware('auth');
 
-Route::post('/recipes', 'RecipeController@store');
+Route::post('/recipes', 'RecipeController@store')->middleware('auth');
+
+Route::post('/search-recipes', 'SearchRecipesController@store');
 
 Auth::routes();
 
