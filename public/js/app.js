@@ -1912,6 +1912,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   // TODO: Make an AJAX POST request to the server and validate the given information. Return a response or errors depending on the given data
   data: function data() {
@@ -2098,6 +2104,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     has: function has(field) {
       return this.errors.hasOwnProperty(field);
+    },
+    showLoginForm: function showLoginForm() {
+      this.$modal.hide('register');
+      this.$modal.show('login');
     }
   }
 });
@@ -2363,7 +2373,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n[placeholder][data-v-12a98f72]:focus::-webkit-input-placeholder {\r\n  transition: opacity 0.5s 0.5s ease; \r\n  opacity: 0;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n[placeholder][data-v-12a98f72]:focus::-webkit-input-placeholder {\r\n  transition: opacity 0.5s 0.5s ease;\r\n  opacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -20707,7 +20717,7 @@ var render = function() {
                         },
                         [_vm._v("launch")]
                       ),
-                      _vm._v("Login")
+                      _vm._v("Login\n          ")
                     ]
                   )
                 ]
@@ -21245,7 +21255,16 @@ var render = function() {
                               _vm._v(
                                 "\n                  Already have an account?\n                  "
                               ),
-                              _vm._v('")"\n                  >Login')
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "text-blue-500 hover:text-blue-700 no-underline",
+                                  attrs: { type: "button" },
+                                  on: { click: _vm.showLoginForm }
+                                },
+                                [_vm._v("Login")]
+                              )
                             ]
                           )
                         ])
@@ -21718,11 +21737,11 @@ var render = function() {
                   _vm._v(_vm._s(_vm.recipe.title[index]))
                 ]),
                 _vm._v(" "),
-                _c("h3", { staticClass: "text-gray-700 text-base " }, [
+                _c("h3", { staticClass: "text-gray-700 text-base" }, [
                   _vm._v("\n          Ingredients:\n          "),
                   _c(
                     "ul",
-                    _vm._l(ingredient, function(item, index) {
+                    _vm._l(ingredient.slice(0, 6), function(item, index) {
                       return _c("li", { key: index }, [_vm._v(_vm._s(item))])
                     }),
                     0

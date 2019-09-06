@@ -81,7 +81,7 @@
                     <button
                       type="button"
                       class="text-blue-500 hover:text-blue-700 no-underline"
-                      @click="$modal.show("login")"
+                      @click='showLoginForm'
                     >Login</button>
                   </p>
                 </div>
@@ -118,6 +118,10 @@ export default {
     },
     has(field) {
       return this.errors.hasOwnProperty(field);
+    },
+    showLoginForm() {
+     this.$modal.hide('register');
+     this.$modal.show('login');
     }
   }
 };
