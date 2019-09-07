@@ -3,18 +3,14 @@
     <modal name="login" width="100%" height="auto">
       <div class="w-384 h-full mx-auto">
         <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md h-full">
-          <div class="font-semibold bg-purple-700 text-gray-100 py-3 px-6 mb-3 text-center">
-            <span class="flex flex-col inline-block text-2xl">
-              <i class="material-icons text-white mb-5 text-5xl">launch</i>Login
-            </span>
-          </div>
+          <div
+                class="font-semibold bg-purple-700 text-gray-100 py-3 px-6 mb-3 text-center"
+              ><span class="flex flex-col inline-block text-2xl"><i class="material-icons text-white mb-5 text-5xl">launch</i>Login</span></div>
 
           <form class="w-full p-6" @submit.prevent="authenticateUser">
             <!-- @csrf -->
-            <div class="flex flex-wrap mb-6">
-              <div class="flex justify-center items-center w-1/6 bg-purple-700">
-                <i class="material-icons text-white">mail</i>
-              </div>
+              <div class="flex flex-wrap mb-6">
+                  <div class="flex justify-center items-center w-1/6 bg-purple-700"><i class="material-icons text-white">mail</i></div>
 
               <input
                 id="email"
@@ -22,7 +18,7 @@
                 class="shadow appearance-none border w-10/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="email"
                 v-model="email"
-                placeholder="E-Mail"
+				placeholder="E-Mail"
                 required
                 autofocus
               />
@@ -30,9 +26,7 @@
             </div>
 
             <div class="flex flex-wrap mb-6">
-              <div class="flex justify-center items-center w-1/6 bg-purple-700">
-                <i class="material-icons text-white">lock</i>
-              </div>
+              <div class="flex justify-center items-center w-1/6 bg-purple-700"><i class="material-icons text-white">lock</i></div>
 
               <input
                 id="password"
@@ -40,7 +34,7 @@
                 class="shadow appearance-none border w-10/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="password"
                 v-model="password"
-                placeholder="Password"
+				placeholder="Password"
                 required
               />
               <span v-if="has("password")" v-text="errors.password[0]" class="text-red-500"></span>
@@ -71,6 +65,18 @@
               </p>
             </div>
           </form>
+        </div>
+        <div class="w-full p-6 hidden">
+          <div class="flex items-center w-full bg-green-600 rounded px-2 py-3"> 
+              <span class="text-white mr-auto">You logged in successfully.</span>
+              <i class="material-icons text-white">done_outline</i>
+            </div>
+        </div>
+        <div class="w-full p-6 hidden">
+          <div class="flex items-center w-full bg-red-600 rounded px-2 py-3"> 
+              <span class="text-white mr-auto">Your username or password is incorrect!</span>
+              <i class="material-icons text-white">highlight_off</i>
+            </div>
         </div>
       </div>
     </modal>
@@ -122,8 +128,10 @@ export default {
 </script>
 
 <style scoped>
+
 [placeholder]:focus::-webkit-input-placeholder {
-  transition: opacity 0.5s 0.5s ease;
+  transition: opacity 0.5s 0.5s ease; 
   opacity: 0;
 }
+
 </style>

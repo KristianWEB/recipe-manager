@@ -1918,6 +1918,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   // TODO: Make an AJAX POST request to the server and validate the given information. Return a response or errors depending on the given data
   data: function data() {
@@ -2373,7 +2379,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n[placeholder][data-v-12a98f72]:focus::-webkit-input-placeholder {\r\n  transition: opacity 0.5s 0.5s ease;\r\n  opacity: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n[placeholder][data-v-12a98f72]:focus::-webkit-input-placeholder {\r\n  transition: opacity 0.5s 0.5s ease; \r\n  opacity: 0;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -20717,7 +20723,7 @@ var render = function() {
                         },
                         [_vm._v("launch")]
                       ),
-                      _vm._v("Login\n          ")
+                      _vm._v("Login")
                     ]
                   )
                 ]
@@ -20928,7 +20934,45 @@ var render = function() {
                 ]
               )
             ]
-          )
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full p-6 hidden" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "flex items-center w-full bg-green-600 rounded px-2 py-3"
+              },
+              [
+                _c("span", { staticClass: "text-white mr-auto" }, [
+                  _vm._v("You logged in successfully.")
+                ]),
+                _vm._v(" "),
+                _c("i", { staticClass: "material-icons text-white" }, [
+                  _vm._v("done_outline")
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full p-6 hidden" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "flex items-center w-full bg-red-600 rounded px-2 py-3"
+              },
+              [
+                _c("span", { staticClass: "text-white mr-auto" }, [
+                  _vm._v("Your username or password is incorrect!")
+                ]),
+                _vm._v(" "),
+                _c("i", { staticClass: "material-icons text-white" }, [
+                  _vm._v("highlight_off")
+                ])
+              ]
+            )
+          ])
         ])
       ]),
       _vm._v(" "),
