@@ -3,3 +3,29 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.card-width {
+    width: 77%;
+}
+
+@media (min-width: 640px) {
+    .card-width {
+        width: 65%;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-width {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-width {
+        width: 28%;
+    }
+}
+
+.w-384 {
+    width: 24rem;
+}
