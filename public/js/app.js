@@ -1924,6 +1924,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   // TODO: Make an AJAX POST request to the server and validate the given information. Return a response or errors depending on the given data
   data: function data() {
@@ -2088,6 +2094,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2112,8 +2127,8 @@ __webpack_require__.r(__webpack_exports__);
       return this.errors.hasOwnProperty(field);
     },
     showLoginForm: function showLoginForm() {
-      this.$modal.hide('register');
-      this.$modal.show('login');
+      this.$modal.hide("register");
+      this.$modal.show("login");
     }
   }
 });
@@ -2379,7 +2394,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n[placeholder][data-v-12a98f72]:focus::-webkit-input-placeholder {\r\n  transition: opacity 0.5s 0.5s ease; \r\n  opacity: 0;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n[placeholder][data-v-12a98f72]:focus::-webkit-input-placeholder {\r\n\ttransition: opacity 0.5s 0.5s ease;\r\n\topacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -2398,7 +2413,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n[placeholder][data-v-7942be72]:focus::-webkit-input-placeholder {\r\n  transition: opacity 0.5s 0.5s ease; \r\n  opacity: 0;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n[placeholder][data-v-7942be72]:focus::-webkit-input-placeholder {\r\n\ttransition: opacity 0.5s 0.5s ease;\r\n\topacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -20723,7 +20738,7 @@ var render = function() {
                         },
                         [_vm._v("launch")]
                       ),
-                      _vm._v("Login")
+                      _vm._v("Login\n\t\t\t\t\t")
                     ]
                   )
                 ]
@@ -20785,7 +20800,12 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm._v('")" v-text="errors.email[0]" class="text-red-500">')
+                    _vm.has("email")
+                      ? _c("span", {
+                          staticClass: "text-red-500",
+                          domProps: { textContent: _vm._s(_vm.errors.email[0]) }
+                        })
+                      : _vm._e()
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "flex flex-wrap mb-6" }, [
@@ -20831,9 +20851,14 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm._v(
-                      '")" v-text="errors.password[0]" class="text-red-500">'
-                    )
+                    _vm.has("password")
+                      ? _c("span", {
+                          staticClass: "text-red-500",
+                          domProps: {
+                            textContent: _vm._s(_vm.errors.password[0])
+                          }
+                        })
+                      : _vm._e()
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "flex mb-6" }, [
@@ -21067,7 +21092,7 @@ var render = function() {
                               },
                               [_vm._v("note_add")]
                             ),
-                            _vm._v("Register")
+                            _vm._v("Register\n\t\t\t\t\t\t\t")
                           ]
                         )
                       ]
@@ -21177,9 +21202,14 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _vm._v(
-                            '")" v-text="errors.email[0]" class="text-red-500">'
-                          )
+                          _vm.has("email")
+                            ? _c("span", {
+                                staticClass: "text-red-500",
+                                domProps: {
+                                  textContent: _vm._s(_vm.errors.email[0])
+                                }
+                              })
+                            : _vm._e()
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "flex flex-wrap mb-6" }, [
@@ -21227,9 +21257,14 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _vm._v(
-                            '")" v-text="errors.password[0]" class="text-red-500">'
-                          )
+                          _vm.has("password")
+                            ? _c("span", {
+                                staticClass: "text-red-500",
+                                domProps: {
+                                  textContent: _vm._s(_vm.errors.password[0])
+                                }
+                              })
+                            : _vm._e()
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "flex flex-wrap mb-6" }, [
@@ -21297,7 +21332,7 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                  Already have an account?\n                  "
+                                "\n\t\t\t\t\t\t\t\t\tAlready have an account?\n\t\t\t\t\t\t\t\t\t"
                               ),
                               _c(
                                 "button",
@@ -21753,7 +21788,19 @@ var render = function() {
       _c("search", { on: { recipeData: _vm.detailedSearching } }),
       _vm._v(" "),
       _c("div", { staticClass: "flex justify-end mt-6 mx-8" }, [
-        _vm._v('")"\n    >Search')
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",
+            on: {
+              click: function($event) {
+                return _vm.$modal.show("search")
+              }
+            }
+          },
+          [_vm._v("Search")]
+        )
       ]),
       _vm._v(" "),
       _c(
@@ -34523,8 +34570,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Programs\XAMPP\htdocs\recipemanager\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Programs\XAMPP\htdocs\recipemanager\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\xampp\htdocs\recipe-manager\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\recipe-manager\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })
