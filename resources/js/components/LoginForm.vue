@@ -1,21 +1,28 @@
 <template>
   <div>
     <modal name="login" width="100%" height="auto">
-      <div class="w-full h-full">
+      <div class="w-384 h-full mx-auto">
         <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md h-full">
-          <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">Login</div>
+          <div class="font-semibold bg-purple-700 text-gray-100 py-3 px-6 mb-3 text-center">
+            <span class="flex flex-col inline-block text-2xl">
+              <i class="material-icons text-white mb-5 text-5xl">launch</i>Login
+            </span>
+          </div>
 
           <form class="w-full p-6" @submit.prevent="authenticateUser">
             <!-- @csrf -->
             <div class="flex flex-wrap mb-6">
-              <label for="email" class="block text-gray-700 text-sm font-bold mb-2">E-Mail Address:</label>
+              <div class="flex justify-center items-center w-1/6 bg-purple-700">
+                <i class="material-icons text-white">mail</i>
+              </div>
 
               <input
                 id="email"
                 type="email"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                class="shadow appearance-none border w-10/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="email"
                 v-model="email"
+                placeholder="E-Mail"
                 required
                 autofocus
               />
@@ -23,14 +30,17 @@
             </div>
 
             <div class="flex flex-wrap mb-6">
-              <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+              <div class="flex justify-center items-center w-1/6 bg-purple-700">
+                <i class="material-icons text-white">lock</i>
+              </div>
 
               <input
                 id="password"
                 type="password"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                class="shadow appearance-none border w-10/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="password"
                 v-model="password"
+                placeholder="Password"
                 required
               />
               <span v-if="has('password')" v-text="errors.password[0]" class="text-red-500"></span>
@@ -45,7 +55,7 @@
               <button
                 type="submit"
                 name="submit"
-                class="bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                class="bg-purple-700 hover:bg-purple-900 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               >Login</button>
               <button
                 type="button"
@@ -61,6 +71,18 @@
               </p>
             </div>
           </form>
+        </div>
+        <div class="w-full p-6 hidden">
+          <div class="flex items-center w-full bg-green-600 rounded px-2 py-3">
+            <span class="text-white mr-auto">You logged in successfully.</span>
+            <i class="material-icons text-white">done_outline</i>
+          </div>
+        </div>
+        <div class="w-full p-6 hidden">
+          <div class="flex items-center w-full bg-red-600 rounded px-2 py-3">
+            <span class="text-white mr-auto">Your username or password is incorrect!</span>
+            <i class="material-icons text-white">highlight_off</i>
+          </div>
         </div>
       </div>
     </modal>
@@ -110,3 +132,10 @@ export default {
   // TODO: Load dinamycally components which are dependent on buttons ( Don't have an account: Register ), ( Forgot your password? ) DONE
 };
 </script>
+
+<style scoped>
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: opacity 0.5s 0.5s ease;
+  opacity: 0;
+}
+</style>

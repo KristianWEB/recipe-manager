@@ -11,15 +11,15 @@
       <div
         v-for="(ingredient, index) in recipe.ingredients"
         :key="index"
-        class="w-1/4 rounded overflow-hidden shadow-lg mx-5 mb-5"
+        class="card-width rounded overflow-hidden shadow-lg mx-5 mb-5"
       >
         <img class="w-full" :src="recipe.imageURL[index]" :alt="recipe.title[index]" />
         <div class="px-6 py-4">
-          <h2 class="font-bold text-xl mb-2">{{ recipe.title[index] }}</h2>
+          <div class="font-bold text-xl mb-2">{{ recipe.title[index] }}</div>
           <h3 class="text-gray-700 text-base">
             Ingredients:
             <ul>
-              <li v-for="(item,index) in ingredient" :key="index">{{ item }}</li>
+              <li v-for="(item,index) in ingredient.slice(0,6)" :key="index">{{ item }}</li>
             </ul>Diet Labels:
             <ul>
               <li v-for="(diet,dietId) in recipe.dietLabels" :key="dietId">
