@@ -11,6 +11,8 @@ class StorageController extends Controller
 
     public function index()
     {
-        return view('storage');
+        $recipes = auth()->user()->recipes;
+
+        return view('storage', compact('recipes'));
     }
 }

@@ -28,7 +28,5 @@ class RecipeController extends Controller
         $attributes['diet_label'] = json_encode($attributes['diet_label']);
 
         auth()->user()->recipes()->create($attributes);
-
-        return redirect('/storage');
     }
 }

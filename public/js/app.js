@@ -2412,7 +2412,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n[placeholder][data-v-12a98f72]:focus::-webkit-input-placeholder {\r\n\ttransition: opacity 0.5s 0.5s ease;\r\n\topacity: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n[placeholder][data-v-12a98f72]:focus::-webkit-input-placeholder {\r\n  transition: opacity 0.5s 0.5s ease;\r\n  opacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -20756,7 +20756,7 @@ var render = function() {
                         },
                         [_vm._v("launch")]
                       ),
-                      _vm._v("Login\n\t\t\t\t\t")
+                      _vm._v("Login\n          ")
                     ]
                   )
                 ]
@@ -21842,7 +21842,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("div", { staticClass: "px-6 py-4" }, [
-                _c("h2", { staticClass: "font-bold text-xl mb-2" }, [
+                _c("div", { staticClass: "font-bold text-xl mb-2" }, [
                   _vm._v(_vm._s(_vm.recipe.title[index]))
                 ]),
                 _vm._v(" "),

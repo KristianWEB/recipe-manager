@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    this is the storage page.
+        @forelse ($recipes as $recipe)
+            <h1> {{ $recipe->title }}</h1>
+        @empty
+            No Recipes
+        @endforelse
 </body>
 </html>
