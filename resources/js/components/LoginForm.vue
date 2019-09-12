@@ -92,7 +92,7 @@
 </template>
 <script>
 export default {
-  // TODO: Make an AJAX POST request to the server and validate the given information. Return a response or errors depending on the given data
+  props: ["login"],
   data() {
     return {
       email: "",
@@ -101,7 +101,6 @@ export default {
       errors: []
     };
   },
-
   methods: {
     authenticateUser() {
       axios
