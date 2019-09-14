@@ -2290,8 +2290,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["title", "imageURL", "calories", "dietLabels", "ingredients", "sourceURL"],
+  props: ["title", "imageUrl", "calories", "dietLabels", "ingredients", "sourceUrl"],
   methods: {
     authenticateUser: function authenticateUser() {
       var _this = this;
@@ -2301,15 +2307,15 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (recipeData[3].length === 0) {
-        recipeData[3] = ["None"];
+        recipeData[3] = "None";
       }
 
       axios.get("/storage").then(function () {
         axios.post("/recipes", {
           image: recipeData[0],
           title: recipeData[1],
-          ingredients: recipeData[2],
-          diet_label: recipeData[3],
+          ingredients: recipeData[2].toString(),
+          diet_label: recipeData[3].toString(),
           calories: recipeData[4]
         }).then(function (res) {
           return console.log(res.config.data);
@@ -2319,6 +2325,13 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function () {
         _this.$modal.show("login");
       });
+    },
+    checkArray: function checkArray(ingredients) {
+      if (ingredients instanceof Array) {
+        return true;
+      }
+
+      return false;
     }
   }
 });
@@ -2369,11 +2382,11 @@ __webpack_require__.r(__webpack_exports__);
     return {
       recipe: {
         title: [],
-        imageURL: [],
+        imageUrl: [],
         calories: [],
         dietLabels: [],
         ingredients: [],
-        sourceURL: []
+        sourceUrl: []
       }
     };
   },
@@ -2388,17 +2401,19 @@ __webpack_require__.r(__webpack_exports__);
         var recipe = _ref2.recipe;
 
         _this.pushRecipeItems(_this.recipe, recipe);
+
+        console.log(recipe);
       });
     });
   },
   methods: {
     pushRecipeItems: function pushRecipeItems(dataArr, newItems) {
       dataArr.title.push(newItems.label);
-      dataArr.imageURL.push(newItems.image);
+      dataArr.imageUrl.push(newItems.image);
       dataArr.dietLabels.push(newItems.dietLabels);
       dataArr.calories.push(newItems.calories);
       dataArr.ingredients.push(newItems.ingredientLines);
-      dataArr.sourceURL.push(newItems.url);
+      dataArr.sourceUrl.push(newItems.url);
     },
     detailedSearching: function detailedSearching(data) {
       var _this2 = this;
@@ -21834,7 +21849,7 @@ var render = function() {
     [
       _c("img", {
         staticClass: "w-full",
-        attrs: { src: _vm.imageURL, alt: _vm.title }
+        attrs: { src: _vm.imageUrl, alt: _vm.title }
       }),
       _vm._v(" "),
       _c("div", { staticClass: "px-6 py-4" }, [
@@ -21847,28 +21862,41 @@ var render = function() {
           _vm._v("Ingredients:")
         ]),
         _vm._v(" "),
-        _c(
-          "ul",
-          _vm._l(_vm.ingredients.slice(0, 4), function(item, index) {
-            return _c("li", { key: index }, [_vm._v(_vm._s(item))])
-          }),
-          0
-        ),
+        _vm.checkArray(_vm.ingredients)
+          ? _c(
+              "ul",
+              _vm._l(_vm.ingredients.slice(0, 4), function(item, index) {
+                return _c("li", { key: index }, [_vm._v(_vm._s(item))])
+              }),
+              0
+            )
+          : _c(
+              "ul",
+              _vm._l(_vm.ingredients.split(",").slice(0, 4), function(
+                item,
+                index
+              ) {
+                return _c("li", { key: index }, [_vm._v(_vm._s(item))])
+              }),
+              0
+            ),
         _vm._v("Diet Labels:\n    "),
-        _c(
-          "ul",
-          _vm._l(_vm.dietLabels, function(diet, dietId) {
-            return _c("li", { key: dietId }, [
-              _c("span", { domProps: { textContent: _vm._s(diet) } })
-            ])
-          }),
-          0
-        ),
+        _vm.checkArray(_vm.dietLabels)
+          ? _c(
+              "ul",
+              _vm._l(_vm.dietLabels, function(diet, dietId) {
+                return _c("li", { key: dietId }, [
+                  _c("span", [_vm._v(_vm._s(diet))])
+                ])
+              }),
+              0
+            )
+          : _c("div", [_c("span", [_vm._v(_vm._s(_vm.dietLabels))])]),
         _vm._v("Calories:\n    "),
         _c("ul", [_c("li", [_vm._v(_vm._s(_vm.calories))])]),
         _vm._v(" "),
         _c("div", { staticClass: "flex items-center justify-end" }, [
-          _c("a", { attrs: { target: "_blank", href: _vm.sourceURL } }, [
+          _c("a", { attrs: { target: "_blank", href: _vm.sourceUrl } }, [
             _vm._v("Read More")
           ]),
           _vm._v(" "),
@@ -21880,7 +21908,7 @@ var render = function() {
               on: {
                 click: function($event) {
                   return _vm.authenticateUser(
-                    _vm.imageURL,
+                    _vm.imageUrl,
                     _vm.title,
                     _vm.ingredients,
                     _vm.dietLabels,
@@ -21950,11 +21978,11 @@ var render = function() {
               _c("Recipe", {
                 attrs: {
                   title: _vm.recipe.title[index],
-                  imageURL: _vm.recipe.imageURL[index],
+                  imageUrl: _vm.recipe.imageUrl[index],
                   calories: _vm.recipe.calories[index],
                   dietLabels: _vm.recipe.dietLabels[index],
                   ingredients: _vm.recipe.ingredients[index],
-                  sourceURL: _vm.recipe.sourceURL[index]
+                  sourceUrl: _vm.recipe.sourceUrl[index]
                 }
               })
             ],
@@ -34140,7 +34168,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_0___default.a);
 Vue.component("Recipes", __webpack_require__(/*! ./components/recipes/Recipes.vue */ "./resources/js/components/recipes/Recipes.vue")["default"]);
-Vue.component("Recipe", __webpack_require__(/*! ./components/recipes/Recipes.vue */ "./resources/js/components/recipes/Recipes.vue")["default"]);
+Vue.component("Recipe", __webpack_require__(/*! ./components/recipes/Recipe.vue */ "./resources/js/components/recipes/Recipe.vue")["default"]);
 Vue.component("navbar", __webpack_require__(/*! ./components/NavBar.vue */ "./resources/js/components/NavBar.vue")["default"]);
 Vue.component("search", __webpack_require__(/*! ./components/SearchRecipes.vue */ "./resources/js/components/SearchRecipes.vue")["default"]);
 Vue.component("login", __webpack_require__(/*! ./components/LoginForm.vue */ "./resources/js/components/LoginForm.vue")["default"]);

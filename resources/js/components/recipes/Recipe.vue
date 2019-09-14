@@ -1,24 +1,30 @@
 <template>
   <div class="w-auto h-auto rounded overflow-hidden shadow-lg mx-5 mb-5">
-    <img class="w-full" :src="imageURL" :alt="title" />
+    <img class="w-full" :src="imageUrl" :alt="title" />
     <div class="px-6 py-4">
       <h2 class="font-bold text-xl mb-2" v-text="title"></h2>
       <h4 class="text-gray-700 text-base">Ingredients:</h4>
-      <ul>
+      <ul v-if="checkArray(ingredients)">
         <li v-for="(item,index) in ingredients.slice(0,4)" :key="index">{{ item }}</li>
+      </ul>
+      <ul v-else>
+        <li v-for="(item,index) in ingredients.split(',').slice(0,4)" :key="index">{{ item }}</li>
       </ul>Diet Labels:
-      <ul>
+      <ul v-if="checkArray(dietLabels)">
         <li v-for="(diet,dietId) in dietLabels" :key="dietId">
-          <span v-text="diet"></span>
+          <span>{{ diet }}</span>
         </li>
-      </ul>Calories:
+      </ul>
+      <div v-else>
+        <span>{{ dietLabels }}</span>
+      </div>Calories:
       <ul>
         <li>{{calories}}</li>
       </ul>
       <div class="flex items-center justify-end">
-        <a target="_blank" :href="sourceURL">Read More</a>
+        <a target="_blank" :href="sourceUrl">Read More</a>
         <button
-          @click="authenticateUser(imageURL, title, ingredients, dietLabels, calories)"
+          @click="authenticateUser(imageUrl, title, ingredients, dietLabels, calories)"
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold ml-3 py-2 px-4 rounded"
         >Save</button>
       </div>
@@ -30,16 +36,17 @@
 export default {
   props: [
     "title",
-    "imageURL",
+    "imageUrl",
     "calories",
     "dietLabels",
     "ingredients",
-    "sourceURL"
+    "sourceUrl"
   ],
+
   methods: {
     authenticateUser(...recipeData) {
       if (recipeData[3].length === 0) {
-        recipeData[3] = ["None"];
+        recipeData[3] = "None";
       }
 
       axios
@@ -49,8 +56,8 @@ export default {
             .post("/recipes", {
               image: recipeData[0],
               title: recipeData[1],
-              ingredients: recipeData[2],
-              diet_label: recipeData[3],
+              ingredients: recipeData[2].toString(),
+              diet_label: recipeData[3].toString(),
               calories: recipeData[4]
             })
             .then(res => console.log(res.config.data))
@@ -59,6 +66,12 @@ export default {
         .catch(() => {
           this.$modal.show("login");
         });
+    },
+    checkArray(ingredients) {
+      if (ingredients instanceof Array) {
+        return true;
+      }
+      return false;
     }
   }
 };

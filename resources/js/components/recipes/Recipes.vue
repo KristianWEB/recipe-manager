@@ -11,11 +11,11 @@
       <div v-for="(ingredient, index) in recipe.ingredients" :key="index" class="card-width">
         <Recipe
           :title="recipe.title[index]"
-          :imageURL="recipe.imageURL[index]"
+          :imageUrl="recipe.imageUrl[index]"
           :calories="recipe.calories[index]"
           :dietLabels="recipe.dietLabels[index]"
           :ingredients="recipe.ingredients[index]"
-          :sourceURL="recipe.sourceURL[index]"
+          :sourceUrl="recipe.sourceUrl[index]"
         ></Recipe>
       </div>
     </div>
@@ -33,11 +33,11 @@ export default {
     return {
       recipe: {
         title: [],
-        imageURL: [],
+        imageUrl: [],
         calories: [],
         dietLabels: [],
         ingredients: [],
-        sourceURL: []
+        sourceUrl: []
       }
     };
   },
@@ -52,17 +52,18 @@ export default {
       .then(({ data }) => {
         data.hits.forEach(({ recipe }) => {
           this.pushRecipeItems(this.recipe, recipe);
+          console.log(recipe);
         });
       });
   },
   methods: {
     pushRecipeItems(dataArr, newItems) {
       dataArr.title.push(newItems.label);
-      dataArr.imageURL.push(newItems.image);
+      dataArr.imageUrl.push(newItems.image);
       dataArr.dietLabels.push(newItems.dietLabels);
       dataArr.calories.push(newItems.calories);
       dataArr.ingredients.push(newItems.ingredientLines);
-      dataArr.sourceURL.push(newItems.url);
+      dataArr.sourceUrl.push(newItems.url);
     },
 
     detailedSearching(data) {
