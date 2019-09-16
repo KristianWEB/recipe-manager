@@ -11,6 +11,12 @@ class StorageController extends Controller
 
     public function index()
     {
-        return view('storage');
+        $recipes = auth()->user()->recipes;
+
+        $recipes->map(function ($item, $key) use ($recipes) {
+            $recipes[$key]->ingredients = (json_decode($item->ingredients));
+        });
+
+        return view('storage', compact('recipes'));
     }
 }

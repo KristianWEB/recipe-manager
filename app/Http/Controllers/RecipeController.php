@@ -19,16 +19,13 @@ class RecipeController extends Controller
         $attributes = request()->validate([
             'image' => 'required',
             'title' => 'required',
-            'ingredients' => 'required|array',
-            'diet_label' => 'required|array',
+            'ingredients' => 'required',
+            'diet_label' => 'required',
             'calories' => 'required',
         ]);
 
         $attributes['ingredients'] = json_encode($attributes['ingredients']);
-        $attributes['diet_label'] = json_encode($attributes['diet_label']);
 
         auth()->user()->recipes()->create($attributes);
-
-        return redirect('/storage');
     }
 }

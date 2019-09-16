@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.index')
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-</head>
-<body class="bg-gray-100 h-screen antialiased leading-none">
-<div id="app">
+@section('content')
     <navBar class="bg-black text-white px-12 py-5">
 		<ul class='flex justify-between'>
             <div class="flex">
@@ -52,11 +36,6 @@
 		</ul>
     </navBar>
     <main>
-            <recipes>
-        </recipes>
+<Recipes></Recipes>
     </main>
-</div>
-
-<script src="/js/app.js"></script>
-</body>
-</html>
+@endsection

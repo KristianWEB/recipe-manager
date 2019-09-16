@@ -64,7 +64,7 @@ class UserTest extends TestCase
             'calories' => 1805
         ];
 
-        $this->post('/recipes', $attributes)->assertRedirect('/storage');
+        $this->post('/recipes', $attributes);
 
         $this->assertDatabaseHas('recipes', [
             'image' => $attributes['image'],

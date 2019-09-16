@@ -8,39 +8,15 @@
       >Search</button>
     </div>
     <div class="flex flex-wrap w-full justify-center mt-5">
-      <div
-        v-for="(ingredient, index) in recipe.ingredients"
-        :key="index"
-        class="card-width rounded overflow-hidden shadow-lg mx-5 mb-5"
-      >
-        <img class="w-full" :src="recipe.imageURL[index]" :alt="recipe.title[index]" />
-        <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">{{ recipe.title[index] }}</div>
-          <h3 class="text-gray-700 text-base">
-            Ingredients:
-            <ul>
-              <li v-for="(item,index) in ingredient.slice(0,6)" :key="index">{{ item }}</li>
-            </ul>Diet Labels:
-            <ul>
-              <li v-for="(diet,dietId) in recipe.dietLabels" :key="dietId">
-                <!-- recipe.dietLabels[index][dietId] -->
-                {{
-                recipe.dietLabels[index][dietId]
-                }}
-              </li>
-            </ul>Calories:
-            <ul>
-              <li>{{recipe.calories[index]}}</li>
-            </ul>
-          </h3>
-          <div class="flex items-center justify-end">
-            <a target="_blank" :href="recipe.sourceURL[index]">Read More</a>
-            <button
-              @click="authenticateUser(recipe.imageURL[index], recipe.title[index],  recipe.ingredients[index], recipe.dietLabels[index], recipe.calories[index])"
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold ml-3 py-2 px-4 rounded"
-            >Save</button>
-          </div>
-        </div>
+      <div v-for="(ingredient, index) in recipe.ingredients" :key="index" class="card-width">
+        <Recipe
+          :title="recipe.title[index]"
+          :imageUrl="recipe.imageUrl[index]"
+          :calories="recipe.calories[index]"
+          :dietLabels="recipe.dietLabels[index]"
+          :ingredients="recipe.ingredients[index]"
+          :sourceUrl="recipe.sourceUrl[index]"
+        ></Recipe>
       </div>
     </div>
     <login></login>
@@ -48,19 +24,24 @@
 </template>
 
 <script>
+import Recipe from "./Recipe";
 export default {
+  components: {
+    Recipe
+  },
   data() {
     return {
       recipe: {
         title: [],
-        imageURL: [],
+        imageUrl: [],
         calories: [],
         dietLabels: [],
         ingredients: [],
-        sourceURL: []
+        sourceUrl: []
       }
     };
   },
+
   created() {
     const appId = process.env.RECIPE_ID;
     const appKey = process.env.RECIPE_KEY;
@@ -77,34 +58,11 @@ export default {
   methods: {
     pushRecipeItems(dataArr, newItems) {
       dataArr.title.push(newItems.label);
-      dataArr.imageURL.push(newItems.image);
+      dataArr.imageUrl.push(newItems.image);
       dataArr.dietLabels.push(newItems.dietLabels);
       dataArr.calories.push(newItems.calories);
-      dataArr.ingredients.push(newItems.ingredientLines);
-      dataArr.sourceURL.push(newItems.url);
-    },
-
-    authenticateUser(...recipeData) {
-      if (recipeData[3].length === 0) {
-        recipeData[3] = ["None"];
-      }
-      axios
-        .get("/storage")
-        .then(() => {
-          axios
-            .post("/recipes", {
-              image: recipeData[0],
-              title: recipeData[1],
-              ingredients: recipeData[2],
-              diet_label: recipeData[3],
-              calories: recipeData[4]
-            })
-            .then(res => console.log(res.config.data))
-            .catch(err => console.log(err.response));
-        })
-        .catch(() => {
-          this.$modal.show("login");
-        });
+      dataArr.ingredients.push(newItems.ingredients);
+      dataArr.sourceUrl.push(newItems.url);
     },
 
     detailedSearching(data) {
