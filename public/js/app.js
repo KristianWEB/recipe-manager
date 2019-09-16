@@ -2297,7 +2297,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["title", "imageUrl", "calories", "dietLabels", "ingredients", "sourceUrl"],
+  props: ["title", "imageUrl", "calories", "dietLabels", "ingredients", "sourceUrl", "parseJson"],
   methods: {
     authenticateUser: function authenticateUser() {
       var _this = this;
@@ -2314,7 +2314,7 @@ __webpack_require__.r(__webpack_exports__);
         axios.post("/recipes", {
           image: recipeData[0],
           title: recipeData[1],
-          ingredients: recipeData[2].toString(),
+          ingredients: recipeData[2],
           diet_label: recipeData[3].toString(),
           calories: recipeData[4]
         }).then(function (res) {
@@ -2401,8 +2401,6 @@ __webpack_require__.r(__webpack_exports__);
         var recipe = _ref2.recipe;
 
         _this.pushRecipeItems(_this.recipe, recipe);
-
-        console.log(recipe);
       });
     });
   },
@@ -2412,7 +2410,7 @@ __webpack_require__.r(__webpack_exports__);
       dataArr.imageUrl.push(newItems.image);
       dataArr.dietLabels.push(newItems.dietLabels);
       dataArr.calories.push(newItems.calories);
-      dataArr.ingredients.push(newItems.ingredientLines);
+      dataArr.ingredients.push(newItems.ingredients);
       dataArr.sourceUrl.push(newItems.url);
     },
     detailedSearching: function detailedSearching(data) {
@@ -21862,21 +21860,21 @@ var render = function() {
           _vm._v("Ingredients:")
         ]),
         _vm._v(" "),
-        _vm.checkArray(_vm.ingredients)
+        _vm.parseJson
           ? _c(
               "ul",
-              _vm._l(_vm.ingredients.slice(0, 4), function(item, index) {
-                return _c("li", { key: index }, [_vm._v(_vm._s(item))])
+              _vm._l(JSON.parse(_vm.ingredients).slice(0, 4), function(
+                item,
+                index
+              ) {
+                return _c("li", { key: index }, [_vm._v(_vm._s(item.text))])
               }),
               0
             )
           : _c(
               "ul",
-              _vm._l(_vm.ingredients.split(",").slice(0, 4), function(
-                item,
-                index
-              ) {
-                return _c("li", { key: index }, [_vm._v(_vm._s(item))])
+              _vm._l(_vm.ingredients.slice(0, 4), function(item, index) {
+                return _c("li", { key: index }, [_vm._v(_vm._s(item.text))])
               }),
               0
             ),

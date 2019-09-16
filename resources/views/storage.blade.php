@@ -7,7 +7,8 @@
                             image-url="{{ $recipe->image }}"
                             calories="{{ $recipe->calories }}" 
                             diet-labels="{{ $recipe->diet_label }}" 
-                            ingredients="{{ $recipe->ingredients }}" 
+                            ingredients="{{ json_encode($recipe->ingredients) }}" 
+                            :parse-json="true"
                             {{-- :sourceURL="{{$recipe->sourceURL}}"  --}}
                             >
                         </Recipe>

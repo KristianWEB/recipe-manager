@@ -52,7 +52,6 @@ export default {
       .then(({ data }) => {
         data.hits.forEach(({ recipe }) => {
           this.pushRecipeItems(this.recipe, recipe);
-          console.log(recipe);
         });
       });
   },
@@ -62,7 +61,7 @@ export default {
       dataArr.imageUrl.push(newItems.image);
       dataArr.dietLabels.push(newItems.dietLabels);
       dataArr.calories.push(newItems.calories);
-      dataArr.ingredients.push(newItems.ingredientLines);
+      dataArr.ingredients.push(newItems.ingredients);
       dataArr.sourceUrl.push(newItems.url);
     },
 

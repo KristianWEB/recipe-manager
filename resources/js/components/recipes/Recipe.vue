@@ -4,11 +4,11 @@
     <div class="px-6 py-4">
       <h2 class="font-bold text-xl mb-2" v-text="title"></h2>
       <h4 class="text-gray-700 text-base">Ingredients:</h4>
-      <ul v-if="checkArray(ingredients)">
-        <li v-for="(item,index) in ingredients.slice(0,4)" :key="index">{{ item }}</li>
+      <ul v-if="parseJson">
+        <li v-for="(item,index) in JSON.parse(ingredients).slice(0,4)" :key="index">{{ item.text }}</li>
       </ul>
       <ul v-else>
-        <li v-for="(item,index) in ingredients.split(',').slice(0,4)" :key="index">{{ item }}</li>
+        <li v-for="(item,index) in ingredients.slice(0,4)" :key="index">{{ item.text }}</li>
       </ul>Diet Labels:
       <ul v-if="checkArray(dietLabels)">
         <li v-for="(diet,dietId) in dietLabels" :key="dietId">
@@ -40,7 +40,8 @@ export default {
     "calories",
     "dietLabels",
     "ingredients",
-    "sourceUrl"
+    "sourceUrl",
+    "parseJson"
   ],
 
   methods: {
@@ -56,7 +57,7 @@ export default {
             .post("/recipes", {
               image: recipeData[0],
               title: recipeData[1],
-              ingredients: recipeData[2].toString(),
+              ingredients: recipeData[2],
               diet_label: recipeData[3].toString(),
               calories: recipeData[4]
             })

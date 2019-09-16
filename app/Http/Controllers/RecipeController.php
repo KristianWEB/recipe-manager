@@ -24,8 +24,7 @@ class RecipeController extends Controller
             'calories' => 'required',
         ]);
 
-        // $attributes['ingredients'] = json_encode($attributes['ingredients']);
-        // $attributes['diet_label'] = json_encode($attributes['diet_label']);
+        $attributes['ingredients'] = json_encode($attributes['ingredients']);
 
         auth()->user()->recipes()->create($attributes);
     }
