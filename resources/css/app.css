@@ -29,3 +29,27 @@
 .w-384 {
     width: 24rem;
 }
+
+.bg-blue-btn-1 {
+    background-color: #328af1;
+}
+
+.bg-blue-btn-2 {
+    background-color: #2779bd;
+}
+
+.bg-gradient-1 {
+    background-image: linear-gradient(to bottom, #21c8f6, #637bff);
+}
+
+.h-screen-12 {
+    height: 12vh;
+}
+
+.h-screen-88 {
+    height: 88vh;
+}
+
+.border-bottom-1 {
+    border-bottom: 1px solid #000;
+}
