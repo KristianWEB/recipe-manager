@@ -19,15 +19,16 @@
         ></Recipe>
       </div>
     </div>
-    <login></login>
   </div>
 </template>
 
 <script>
 import Recipe from "./Recipe";
+import search from "../SearchRecipes";
 export default {
   components: {
-    Recipe
+    Recipe,
+    search
   },
   data() {
     return {

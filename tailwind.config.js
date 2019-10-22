@@ -4,6 +4,8 @@ module.exports = {
             bold: '700'
         }
     },
-    variants: {},
+    variants: {
+        backgroundColor: ['responsive', 'hover', 'focus', 'active']
+    },
     plugins: []
 };
