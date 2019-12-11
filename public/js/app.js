@@ -36692,7 +36692,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_js_modal__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_store__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
+/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routes/routes */ "./resources/js/routes/routes.js");
 /* harmony import */ var _components_MainApp_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/MainApp.vue */ "./resources/js/components/MainApp.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
@@ -36709,7 +36709,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 // const store = Vuex.store(StoreData);
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  routes: _routes__WEBPACK_IMPORTED_MODULE_5__["routes"],
+  routes: _routes_routes__WEBPACK_IMPORTED_MODULE_5__["routes"],
   mode: "history"
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component("main-app", __webpack_require__(/*! ./components/MainApp.vue */ "./resources/js/components/MainApp.vue")["default"]); // Vue.component('recipes', require('./components/recipes/Recipes.vue').default);
@@ -37341,20 +37341,20 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/routes.js":
-/*!********************************!*\
-  !*** ./resources/js/routes.js ***!
-  \********************************/
+/***/ "./resources/js/routes/routes.js":
+/*!***************************************!*\
+  !*** ./resources/js/routes/routes.js ***!
+  \***************************************/
 /*! exports provided: routes */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
-/* harmony import */ var _components_Home_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Home.vue */ "./resources/js/components/Home.vue");
-/* harmony import */ var _components_Storage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Storage.vue */ "./resources/js/components/Storage.vue");
-/* harmony import */ var _components_Account_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Account.vue */ "./resources/js/components/Account.vue");
-/* harmony import */ var _components_recipes_Recipes_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/recipes/Recipes.vue */ "./resources/js/components/recipes/Recipes.vue");
+/* harmony import */ var _components_Home_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Home.vue */ "./resources/js/components/Home.vue");
+/* harmony import */ var _components_Storage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Storage.vue */ "./resources/js/components/Storage.vue");
+/* harmony import */ var _components_Account_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Account.vue */ "./resources/js/components/Account.vue");
+/* harmony import */ var _components_recipes_Recipes_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/recipes/Recipes.vue */ "./resources/js/components/recipes/Recipes.vue");
 
 
 
