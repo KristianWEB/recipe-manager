@@ -1,11 +1,13 @@
 module.exports = {
     theme: {
-        fontWeight: {
-            bold: '700'
+        extend: {
+            width: {
+                "96": "30rem"
+            }
         }
     },
     variants: {
-        backgroundColor: ['responsive', 'hover', 'focus', 'active']
+        backgroundColor: ["responsive", "hover", "focus", "active"]
     },
     plugins: []
 };
