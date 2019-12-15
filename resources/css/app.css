@@ -4,6 +4,12 @@
 
 @tailwind utilities;
 
+html,
+body,
+#app {
+    height: 100%;
+}
+
 .card-width {
     width: 77%;
 }
