@@ -1,9 +1,9 @@
 <template>
-	<div id='registerFormContainer' class='shadow-md rounded-lg w-96'>
+	<div id='registerFormContainer' class='shadow-md w-96 rounded-lg'>
 		<div class='bg-light-gray'>
 			<h1 class='p-6 text-3xl font-medium'>Create an account</h1>
 		</div>
-		<form class='w-full bg-white-300'>
+		<form class='w-full bg-white'>
 			<div class='md:flex md:items-center mb-6'>
 				<div class='w-full mt-6 px-5'>
 					<label for='username' class='text-dark-gray font-medium'>Username</label>
@@ -55,6 +55,6 @@
 
 <style>
 #registerFormContainer {
-	font-family: "Roboto";
+	font-family: Roboto;
 }
 </style>

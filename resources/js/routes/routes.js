@@ -2,6 +2,7 @@ import Home from "../components/Home.vue";
 import Storage from "../components/Storage.vue";
 import Account from "../components/Account.vue";
 import Recipes from "../components/recipes/Recipes.vue";
+import Register from "../pages/RegisterPage.vue";
 
 export const routes = [
     {
@@ -19,5 +20,9 @@ export const routes = [
     {
         path: "/account",
         component: Account
+    },
+    {
+        path: "/register",
+        component: Register
     }
 ];

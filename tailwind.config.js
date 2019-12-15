@@ -7,7 +7,7 @@ module.exports = {
             colors: {
                 orange: "#f35627",
                 "dark-gray": "#616e7c",
-                "light-gray": "rgba(228, 231, 235, 0.5);",
+                "light-gray": "#f1f5f8",
                 "input-gray": "#7b8793"
             }
         }
