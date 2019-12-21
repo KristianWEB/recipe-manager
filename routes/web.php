@@ -11,19 +11,18 @@
 |
 */
 
-// Route::get('/recipes', 'RecipeController@index');
-// Route::get('/storage', 'StorageController@index')->middleware('auth');
-// Route::get('/account', 'AccountController@index')->middleware('auth');
+Route::group([
 
-// Route::post('/recipes', 'RecipeController@store')->middleware('auth');
+    'middleware' => 'api',
+    'prefix' => 'auth'
 
-// Route::post('/search-recipes', 'SearchRecipesController@store');
+], function ($router) {
 
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Auth::routes();
-
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+});
 
 Route::get('/{any}', function () {
     return view('main');
