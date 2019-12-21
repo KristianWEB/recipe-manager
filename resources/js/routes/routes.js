@@ -3,6 +3,7 @@ import Storage from "../components/Storage.vue";
 import Account from "../components/Account.vue";
 import Recipes from "../components/recipes/Recipes.vue";
 import Register from "../pages/RegisterPage.vue";
+import Login from "../pages/LoginPage.vue";
 
 export const routes = [
     {
@@ -24,5 +25,9 @@ export const routes = [
     {
         path: "/register",
         component: Register
+    },
+    {
+        path: "/login",
+        component: Login
     }
 ];

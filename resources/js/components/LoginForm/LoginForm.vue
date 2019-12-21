@@ -1,21 +1,10 @@
 <template>
-	<div id='registerFormContainer' class='shadow-md w-96 rounded-lg'>
+	<div id='loginFormContainer' class='shadow-md w-96'>
 		<div class='bg-light-gray rounded-t-lg'>
-			<h1 class='p-6 text-3xl font-bold text-heading-primary'>Create an account</h1>
+			<h1 class='p-6 text-3xl font-bold text-heading-primary'>Sign in with your account</h1>
 		</div>
 		<form class='w-full bg-white'>
-			<div class='md:flex md:items-center mb-6'>
-				<div class='w-full mt-6 px-5'>
-					<label for='username' class='text-dark-gray font-bold'>Username</label>
-					<input
-						class='appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray'
-						id='inline-full-name'
-						type='text'
-						placeholder='Your username'
-					/>
-				</div>
-			</div>
-			<div class='w-full mt-6 px-5'>
+			<div class='w-full pt-8 px-5'>
 				<label for='email' class='text-dark-gray font-bold'>Email address</label>
 				<input
 					class='appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray'
@@ -24,7 +13,7 @@
 					placeholder='example@gmail.com'
 				/>
 			</div>
-			<div class='w-full mt-6 px-5'>
+			<div class='w-full pt-6 px-5'>
 				<label for='password' class='text-dark-gray font-bold'>Password</label>
 				<input
 					class='appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray'
@@ -33,18 +22,18 @@
 					placeholder='Password ( at least 6 characters )'
 				/>
 			</div>
-			<div class='flex items-center justify-center pt-6 pt-6 pb-4'>
-				<div class='md:w-2/3'>
+			<div class='flex items-center justify-center pt-8 pb-4'>
+				<div>
 					<button
 						class='shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg'
 						type='button'
-					>Create your account</button>
+					>Sign in</button>
 				</div>
 			</div>
-			<div class='flex items-center justify-center'>
+			<div class='flex items-center justify-center rounded-b-lg'>
 				<h3 class='pb-3 text-dark-gray'>
-					Already have an account?
-					<router-link to='/login' class='text-orange font-bold'>Sign in</router-link>
+					Don't have an account?
+					<router-link to='/register' class='text-orange font-bold'>Sign up</router-link>
 				</h3>
 			</div>
 		</form>
@@ -54,7 +43,7 @@
 <script></script>
 
 <style>
-#registerFormContainer {
+#loginFormContainer {
 	font-family: Roboto;
 }
 </style>
