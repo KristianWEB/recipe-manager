@@ -8,7 +8,10 @@ import Login from "../pages/LoginPage.vue";
 export const routes = [
     {
         path: "/",
-        component: Home
+        component: Home,
+        meta: {
+            requiresAuth: true
+        }
     },
     {
         path: "/storage",
