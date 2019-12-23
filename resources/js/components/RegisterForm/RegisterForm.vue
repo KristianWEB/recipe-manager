@@ -13,6 +13,7 @@
 						type='text'
 						placeholder='Your username'
 						name='username'
+						v-model='form.username'
 					/>
 				</div>
 			</div>
@@ -23,6 +24,7 @@
 					id='email'
 					type='text'
 					placeholder='example@gmail.com'
+					v-model='form.email'
 				/>
 			</div>
 			<div class='w-full mt-6 px-5'>
@@ -32,6 +34,7 @@
 					id='password'
 					type='text'
 					placeholder='Password ( at least 6 characters )'
+					v-model='form.password'
 				/>
 			</div>
 			<div class='w-full mt-6 px-5'>
@@ -42,6 +45,7 @@
 					type='password'
 					placeholder='Password ( at least 6 characters )'
 					name='password_confirmation'
+					v-model='form.password_confirmation'
 				/>
 			</div>
 			<div class='flex items-center justify-center pt-6 pt-6 pb-4'>
@@ -68,7 +72,7 @@ export default {
 	data() {
 		return {
 			form: {
-				name: "",
+				username: "",
 				email: "",
 				password: "",
 				password_confirmation: ""
@@ -78,8 +82,8 @@ export default {
 	},
 	methods: {
 		authenticate() {
-			this.$store.dispatch("login");
-			login(this.$data.form)
+			this.$store.dispatch("register");
+			register(this.$data.form)
 				.then(res => {
 					this.$store.commit("loginSuccess", res);
 					this.$router.push({ path: "/" });
