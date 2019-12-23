@@ -39,10 +39,11 @@ class AuthController extends Controller
             'password' => Hash::make($request->get('password')),
         ]);
 
+        $credentials = request(['email', 'password']);
 
-        $token = JWTAuth::fromUser($user);
+        $token = auth('api')->attempt($credentials);
 
-        return response()->json(compact('user', 'token'), 201);
+        return $this->respondWithToken($token);
     }
 
     protected function respondWithToken($token)

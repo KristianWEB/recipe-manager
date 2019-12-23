@@ -7,6 +7,15 @@ export const login = credentials => {
     });
 };
 
+export const register = credentials => {
+    return new Promise((res, rej) => {
+        axios
+            .post("/api/auth/register", credentials)
+            .then(response => res(response.data))
+            .catch(err => rej("Wrong credentials"));
+    });
+};
+
 export const getLocalUser = () => {
     const user = localStorage.getItem("user");
     if (!user) {
