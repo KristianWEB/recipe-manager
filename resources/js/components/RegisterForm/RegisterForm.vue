@@ -3,7 +3,7 @@
 		<div class='bg-light-gray rounded-t-lg'>
 			<h1 class='p-6 text-3xl font-bold text-heading-primary'>Create an account</h1>
 		</div>
-		<form class='w-full bg-white'>
+		<form class='w-full bg-white' @submit.prevent='authenticate'>
 			<div class='md:flex md:items-center mb-6'>
 				<div class='w-full mt-6 px-5'>
 					<label for='username' class='text-dark-gray font-bold'>Username</label>
@@ -12,6 +12,7 @@
 						id='inline-full-name'
 						type='text'
 						placeholder='Your username'
+						name='username'
 					/>
 				</div>
 			</div>
@@ -33,11 +34,21 @@
 					placeholder='Password ( at least 6 characters )'
 				/>
 			</div>
+			<div class='w-full mt-6 px-5'>
+				<label for='password_confirmation' class='text-dark-gray font-bold'>Confirm Password</label>
+				<input
+					class='appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray'
+					id='password_confirmation'
+					type='password'
+					placeholder='Password ( at least 6 characters )'
+					name='password_confirmation'
+				/>
+			</div>
 			<div class='flex items-center justify-center pt-6 pt-6 pb-4'>
 				<div class='md:w-2/3'>
 					<button
 						class='shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg'
-						type='button'
+						type='submit'
 					>Create your account</button>
 				</div>
 			</div>
@@ -51,7 +62,35 @@
 	</div>
 </template>
 
-<script></script>
+<script>
+import { register } from "../../helpers/auth";
+export default {
+	data() {
+		return {
+			form: {
+				name: "",
+				email: "",
+				password: "",
+				password_confirmation: ""
+			},
+			error: null
+		};
+	},
+	methods: {
+		authenticate() {
+			this.$store.dispatch("login");
+			login(this.$data.form)
+				.then(res => {
+					this.$store.commit("loginSuccess", res);
+					this.$router.push({ path: "/" });
+				})
+				.catch(err => {
+					this.$store.commit("loginFailed", { err });
+				});
+		}
+	}
+};
+</script>
 
 <style>
 #registerFormContainer {
