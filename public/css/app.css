@@ -994,7 +994,7 @@ video {
 }
 
 .bg-input-gray {
-  background-color: #7b8793;
+  background-color: #7b8794;
 }
 
 .bg-heading-primary {
@@ -1350,7 +1350,7 @@ video {
 }
 
 .hover\:bg-input-gray:hover {
-  background-color: #7b8793;
+  background-color: #7b8794;
 }
 
 .hover\:bg-heading-primary:hover {
@@ -1706,7 +1706,7 @@ video {
 }
 
 .focus\:bg-input-gray:focus {
-  background-color: #7b8793;
+  background-color: #7b8794;
 }
 
 .focus\:bg-heading-primary:focus {
@@ -2062,7 +2062,7 @@ video {
 }
 
 .active\:bg-input-gray:active {
-  background-color: #7b8793;
+  background-color: #7b8794;
 }
 
 .active\:bg-heading-primary:active {
@@ -2498,7 +2498,7 @@ video {
 }
 
 .border-input-gray {
-  border-color: #7b8793;
+  border-color: #7b8794;
 }
 
 .border-heading-primary {
@@ -2854,7 +2854,7 @@ video {
 }
 
 .hover\:border-input-gray:hover {
-  border-color: #7b8793;
+  border-color: #7b8794;
 }
 
 .hover\:border-heading-primary:hover {
@@ -3210,7 +3210,7 @@ video {
 }
 
 .focus\:border-input-gray:focus {
-  border-color: #7b8793;
+  border-color: #7b8794;
 }
 
 .focus\:border-heading-primary:focus {
@@ -3437,6 +3437,10 @@ video {
   border-width: 0;
 }
 
+.border-1 {
+  border-width: 1px;
+}
+
 .border-2 {
   border-width: 2px;
 }
@@ -3467,6 +3471,22 @@ video {
 
 .border-l-0 {
   border-left-width: 0;
+}
+
+.border-t-1 {
+  border-top-width: 1px;
+}
+
+.border-r-1 {
+  border-right-width: 1px;
+}
+
+.border-b-1 {
+  border-bottom-width: 1px;
+}
+
+.border-l-1 {
+  border-left-width: 1px;
 }
 
 .border-t-2 {
@@ -3825,6 +3845,10 @@ video {
 
 .font-mono {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.font-roboto {
+  font-family: Roboto;
 }
 
 .font-hairline {
@@ -6591,7 +6615,7 @@ video {
 }
 
 .text-input-gray {
-  color: #7b8793;
+  color: #7b8794;
 }
 
 .text-heading-primary {
@@ -6947,7 +6971,7 @@ video {
 }
 
 .hover\:text-input-gray:hover {
-  color: #7b8793;
+  color: #7b8794;
 }
 
 .hover\:text-heading-primary:hover {
@@ -7303,7 +7327,7 @@ video {
 }
 
 .focus\:text-input-gray:focus {
-  color: #7b8793;
+  color: #7b8794;
 }
 
 .focus\:text-heading-primary:focus {
@@ -8191,7 +8215,7 @@ body,
   }
 
   .sm\:bg-input-gray {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .sm\:bg-heading-primary {
@@ -8547,7 +8571,7 @@ body,
   }
 
   .sm\:hover\:bg-input-gray:hover {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .sm\:hover\:bg-heading-primary:hover {
@@ -8903,7 +8927,7 @@ body,
   }
 
   .sm\:focus\:bg-input-gray:focus {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .sm\:focus\:bg-heading-primary:focus {
@@ -9259,7 +9283,7 @@ body,
   }
 
   .sm\:active\:bg-input-gray:active {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .sm\:active\:bg-heading-primary:active {
@@ -9695,7 +9719,7 @@ body,
   }
 
   .sm\:border-input-gray {
-    border-color: #7b8793;
+    border-color: #7b8794;
   }
 
   .sm\:border-heading-primary {
@@ -10051,7 +10075,7 @@ body,
   }
 
   .sm\:hover\:border-input-gray:hover {
-    border-color: #7b8793;
+    border-color: #7b8794;
   }
 
   .sm\:hover\:border-heading-primary:hover {
@@ -10407,7 +10431,7 @@ body,
   }
 
   .sm\:focus\:border-input-gray:focus {
-    border-color: #7b8793;
+    border-color: #7b8794;
   }
 
   .sm\:focus\:border-heading-primary:focus {
@@ -10634,6 +10658,10 @@ body,
     border-width: 0;
   }
 
+  .sm\:border-1 {
+    border-width: 1px;
+  }
+
   .sm\:border-2 {
     border-width: 2px;
   }
@@ -10664,6 +10692,22 @@ body,
 
   .sm\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .sm\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .sm\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .sm\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .sm\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .sm\:border-t-2 {
@@ -11022,6 +11066,10 @@ body,
 
   .sm\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .sm\:font-roboto {
+    font-family: Roboto;
   }
 
   .sm\:font-hairline {
@@ -13788,7 +13836,7 @@ body,
   }
 
   .sm\:text-input-gray {
-    color: #7b8793;
+    color: #7b8794;
   }
 
   .sm\:text-heading-primary {
@@ -14144,7 +14192,7 @@ body,
   }
 
   .sm\:hover\:text-input-gray:hover {
-    color: #7b8793;
+    color: #7b8794;
   }
 
   .sm\:hover\:text-heading-primary:hover {
@@ -14500,7 +14548,7 @@ body,
   }
 
   .sm\:focus\:text-input-gray:focus {
-    color: #7b8793;
+    color: #7b8794;
   }
 
   .sm\:focus\:text-heading-primary:focus {
@@ -15333,7 +15381,7 @@ body,
   }
 
   .md\:bg-input-gray {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .md\:bg-heading-primary {
@@ -15689,7 +15737,7 @@ body,
   }
 
   .md\:hover\:bg-input-gray:hover {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .md\:hover\:bg-heading-primary:hover {
@@ -16045,7 +16093,7 @@ body,
   }
 
   .md\:focus\:bg-input-gray:focus {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .md\:focus\:bg-heading-primary:focus {
@@ -16401,7 +16449,7 @@ body,
   }
 
   .md\:active\:bg-input-gray:active {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .md\:active\:bg-heading-primary:active {
@@ -16837,7 +16885,7 @@ body,
   }
 
   .md\:border-input-gray {
-    border-color: #7b8793;
+    border-color: #7b8794;
   }
 
   .md\:border-heading-primary {
@@ -17193,7 +17241,7 @@ body,
   }
 
   .md\:hover\:border-input-gray:hover {
-    border-color: #7b8793;
+    border-color: #7b8794;
   }
 
   .md\:hover\:border-heading-primary:hover {
@@ -17549,7 +17597,7 @@ body,
   }
 
   .md\:focus\:border-input-gray:focus {
-    border-color: #7b8793;
+    border-color: #7b8794;
   }
 
   .md\:focus\:border-heading-primary:focus {
@@ -17776,6 +17824,10 @@ body,
     border-width: 0;
   }
 
+  .md\:border-1 {
+    border-width: 1px;
+  }
+
   .md\:border-2 {
     border-width: 2px;
   }
@@ -17806,6 +17858,22 @@ body,
 
   .md\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .md\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .md\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .md\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .md\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .md\:border-t-2 {
@@ -18164,6 +18232,10 @@ body,
 
   .md\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .md\:font-roboto {
+    font-family: Roboto;
   }
 
   .md\:font-hairline {
@@ -20930,7 +21002,7 @@ body,
   }
 
   .md\:text-input-gray {
-    color: #7b8793;
+    color: #7b8794;
   }
 
   .md\:text-heading-primary {
@@ -21286,7 +21358,7 @@ body,
   }
 
   .md\:hover\:text-input-gray:hover {
-    color: #7b8793;
+    color: #7b8794;
   }
 
   .md\:hover\:text-heading-primary:hover {
@@ -21642,7 +21714,7 @@ body,
   }
 
   .md\:focus\:text-input-gray:focus {
-    color: #7b8793;
+    color: #7b8794;
   }
 
   .md\:focus\:text-heading-primary:focus {
@@ -22475,7 +22547,7 @@ body,
   }
 
   .lg\:bg-input-gray {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .lg\:bg-heading-primary {
@@ -22831,7 +22903,7 @@ body,
   }
 
   .lg\:hover\:bg-input-gray:hover {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .lg\:hover\:bg-heading-primary:hover {
@@ -23187,7 +23259,7 @@ body,
   }
 
   .lg\:focus\:bg-input-gray:focus {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .lg\:focus\:bg-heading-primary:focus {
@@ -23543,7 +23615,7 @@ body,
   }
 
   .lg\:active\:bg-input-gray:active {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .lg\:active\:bg-heading-primary:active {
@@ -23979,7 +24051,7 @@ body,
   }
 
   .lg\:border-input-gray {
-    border-color: #7b8793;
+    border-color: #7b8794;
   }
 
   .lg\:border-heading-primary {
@@ -24335,7 +24407,7 @@ body,
   }
 
   .lg\:hover\:border-input-gray:hover {
-    border-color: #7b8793;
+    border-color: #7b8794;
   }
 
   .lg\:hover\:border-heading-primary:hover {
@@ -24691,7 +24763,7 @@ body,
   }
 
   .lg\:focus\:border-input-gray:focus {
-    border-color: #7b8793;
+    border-color: #7b8794;
   }
 
   .lg\:focus\:border-heading-primary:focus {
@@ -24918,6 +24990,10 @@ body,
     border-width: 0;
   }
 
+  .lg\:border-1 {
+    border-width: 1px;
+  }
+
   .lg\:border-2 {
     border-width: 2px;
   }
@@ -24948,6 +25024,22 @@ body,
 
   .lg\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .lg\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .lg\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .lg\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .lg\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .lg\:border-t-2 {
@@ -25306,6 +25398,10 @@ body,
 
   .lg\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .lg\:font-roboto {
+    font-family: Roboto;
   }
 
   .lg\:font-hairline {
@@ -28072,7 +28168,7 @@ body,
   }
 
   .lg\:text-input-gray {
-    color: #7b8793;
+    color: #7b8794;
   }
 
   .lg\:text-heading-primary {
@@ -28428,7 +28524,7 @@ body,
   }
 
   .lg\:hover\:text-input-gray:hover {
-    color: #7b8793;
+    color: #7b8794;
   }
 
   .lg\:hover\:text-heading-primary:hover {
@@ -28784,7 +28880,7 @@ body,
   }
 
   .lg\:focus\:text-input-gray:focus {
-    color: #7b8793;
+    color: #7b8794;
   }
 
   .lg\:focus\:text-heading-primary:focus {
@@ -29617,7 +29713,7 @@ body,
   }
 
   .xl\:bg-input-gray {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .xl\:bg-heading-primary {
@@ -29973,7 +30069,7 @@ body,
   }
 
   .xl\:hover\:bg-input-gray:hover {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .xl\:hover\:bg-heading-primary:hover {
@@ -30329,7 +30425,7 @@ body,
   }
 
   .xl\:focus\:bg-input-gray:focus {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .xl\:focus\:bg-heading-primary:focus {
@@ -30685,7 +30781,7 @@ body,
   }
 
   .xl\:active\:bg-input-gray:active {
-    background-color: #7b8793;
+    background-color: #7b8794;
   }
 
   .xl\:active\:bg-heading-primary:active {
@@ -31121,7 +31217,7 @@ body,
   }
 
   .xl\:border-input-gray {
-    border-color: #7b8793;
+    border-color: #7b8794;
   }
 
   .xl\:border-heading-primary {
@@ -31477,7 +31573,7 @@ body,
   }
 
   .xl\:hover\:border-input-gray:hover {
-    border-color: #7b8793;
+    border-color: #7b8794;
   }
 
   .xl\:hover\:border-heading-primary:hover {
@@ -31833,7 +31929,7 @@ body,
   }
 
   .xl\:focus\:border-input-gray:focus {
-    border-color: #7b8793;
+    border-color: #7b8794;
   }
 
   .xl\:focus\:border-heading-primary:focus {
@@ -32060,6 +32156,10 @@ body,
     border-width: 0;
   }
 
+  .xl\:border-1 {
+    border-width: 1px;
+  }
+
   .xl\:border-2 {
     border-width: 2px;
   }
@@ -32090,6 +32190,22 @@ body,
 
   .xl\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .xl\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .xl\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .xl\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .xl\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .xl\:border-t-2 {
@@ -32448,6 +32564,10 @@ body,
 
   .xl\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .xl\:font-roboto {
+    font-family: Roboto;
   }
 
   .xl\:font-hairline {
@@ -35214,7 +35334,7 @@ body,
   }
 
   .xl\:text-input-gray {
-    color: #7b8793;
+    color: #7b8794;
   }
 
   .xl\:text-heading-primary {
@@ -35570,7 +35690,7 @@ body,
   }
 
   .xl\:hover\:text-input-gray:hover {
-    color: #7b8793;
+    color: #7b8794;
   }
 
   .xl\:hover\:text-heading-primary:hover {
@@ -35926,7 +36046,7 @@ body,
   }
 
   .xl\:focus\:text-input-gray:focus {
-    color: #7b8793;
+    color: #7b8794;
   }
 
   .xl\:focus\:text-heading-primary:focus {

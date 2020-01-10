@@ -1912,12 +1912,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/NavBar/NavBar */ "./resources/js/components/NavBar/NavBar.vue");
 //
 //
 //
 //
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "home-page"
+  name: "home-page",
+  components: {
+    NavBar: _components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
 });
 
 /***/ }),
@@ -21054,7 +21061,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("Home page")])
+  return _c("div", [_c("NavBar")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -21232,6 +21239,78 @@ var staticRenderFns = [
             },
             [_vm._v("Sign in")]
           )
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NavBar/NavBar.vue?vue&type=template&id=af370998&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NavBar/NavBar.vue?vue&type=template&id=af370998& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      { staticClass: "flex justify-between bg-white border-b-1" },
+      [
+        _c("li", { staticClass: "ml-6" }, [
+          _c(
+            "a",
+            {
+              staticClass: "text-black font-medium text-3xl font-sans",
+              attrs: { href: "#" }
+            },
+            [_vm._v("RM")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex justify-center items-center" }, [
+          _c("li", { staticClass: "mr-12" }, [
+            _c("a", { staticClass: "text-black", attrs: { href: "#" } }, [
+              _vm._v("Home")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "mr-12" }, [
+            _c("a", { staticClass: "text-black", attrs: { href: "#" } }, [
+              _vm._v("Recipes")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { staticClass: "text-black", attrs: { href: "#" } }, [
+              _vm._v("Storage")
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "mr-6 flex items-center justify-center" }, [
+          _c("a", { staticClass: "text-orange ", attrs: { href: "#" } }, [
+            _vm._v("SIGN IN")
+          ])
         ])
       ]
     )
@@ -38093,7 +38172,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/src/index.js):\nC:\\xampp\\htdocs\\recipe-manager\\tailwind.config.js:18\n                roboto: [\"Roboto\", ...]\n                                      ^\n\nSyntaxError: Unexpected token ]\n    at new Script (vm.js:79:7)\n    at NativeCompileCache._moduleCompile (C:\\xampp\\htdocs\\recipe-manager\\node_modules\\v8-compile-cache\\v8-compile-cache.js:240:18)\n    at Module._compile (C:\\xampp\\htdocs\\recipe-manager\\node_modules\\v8-compile-cache\\v8-compile-cache.js:186:36)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)\n    at Module.load (internal/modules/cjs/loader.js:599:32)\n    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)\n    at Function.Module._load (internal/modules/cjs/loader.js:530:3)\n    at Module.require (internal/modules/cjs/loader.js:637:17)\n    at require (C:\\xampp\\htdocs\\recipe-manager\\node_modules\\v8-compile-cache\\v8-compile-cache.js:161:20)\n    at C:\\xampp\\htdocs\\recipe-manager\\node_modules\\tailwindcss\\lib\\index.js:54:83\n    at C:\\xampp\\htdocs\\recipe-manager\\node_modules\\tailwindcss\\lib\\processTailwindFeatures.js:32:20\n    at LazyResult.run (C:\\xampp\\htdocs\\recipe-manager\\node_modules\\postcss\\lib\\lazy-result.js:295:14)\n    at LazyResult.asyncTick (C:\\xampp\\htdocs\\recipe-manager\\node_modules\\postcss\\lib\\lazy-result.js:208:26)\n    at LazyResult.asyncTick (C:\\xampp\\htdocs\\recipe-manager\\node_modules\\postcss\\lib\\lazy-result.js:221:14)\n    at C:\\xampp\\htdocs\\recipe-manager\\node_modules\\postcss\\lib\\lazy-result.js:250:14\n    at new Promise (<anonymous>)\n    at LazyResult.async (C:\\xampp\\htdocs\\recipe-manager\\node_modules\\postcss\\lib\\lazy-result.js:246:23)\n    at LazyResult.then (C:\\xampp\\htdocs\\recipe-manager\\node_modules\\postcss\\lib\\lazy-result.js:127:17)\n    at Promise.resolve.then.then (C:\\xampp\\htdocs\\recipe-manager\\node_modules\\postcss-loader\\src\\index.js:142:8)\n    at process._tickCallback (internal/process/next_tick.js:68:7)\n    at runLoaders (C:\\xampp\\htdocs\\recipe-manager\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at C:\\xampp\\htdocs\\recipe-manager\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\xampp\\htdocs\\recipe-manager\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (C:\\xampp\\htdocs\\recipe-manager\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at Promise.resolve.then.then.catch (C:\\xampp\\htdocs\\recipe-manager\\node_modules\\postcss-loader\\src\\index.js:208:9)\n    at process._tickCallback (internal/process/next_tick.js:68:7)");
 
 /***/ }),
 
@@ -38505,6 +38584,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginForm_vue_vue_type_template_id_64a4e050___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginForm_vue_vue_type_template_id_64a4e050___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/NavBar/NavBar.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/NavBar/NavBar.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _NavBar_vue_vue_type_template_id_af370998___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavBar.vue?vue&type=template&id=af370998& */ "./resources/js/components/NavBar/NavBar.vue?vue&type=template&id=af370998&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _NavBar_vue_vue_type_template_id_af370998___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NavBar_vue_vue_type_template_id_af370998___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/NavBar/NavBar.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/NavBar/NavBar.vue?vue&type=template&id=af370998&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/NavBar/NavBar.vue?vue&type=template&id=af370998& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NavBar_vue_vue_type_template_id_af370998___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./NavBar.vue?vue&type=template&id=af370998& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NavBar/NavBar.vue?vue&type=template&id=af370998&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NavBar_vue_vue_type_template_id_af370998___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NavBar_vue_vue_type_template_id_af370998___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
