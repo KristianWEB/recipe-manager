@@ -1,9 +1,15 @@
 <template>
-  <div>Home page</div>
+<div>
+<NavBar />
+</div>
 </template>
 
 <script>
+import NavBar from "../components/NavBar/NavBar";
 export default {
-  name: "home-page"
+  name: "home-page",
+  components: {
+    NavBar
+  }
 };
 </script>

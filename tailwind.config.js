@@ -1,15 +1,23 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
     theme: {
         extend: {
             width: {
                 "96": "30rem"
             },
+            borderWidth: {
+                "1": "1px"
+            },
             colors: {
                 orange: "#f35627",
                 "dark-gray": "#616e7c",
                 "light-gray": "#f1f5f8",
-                "input-gray": "#7b8793",
+                "input-gray": "#7b8794",
                 "heading-primary": "#1F2933"
+            },
+            fontFamily: {
+                roboto: ["Roboto", ...defaultTheme.fontFamily.sans]
             }
         }
     },
