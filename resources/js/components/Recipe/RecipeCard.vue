@@ -1,6 +1,6 @@
 <template>
 	<div class='max-w-sm rounded-lg overflow-hidden shadow font-roboto relative'>
-		<img class='w-full' src='../../../assets/types-of-salad-cobb.jpg' alt='Sunset in the mountains' />
+		<img class='w-full' :src='recipe.image' alt='Sunset in the mountains' />
 		<div class='absolute top-0 right-0 text-white flex justify-center items-center'>
 			<button class='mr-6 mt-4'>
 				<img src='../../../assets/heart.svg' alt='heart icon' />
@@ -11,7 +11,7 @@
 		</div>
 		<div class='flex justify-center items-center'>
 			<div class='bg-white z-10 absolute py-2 px-16 shadow rounded-lg'>
-				<h1 class='font-medium text-2xl text-heading-primary'>Chocolate Glaze</h1>
+				<h1 class='font-medium text-2xl text-heading-primary'>{{ recipe.label }}</h1>
 				<div class='flex justify-center'>
 					<img src='../../../assets/calculator.svg' alt='calculator' width='25' height='25' class='pr-1' />
 					<h6 class='font-medium text-orange mr-6'>1660cal</h6>
@@ -52,3 +52,9 @@
 		</div>
 	</div>
 </template>
+
+<script>
+export default {
+	props: ["recipe"]
+};
+</script>
