@@ -14,7 +14,8 @@ module.exports = {
                 "dark-gray": "#616e7c",
                 "light-gray": "#f1f5f8",
                 "input-gray": "#7b8794",
-                "heading-primary": "#1F2933"
+                "heading-primary": "#1F2933",
+                outline: "#616E7C"
             },
             fontFamily: {
                 roboto: ["Roboto", ...defaultTheme.fontFamily.sans]
