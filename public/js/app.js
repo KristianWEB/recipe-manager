@@ -2039,7 +2039,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var appId = "3eb44421";
     var appKey = "401a316f19eef2099d65b2b30b3747cc";
-    axios.get("https://api.edamam.com/search?q=chocolate&app_id=".concat(appId, "&app_key=").concat(appKey, "&from=0&to=9"), {
+    axios.get("https://api.edamam.com/search?q=chocolate&app_id=".concat(appId, "&app_key=").concat(appKey, "&from=0&to=12"), {
       "Access-Control-Allow-Origin": "*"
     }).then(function (_ref) {
       var data = _ref.data;
@@ -2151,8 +2151,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -21544,27 +21542,73 @@ var render = function() {
               "h1",
               {
                 staticClass:
-                  "font-medium text-xl text-heading-primary text-center"
+                  "font-bold text-xl text-heading-primary text-center"
               },
               [_vm._v(_vm._s(_vm.recipe.label))]
             ),
             _vm._v(" "),
-            _vm._m(1)
+            _c("div", { staticClass: "flex justify-center" }, [
+              _c("img", {
+                staticClass: "pr-1",
+                attrs: {
+                  src: __webpack_require__(/*! ../../../assets/calculator.svg */ "./resources/assets/calculator.svg"),
+                  alt: "calculator",
+                  width: "25",
+                  height: "25"
+                }
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "font-medium text-orange mr-6" }, [
+                _vm._v(_vm._s(Math.round(_vm.recipe.calories)) + "cal")
+              ]),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "pr-1",
+                attrs: {
+                  src: __webpack_require__(/*! ../../../assets/weight.svg */ "./resources/assets/weight.svg"),
+                  alt: "weight",
+                  width: "25",
+                  height: "25"
+                }
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "font-medium text-orange" }, [
+                _vm._v(_vm._s(Math.round(_vm.recipe.totalWeight)) + "g")
+              ])
+            ])
           ]
         )
       ]),
       _vm._v(" "),
-      _vm._m(2),
+      _vm._m(1),
       _vm._v(" "),
       _c(
         "ul",
         { staticClass: "px-6 p-3 mt-1 flex flex-wrap bg-light-gray" },
-        _vm._l(_vm.recipe.ingredients, function(ingredient, index) {
-          return _c("li", { key: index, staticClass: "flex flex-col w-1/2" }, [
-            _c("p", { staticClass: "text-sm text-heading-primary" }, [
-              _vm._v(_vm._s(ingredient.text))
-            ])
-          ])
+        _vm._l(_vm.recipe.ingredients.slice(0, 4), function(ingredient, index) {
+          return _c(
+            "li",
+            { key: index, staticClass: "flex flex-col w-1/2 pr-3 pb-3" },
+            [
+              _c("p", { staticClass: "text-sm text-heading-primary" }, [
+                _vm._v(_vm._s(ingredient.text))
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex" }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../assets/weight.svg */ "./resources/assets/weight.svg"),
+                    width: "20",
+                    height: "20"
+                  }
+                }),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-sm font-bold text-input-gray" }, [
+                  _vm._v(_vm._s(Math.round(ingredient.weight)))
+                ])
+              ])
+            ]
+          )
         }),
         0
       ),
@@ -21577,7 +21621,7 @@ var render = function() {
             "a",
             {
               staticClass: "font-medium text-orange",
-              attrs: { href: _vm.recipe.url }
+              attrs: { href: _vm.recipe.url, target: "_blank" }
             },
             [_vm._v("READ MORE")]
           )
@@ -21622,44 +21666,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex justify-center" }, [
-      _c("img", {
-        staticClass: "pr-1",
-        attrs: {
-          src: __webpack_require__(/*! ../../../assets/calculator.svg */ "./resources/assets/calculator.svg"),
-          alt: "calculator",
-          width: "25",
-          height: "25"
-        }
-      }),
-      _vm._v(" "),
-      _c("h6", { staticClass: "font-medium text-orange mr-6" }, [
-        _vm._v("1660cal")
-      ]),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "pr-1",
-        attrs: {
-          src: __webpack_require__(/*! ../../../assets/weight.svg */ "./resources/assets/weight.svg"),
-          alt: "weight",
-          width: "25",
-          height: "25"
-        }
-      }),
-      _vm._v(" "),
-      _c("h6", { staticClass: "font-medium text-orange" }, [_vm._v("408g")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "mx-6 mt-6" }, [
       _c(
         "p",
         {
           staticClass:
-            "text-heading-primary text-base font-medium inline pb-1 border-b-1 border-black"
+            "text-heading-primary text-base font-bold inline pb-1 border-b-1 border-black"
         },
         [_vm._v("Ingredients")]
       )
@@ -21689,7 +21701,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "ul",
-    { staticClass: "flex flex-wrap justify-end mr-24" },
+    { staticClass: "flex flex-wrap justify-end mr-24 overflow-y-auto" },
     _vm._l(_vm.recipes, function(recipe, id) {
       return _c(
         "li",
@@ -40012,8 +40024,8 @@ var user = Object(_helpers_auth__WEBPACK_IMPORTED_MODULE_0__["getLocalUser"])();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\XAMPP\htdocs\projects\recipemanager\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\XAMPP\htdocs\projects\recipemanager\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\xampp\htdocs\recipe-manager\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\recipe-manager\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })
