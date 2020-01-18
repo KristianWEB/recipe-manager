@@ -8,6 +8,7 @@ import VModal from "vue-js-modal";
 import StoreData from "./store";
 import { routes } from "./routes/routes";
 import App from "./components/App.vue";
+import { initialize } from "./helpers/general";
 
 Vue.use(Vuex);
 Vue.use(VModal);
@@ -21,19 +22,7 @@ const router = new VueRouter({
     linkExactActiveClass: "border-b-2 border-orange pb-3"
 });
 
-router.beforeEach((to, from, next) => {
-    const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-    const currentUser = store.state.currentUser;
-    if (requiresAuth && !currentUser) {
-        next("/login");
-    } else if (to.path == "/login" && currentUser) {
-        next("/");
-    } else if (to.path == "/register" && currentUser) {
-        next("/");
-    } else {
-        next();
-    }
-});
+initialize(store, router);
 
 const app = new Vue({
     el: "#app",
