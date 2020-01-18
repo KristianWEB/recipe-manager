@@ -17,7 +17,8 @@ const store = new Vuex.Store(StoreData);
 
 const router = new VueRouter({
     routes,
-    mode: "history"
+    mode: "history",
+    linkExactActiveClass: "border-b-2 border-orange pb-3"
 });
 
 router.beforeEach((to, from, next) => {

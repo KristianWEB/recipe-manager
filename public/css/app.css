@@ -11645,63 +11645,6 @@ video {
   z-index: auto;
 }
 
-html,
-body,
-#app {
-  height: 100%;
-}
-
-.card-width {
-  width: 77%;
-}
-
-@media (min-width: 640px) {
-  .card-width {
-    width: 65%;
-  }
-}
-
-@media (min-width: 768px) {
-  .card-width {
-    width: 40%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .card-width {
-    width: 28%;
-  }
-}
-
-.w-384 {
-  width: 24rem;
-}
-
-.bg-blue-btn-1 {
-  background-color: #328af1;
-}
-
-.bg-blue-btn-2 {
-  background-color: #2779bd;
-}
-
-.bg-gradient-1 {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#21c8f6), to(#637bff));
-  background-image: linear-gradient(to bottom, #21c8f6, #637bff);
-}
-
-.h-screen-12 {
-  height: 12vh;
-}
-
-.h-screen-88 {
-  height: 88vh;
-}
-
-.border-bottom-1 {
-  border-bottom: 1px solid #000;
-}
-
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

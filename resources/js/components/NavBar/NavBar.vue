@@ -5,14 +5,28 @@
 		</li>
 		<div class='flex justify-center items-center'>
 			<li class='mr-12'>
-				<a class='text-black' href='#'>Recipes</a>
+				<router-link class='text-black' to='/home'>Home</router-link>
 			</li>
 			<li>
-				<a class='text-black' href='#'>Storage</a>
+				<router-link class='text-black' to='/storage'>Storage</router-link>
 			</li>
 		</div>
-		<li class='mr-6 flex items-center justify-center'>
+		<li v-if='!currentUser' class='mr-6 flex items-center justify-center'>
 			<a class='text-orange' href='#'>SIGN IN</a>
+		</li>
+		<li v-else class='mr-6 flex items-center justify-center'>
+			<a class='text-orange' href='#'>{{ currentUser.username }}</a>
 		</li>
 	</ul>
 </template>
+
+
+<script>
+export default {
+	computed: {
+		currentUser() {
+			return this.$store.getters.currentUser;
+		}
+	}
+};
+</script>

@@ -34,41 +34,9 @@
 				<p class='text-sm text-heading-primary'>{{ ingredient.text }}</p>
 				<div class='flex'>
 					<img src='../../../assets/weight.svg' width='20' height='20' />
-					<p class='text-sm font-bold text-input-gray'>{{ Math.round(ingredient.weight) }}</p>
+					<p class='text-sm font-bold text-input-gray ml-2'>{{ Math.round(ingredient.weight) }}</p>
 				</div>
 			</li>
-			<!-- <div class="flex flex-col">
-        <p class="text-sm text-heading-primary">
-          Ounces best-quality
-          bittersweet chocolate oer semisweet chocolate
-        </p>
-        <div class="flex">
-          <img
-            src="../../../assets/weight.svg"
-            alt="weight-icon"
-            width="20"
-            height="20"
-            class="mr-1"
-          />
-          <p class="text-sm text-heading-primary font-medium m-0">170g</p>
-        </div>
-			</div>-->
-			<!-- <div class="pl-4 flex flex-col">
-        <p class="text-sm text-heading-primary">
-          <span class="font-medium">1</span> Ounce best-quality
-          bittersweet chocolate oer semisweet chocolate
-        </p>
-        <div class="flex">
-          <img
-            src="../../../assets/weight.svg"
-            alt="weight-icon"
-            width="20"
-            height="20"
-            class="mr-1"
-          />
-          <p class="text-sm text-heading-primary font-medium">170g</p>
-        </div>
-			</div>-->
 		</ul>
 		<div class='flex justify-end bg-light-gray pr-6 pb-3 pt-2'>
 			<a :href='recipe.url' target='_blank' class='font-medium text-orange'>READ MORE</a>
