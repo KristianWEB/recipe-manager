@@ -34,10 +34,7 @@ export default {
 					"Access-Control-Allow-Origin": "*"
 				}
 			)
-			.then(({ data }) => {
-				this.recipes = data.hits;
-				console.log(this.recipes);
-			})
+			.then(({ data }) => (this.recipes = data.hits))
 			.catch(error => console.log(error));
 	}
 };

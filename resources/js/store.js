@@ -36,10 +36,10 @@ export default {
             state.auth_error = null;
             state.isLoggedIn = true;
             state.loading = false;
-            state.currentUser = Object.assign({}, payload.user, {
+            state.currentUser = {
+                ...payload.user,
                 token: payload.access_token
-            });
-
+            };
             localStorage.setItem("user", JSON.stringify(state.currentUser));
         },
         loginFailed(state, payload) {

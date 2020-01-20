@@ -7,25 +7,15 @@ use App\Recipe;
 
 class RecipeController extends Controller
 {
-    public function index()
-    {
-        return view('recipes');
-    }
-
     public function store()
     {
-        // validate
-
-        $attributes = request()->validate([
-            'image' => 'required',
-            'title' => 'required',
-            'ingredients' => 'required',
-            'diet_label' => 'required',
-            'calories' => 'required',
-        ]);
-
-        $attributes['ingredients'] = json_encode($attributes['ingredients']);
+        $attributes['image'] = request()->input('image');
+        $attributes['label'] = request()->input('label');
+        $attributes['ingredients'] = json_encode(request()->input('ingredients'));
+        $attributes['calories'] = request()->input('calories');
+        $attributes['weight'] = request()->input('totalWeight');
+        $attributes['source_url'] = request()->input('url');
 
         auth()->user()->recipes()->create($attributes);
-    }
+    } // 
 }

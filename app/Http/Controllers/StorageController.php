@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Recipe;
-use Illuminate\Http\Request;
-
 class StorageController extends Controller
 {
     //

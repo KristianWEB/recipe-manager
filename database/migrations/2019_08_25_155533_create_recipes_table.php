@@ -17,10 +17,11 @@ class CreateRecipesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('image');
-            $table->string('title');
+            $table->string('label');
             $table->text('ingredients');
-            $table->string('diet_label');
-            $table->bigInteger('calories');
+            $table->integer('calories');
+            $table->integer('weight');
+            $table->string('source_url');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
