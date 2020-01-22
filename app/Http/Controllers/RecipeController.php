@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Recipe;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RecipeController extends Controller
 {
+    public function index()
+    {
+        $recipes = auth()->user()->recipes;
+
+        return response()->json($recipes);
+    }
+
     public function store()
     {
         $attributes['image'] = request()->input('image');

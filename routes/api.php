@@ -20,4 +20,5 @@ Route::group(['prefix' => 'auth'], function ($router) {
 
 Route::group(['middleware' => 'jwt.auth'], function ($router) {
     Route::post('save-recipe', 'RecipeController@store');
+    Route::get('recipes', 'RecipeController@index');
 });
