@@ -11645,6 +11645,12 @@ video {
   z-index: auto;
 }
 
+html,
+body,
+#app {
+  height: 100%;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

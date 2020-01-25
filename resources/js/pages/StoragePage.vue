@@ -1,16 +1,29 @@
 <template>
     <div>
         <NavBar />
-        <h1>Storage page</h1>
+        <RecipeList :savedRecipes="savedRecipes" />
     </div>
 </template>
 
 <script>
 import NavBar from "../components/NavBar/NavBar";
+import RecipeList from "../components/Recipe/RecipeList";
 export default {
     name: "home-page",
     components: {
-        NavBar
+        NavBar,
+        RecipeList
+    },
+    data() {
+        return {
+            savedRecipes: []
+        };
+    },
+    created() {
+        axios
+            .get("/api/recipes")
+            .then(({ data }) => (this.savedRecipes = data))
+            .catch(error => console.log(error));
     }
 };
 </script>

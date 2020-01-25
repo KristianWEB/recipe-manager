@@ -2125,8 +2125,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["recipe"]
+  props: ["recipe"],
+  data: function data() {
+    return {
+      savedRecipe: false
+    };
+  },
+  methods: {
+    saveRecipe: function saveRecipe(recipe) {
+      axios.post("/api/save-recipe", recipe).then(function (res) {
+        return console.log(res);
+      })["catch"](function (err) {
+        return console.log(err.response);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -2149,9 +2167,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["recipes"],
+  props: ["recipes", "savedRecipes"],
   components: {
     RecipeCard: _Recipe_RecipeCard__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -2169,6 +2194,22 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/auth */ "./resources/js/helpers/auth.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2318,8 +2359,7 @@ __webpack_require__.r(__webpack_exports__);
       "Access-Control-Allow-Origin": "*"
     }).then(function (_ref) {
       var data = _ref.data;
-      _this.recipes = data.hits;
-      console.log(_this.recipes);
+      return _this.recipes = data.hits;
     })["catch"](function (error) {
       return console.log(error);
     });
@@ -2388,6 +2428,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/NavBar/NavBar */ "./resources/js/components/NavBar/NavBar.vue");
+/* harmony import */ var _components_Recipe_RecipeList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Recipe/RecipeList */ "./resources/js/components/Recipe/RecipeList.vue");
 //
 //
 //
@@ -2396,10 +2437,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "home-page",
   components: {
-    NavBar: _components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_0__["default"]
+    NavBar: _components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_0__["default"],
+    RecipeList: _components_Recipe_RecipeList__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      savedRecipes: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/recipes").then(function (_ref) {
+      var data = _ref.data;
+      return _this.savedRecipes = data;
+    })["catch"](function (error) {
+      return console.log(error);
+    });
   }
 });
 
@@ -2434,7 +2492,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n#registerFormContainer {\r\n\tfont-family: Roboto;\n}\r\n", ""]);
+exports.push([module.i, "\n#registerFormContainer {\r\n    font-family: Roboto;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -21038,7 +21096,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "ul",
     {
       staticClass:
         "rounded-lg w-card overflow-hidden shadow font-roboto relative"
@@ -21049,7 +21107,36 @@ var render = function() {
         attrs: { src: _vm.recipe.image, alt: _vm.recipe.label }
       }),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "div",
+        {
+          staticClass:
+            "absolute top-0 right-0 text-white flex justify-center items-center"
+        },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "mr-6 mt-4",
+              on: {
+                click: function($event) {
+                  return _vm.saveRecipe(_vm.recipe)
+                }
+              }
+            },
+            [
+              _c("img", {
+                attrs: {
+                  src: __webpack_require__(/*! ../../../assets/heart.svg */ "./resources/assets/heart.svg"),
+                  alt: "heart icon"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "flex justify-center items-center" }, [
         _c(
@@ -21093,9 +21180,17 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("h6", { staticClass: "font-medium text-orange" }, [
-                _vm._v(_vm._s(Math.round(_vm.recipe.totalWeight)) + "g")
-              ])
+              _vm.recipe.totalWeight
+                ? _c("h6", { staticClass: "font-medium text-orange" }, [
+                    _vm._v(_vm._s(Math.round(_vm.recipe.totalWeight)) + "g")
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.recipe.weight
+                ? _c("h6", { staticClass: "font-medium text-orange" }, [
+                    _vm._v(_vm._s(Math.round(_vm.recipe.weight)) + "g")
+                  ])
+                : _vm._e()
             ])
           ]
         )
@@ -21158,32 +21253,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "absolute top-0 right-0 text-white flex justify-center items-center"
-      },
-      [
-        _c("button", { staticClass: "mr-6 mt-4" }, [
-          _c("img", {
-            attrs: {
-              src: __webpack_require__(/*! ../../../assets/heart.svg */ "./resources/assets/heart.svg"),
-              alt: "heart icon"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("button", { staticClass: "mr-6 mt-4" }, [
-          _c("img", {
-            attrs: {
-              src: __webpack_require__(/*! ../../../assets/settings-icon.svg */ "./resources/assets/settings-icon.svg"),
-              alt: "settings icon"
-            }
-          })
-        ])
-      ]
-    )
+    return _c("button", { staticClass: "mr-6 mt-4" }, [
+      _c("img", {
+        attrs: {
+          src: __webpack_require__(/*! ../../../assets/settings-icon.svg */ "./resources/assets/settings-icon.svg"),
+          alt: "settings icon"
+        }
+      })
+    ])
   },
   function() {
     var _vm = this
@@ -21222,19 +21299,39 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "ul",
-    { staticClass: "flex flex-wrap justify-end mr-24 overflow-y-auto" },
-    _vm._l(_vm.recipes, function(recipe, id) {
-      return _c(
-        "li",
-        { key: id, staticClass: "w-auto m-8" },
-        [_c("RecipeCard", { attrs: { recipe: recipe.recipe } })],
-        1
-      )
-    }),
-    0
-  )
+  return _c("div", [
+    _vm.recipes
+      ? _c(
+          "ul",
+          { staticClass: "flex flex-wrap jutify-end mr-4" },
+          _vm._l(_vm.recipes, function(recipe, id) {
+            return _c(
+              "li",
+              { key: id, staticClass: "w-auto m-8" },
+              [_c("RecipeCard", { attrs: { recipe: recipe.recipe } })],
+              1
+            )
+          }),
+          0
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.savedRecipes
+      ? _c(
+          "ul",
+          { staticClass: "flex flex-wrap justify-start mr-24 overflow-y-auto" },
+          _vm._l(_vm.savedRecipes, function(recipe, id) {
+            return _c(
+              "li",
+              { key: id, staticClass: "w-auto m-8" },
+              [_c("RecipeCard", { attrs: { recipe: recipe } })],
+              1
+            )
+          }),
+          0
+        )
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -21381,7 +21478,7 @@ var render = function() {
                 "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
               attrs: {
                 id: "password",
-                type: "text",
+                type: "password",
                 placeholder: "Password ( at least 6 characters )"
               },
               domProps: { value: _vm.form.password },
@@ -21446,7 +21543,9 @@ var render = function() {
               "h3",
               { staticClass: "pb-3 text-dark-gray" },
               [
-                _vm._v("\n\t\t\t\tAlready have an account?\n\t\t\t\t"),
+                _vm._v(
+                  "\n                Already have an account?\n                "
+                ),
                 _c(
                   "router-link",
                   {
@@ -21471,7 +21570,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "bg-light-gray rounded-t-lg" }, [
       _c("h1", { staticClass: "p-6 text-3xl font-bold text-heading-primary" }, [
-        _vm._v("Create an account")
+        _vm._v("\n            Create an account\n        ")
       ])
     ])
   },
@@ -21491,7 +21590,11 @@ var staticRenderFns = [
                 "shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg",
               attrs: { type: "submit" }
             },
-            [_vm._v("Create your account")]
+            [
+              _vm._v(
+                "\n                    Create your account\n                "
+              )
+            ]
           )
         ])
       ]
@@ -21626,7 +21729,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [_c("NavBar"), _vm._v(" "), _c("h1", [_vm._v("Storage page")])],
+    [
+      _c("NavBar"),
+      _vm._v(" "),
+      _c("RecipeList", { attrs: { savedRecipes: _vm.savedRecipes } })
+    ],
     1
   )
 }
@@ -37832,9 +37939,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
 /* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routes/routes */ "./resources/js/routes/routes.js");
 /* harmony import */ var _components_App_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue");
+/* harmony import */ var _helpers_general__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers/general */ "./resources/js/helpers/general.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
 
 
 
@@ -37851,22 +37960,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
   linkExactActiveClass: "border-b-2 border-orange pb-3"
 });
-router.beforeEach(function (to, from, next) {
-  var requiresAuth = to.matched.some(function (record) {
-    return record.meta.requiresAuth;
-  });
-  var currentUser = store.state.currentUser;
-
-  if (requiresAuth && !currentUser) {
-    next("/login");
-  } else if (to.path == "/login" && currentUser) {
-    next("/");
-  } else if (to.path == "/register" && currentUser) {
-    next("/");
-  } else {
-    next();
-  }
-});
+Object(_helpers_general__WEBPACK_IMPORTED_MODULE_7__["initialize"])(store, router);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: "#app",
   router: router,
@@ -38479,6 +38573,45 @@ var getLocalUser = function getLocalUser() {
 
 /***/ }),
 
+/***/ "./resources/js/helpers/general.js":
+/*!*****************************************!*\
+  !*** ./resources/js/helpers/general.js ***!
+  \*****************************************/
+/*! exports provided: initialize, setAuthorization */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialize", function() { return initialize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setAuthorization", function() { return setAuthorization; });
+function initialize(store, router) {
+  router.beforeEach(function (to, from, next) {
+    var requiresAuth = to.matched.some(function (record) {
+      return record.meta.requiresAuth;
+    });
+    var currentUser = store.state.currentUser;
+
+    if (requiresAuth && !currentUser) {
+      next("/login");
+    } else if (to.path === "/login" && currentUser) {
+      next("/home");
+    } else if (to.path === "/register" && currentUser) {
+      next("/home");
+    } else {
+      next();
+    }
+
+    if (store.getters.currentUser) {
+      setAuthorization(store.getters.currentUser.token);
+    }
+  });
+}
+function setAuthorization(token) {
+  axios.defaults.headers.common["Authorization"] = "Bearer ".concat(token);
+}
+
+/***/ }),
+
 /***/ "./resources/js/pages/HomePage.vue":
 /*!*****************************************!*\
   !*** ./resources/js/pages/HomePage.vue ***!
@@ -38844,6 +38977,12 @@ var routes = [{
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/auth */ "./resources/js/helpers/auth.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 var user = Object(_helpers_auth__WEBPACK_IMPORTED_MODULE_0__["getLocalUser"])();
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -38880,7 +39019,7 @@ var user = Object(_helpers_auth__WEBPACK_IMPORTED_MODULE_0__["getLocalUser"])();
       state.auth_error = null;
       state.isLoggedIn = true;
       state.loading = false;
-      state.currentUser = Object.assign({}, payload.user, {
+      state.currentUser = _objectSpread({}, payload.user, {
         token: payload.access_token
       });
       localStorage.setItem("user", JSON.stringify(state.currentUser));
@@ -38909,8 +39048,8 @@ var user = Object(_helpers_auth__WEBPACK_IMPORTED_MODULE_0__["getLocalUser"])();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\recipe-manager\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\recipe-manager\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! E:\XAMPP\htdocs\projects\recipemanager\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\XAMPP\htdocs\projects\recipemanager\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })
