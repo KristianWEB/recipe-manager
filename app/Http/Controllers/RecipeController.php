@@ -12,11 +12,16 @@ class RecipeController extends Controller
     {
         $recipes = auth()->user()->recipes;
 
-        return response()->json($recipes);
+        $recipes->map(function ($recipe) {
+            return $recipe->ingredients = json_decode($recipe->ingredients);
+        });
+
+        return $recipes;
     }
 
     public function store()
     {
+
         $attributes['image'] = request()->input('image');
         $attributes['label'] = request()->input('label');
         $attributes['ingredients'] = json_encode(request()->input('ingredients'));
