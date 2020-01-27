@@ -60,7 +60,6 @@ export default {
 		saveRecipe(recipe) {
 			axios
 				.post("/api/save-recipe", recipe)
-				.then(res => console.log(res))
 				.catch(err => console.log(err.response));
 		}
 	}

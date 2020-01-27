@@ -21,7 +21,7 @@ class CreateRecipesTable extends Migration
             $table->json('ingredients');
             $table->integer('calories');
             $table->integer('weight');
-            $table->string('source_url');
+            $table->string('url');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

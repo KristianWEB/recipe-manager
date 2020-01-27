@@ -27,7 +27,7 @@ class RecipeController extends Controller
         $attributes['ingredients'] = json_encode(request()->input('ingredients'));
         $attributes['calories'] = request()->input('calories');
         $attributes['weight'] = request()->input('totalWeight');
-        $attributes['source_url'] = request()->input('url');
+        $attributes['url'] = request()->input('url');
 
         auth()->user()->recipes()->create($attributes);
     } // 
