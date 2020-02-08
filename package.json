@@ -37,6 +37,8 @@
         "tailwindcss": "^1.1.4",
         "vue": "^2.6.11",
         "vue-jest": "^3.0.5",
+        "vue-svg-inline-loader": "^1.4.5",
+        "vue-svg-loader": "^0.15.0",
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
