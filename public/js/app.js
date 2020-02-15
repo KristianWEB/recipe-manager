@@ -2231,6 +2231,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2338,7 +2344,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      ingredient: {
+        name: "",
+        weight: ""
+      },
+      ingredients: []
+    };
+  },
+  methods: {
+    addIngredient: function addIngredient() {
+      this.ingredients.push(_objectSpread({}, this.ingredient));
+      this.ingredient.name = "";
+      this.ingredient.weight = "";
+    }
+  }
+});
 
 /***/ }),
 
@@ -21422,6 +21452,8 @@ var render = function() {
                 viewBox: "0 0 512 512",
                 "svg-inline": "",
                 fill: "#fff",
+                width: "35px",
+                height: "35px",
                 role: "presentation",
                 focusable: "false",
                 tabindex: "-1"
@@ -21470,7 +21502,7 @@ var render = function() {
     "modal",
     {
       staticClass: "shadow-md font-roboto",
-      attrs: { name: "create-recipe", height: "556px" }
+      attrs: { name: "create-recipe", height: "auto" }
     },
     [
       _c("div", { staticClass: "bg-light-gray rounded-t-lg" }, [
@@ -21484,204 +21516,305 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("form", { staticClass: "w-full bg-white" }, [
-        _c("div", { staticClass: "w-full pt-8 px-5" }, [
-          _c(
-            "label",
-            { staticClass: "text-dark-gray font-bold", attrs: { for: "name" } },
-            [_vm._v("Name")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            staticClass:
-              "appearance-none rounded w-full py-2 px-4\n            leading-tight focus:outline-none bg-light-gray\n            placeholder-input-gray",
-            attrs: {
-              id: "name",
-              type: "name",
-              placeholder: "Your recipe's name",
-              name: "email"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "w-full pt-6 px-5" }, [
-          _c(
-            "label",
-            {
-              staticClass: "text-dark-gray font-bold",
-              attrs: { for: "image" }
-            },
-            [_vm._v("Image")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            staticClass:
-              "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
-            attrs: {
-              id: "image",
-              type: "text",
-              placeholder: "Recipe's image URL",
-              name: "image"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "w-full pt-6 px-5 flex" }, [
-          _c("div", { staticClass: "pr-5" }, [
+      _c(
+        "form",
+        { staticClass: "w-full bg-white" },
+        [
+          _c("div", { staticClass: "w-full pt-8 px-5" }, [
             _c(
               "label",
               {
                 staticClass: "text-dark-gray font-bold",
-                attrs: { for: "weight" }
+                attrs: { for: "name" }
               },
-              [_vm._v("Weight")]
+              [_vm._v("Name")]
             ),
             _vm._v(" "),
             _c("input", {
               staticClass:
-                "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
+                "appearance-none rounded w-full py-2 px-4\n            leading-tight focus:outline-none bg-light-gray\n            placeholder-input-gray",
               attrs: {
-                id: "weight",
-                type: "text",
-                placeholder: "Total Weight",
-                name: "weight"
+                id: "name",
+                type: "name",
+                placeholder: "Your recipe's name",
+                name: "email"
               }
             })
           ]),
           _vm._v(" "),
-          _c("div", [
+          _c("div", { staticClass: "w-full pt-6 px-5" }, [
             _c(
               "label",
               {
                 staticClass: "text-dark-gray font-bold",
-                attrs: { for: "calories" }
+                attrs: { for: "image" }
               },
-              [_vm._v("Calories")]
+              [_vm._v("Image")]
             ),
             _vm._v(" "),
             _c("input", {
               staticClass:
                 "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
               attrs: {
-                id: "calories",
+                id: "image",
                 type: "text",
-                placeholder: "Total Calories",
-                name: "calories"
+                placeholder: "Recipe's image URL",
+                name: "image"
               }
             })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "w-full pt-6 px-5" }, [
-          _c(
-            "label",
-            {
-              staticClass: "text-dark-gray font-bold",
-              attrs: { for: "ingredients" }
-            },
-            [_vm._v("Ingredients")]
-          ),
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "flex" }, [
-            _c("input", {
-              staticClass:
-                "appearance-none rounded w-full py-2 px-4 mr-5 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
-              attrs: {
-                id: "ingredientName",
-                type: "text",
-                placeholder: "Ingredient's name",
-                name: "ingredientName"
-              }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              staticClass:
-                "appearance-none rounded w-1/3 py-2 px-4 mr-5 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
-              attrs: {
-                id: "ingredientWeight",
-                type: "text",
-                placeholder: "Weight",
-                name: "ingredientWeight"
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
+          _c("div", { staticClass: "w-full pt-6 px-5 flex" }, [
+            _c("div", { staticClass: "pr-5" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "text-dark-gray font-bold",
+                  attrs: { for: "weight" }
+                },
+                [_vm._v("Weight")]
+              ),
+              _vm._v(" "),
+              _c("input", {
                 staticClass:
-                  "border border-dark-gray rounded-full p-2 text-black"
-              },
-              [
-                _c(
-                  "svg",
-                  {
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      viewBox: "0 0 512 512",
-                      "svg-inline": "",
-                      fill: "#616e7c",
-                      role: "presentation",
-                      focusable: "false",
-                      tabindex: "-1"
+                  "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
+                attrs: {
+                  id: "weight",
+                  type: "text",
+                  placeholder: "Total Weight",
+                  name: "weight"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "label",
+                {
+                  staticClass: "text-dark-gray font-bold",
+                  attrs: { for: "calories" }
+                },
+                [_vm._v("Calories")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                staticClass:
+                  "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
+                attrs: {
+                  id: "calories",
+                  type: "text",
+                  placeholder: "Total Calories",
+                  name: "calories"
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              staticClass: "w-full pt-6 px-5",
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.addIngredient($event)
+                }
+              }
+            },
+            [
+              _c(
+                "label",
+                {
+                  staticClass: "text-dark-gray font-bold",
+                  attrs: { for: "ingredients" }
+                },
+                [_vm._v("Ingredients")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.ingredient.name,
+                      expression: "ingredient.name"
                     }
+                  ],
+                  staticClass:
+                    "appearance-none rounded w-full py-2 px-4 mr-5 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
+                  attrs: {
+                    id: "ingredientName",
+                    type: "text",
+                    placeholder: "Ingredient's name",
+                    name: "ingredientName"
+                  },
+                  domProps: { value: _vm.ingredient.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.ingredient, "name", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.ingredient.weight,
+                      expression: "ingredient.weight"
+                    }
+                  ],
+                  staticClass:
+                    "appearance-none rounded w-1/3 py-2 px-4 mr-5 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
+                  attrs: {
+                    id: "ingredientWeight",
+                    type: "text",
+                    placeholder: "Weight",
+                    name: "ingredientWeight"
+                  },
+                  domProps: { value: _vm.ingredient.weight },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.ingredient, "weight", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "border border-dark-gray rounded-full p-1 text-black"
                   },
                   [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M416 277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416v42.666z"
-                      }
-                    })
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 512 512",
+                          "svg-inline": "",
+                          fill: "#616e7c",
+                          width: "28px",
+                          height: "28px",
+                          role: "presentation",
+                          focusable: "false",
+                          tabindex: "-1"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M416 277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416v42.666z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _vm._l(_vm.ingredients, function(ingredient, index) {
+            return _c(
+              "div",
+              { key: index, staticClass: "flex w-full px-5 pt-3" },
+              [
+                _c(
+                  "h1",
+                  {
+                    staticClass:
+                      "appearance-none rounded w-full py-2 px-4 mr-5 leading-tight focus:outline-none border border-dashed border-dark-gray text-heading-primary",
+                    attrs: { id: "ingredientWeight" }
+                  },
+                  [_vm._v(_vm._s(ingredient.name))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "h1",
+                  {
+                    staticClass:
+                      "appearance-none rounded w-1/3 py-2 px-4 mr-5 leading-tight focus:outline-none text-center border border-dashed border-dark-gray text-heading-primary"
+                  },
+                  [_vm._v(_vm._s(ingredient.weight))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "border border-red-600 rounded-full p-1 text-black"
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "512",
+                          height: "512",
+                          viewBox: "0 0 512 512",
+                          "svg-inline": "",
+                          width: "28px",
+                          height: "28px",
+                          role: "presentation",
+                          focusable: "false",
+                          tabindex: "-1"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            fill: "red",
+                            stroke: "#e53e3e",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "32",
+                            d: "M400 256H112"
+                          }
+                        })
+                      ]
+                    )
                   ]
                 )
               ]
             )
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "flex items-center justify-center pt-8 pb-4" },
-          [
-            _c("div", [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg",
-                  attrs: { type: "submit" }
-                },
-                [_vm._v("\n                    Sign in\n                ")]
-              )
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "flex items-center justify-center rounded-b-lg" },
-          [
-            _c(
-              "h3",
-              { staticClass: "pb-3 text-dark-gray" },
-              [
-                _vm._v(
-                  "\n                Don't have an account?\n                "
-                ),
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex items-center justify-center pt-12 pb-6" },
+            [
+              _c("div", [
                 _c(
-                  "router-link",
+                  "button",
                   {
-                    staticClass: "text-orange font-bold",
-                    attrs: { to: "/register" }
+                    staticClass:
+                      "shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg",
+                    attrs: { type: "submit" }
                   },
-                  [_vm._v("Sign up")]
+                  [
+                    _vm._v(
+                      "\n                    Create Recipe\n                "
+                    )
+                  ]
                 )
-              ],
-              1
-            )
-          ]
-        )
-      ])
+              ])
+            ]
+          )
+        ],
+        2
+      )
     ]
   )
 }
