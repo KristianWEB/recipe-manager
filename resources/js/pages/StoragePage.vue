@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<NavBar />
-		<RecipeList :savedRecipes='savedRecipes' />
-		<CreateCustomRecipe />
+		<RecipeList :savedRecipes="savedRecipes" />
+		<CreateCustomRecipe @customRecipe="customRecipe" />
 	</div>
 </template>
 
@@ -27,6 +27,11 @@ export default {
 			.get("/api/recipes")
 			.then(({ data }) => (this.savedRecipes = data))
 			.catch(error => console.log(error));
+	},
+	methods: {
+		customRecipe(data) {
+			this.savedRecipes = data;
+		}
 	}
 };
 </script>

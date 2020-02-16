@@ -1,5 +1,5 @@
 <template>
-	<div id='loginFormContainer' class='shadow-md w-96'>
+	<div class='shadow-md w-96 font-roboto'>
 		<div class='bg-light-gray rounded-t-lg'>
 			<h1 class='p-6 text-3xl font-bold text-heading-primary'>Sign in with your account</h1>
 		</div>
@@ -71,9 +71,3 @@ export default {
 	}
 };
 </script>
-
-<style>
-#loginFormContainer {
-	font-family: Roboto;
-}
-</style>
