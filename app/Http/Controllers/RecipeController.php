@@ -31,4 +31,17 @@ class RecipeController extends Controller
 
         auth()->user()->recipes()->create($attributes);
     } // 
+
+    public function create()
+    {
+
+        $attributes['image'] = request()->input('image');
+        $attributes['label'] = request()->input('label');
+        $attributes['ingredients'] = json_encode(request()->input('ingredients'));
+        $attributes['calories'] = request()->input('calories');
+        $attributes['weight'] = request()->input('totalWeight');
+        $attributes['url'] = request()->input('url');
+
+        auth()->user()->recipes()->create($attributes);
+    } // 
 }
