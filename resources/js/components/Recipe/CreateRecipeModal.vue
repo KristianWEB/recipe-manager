@@ -144,14 +144,10 @@ export default {
 					label: this.name,
 					ingredients: this.ingredients,
 					calories: this.totalCalories,
-					totalWeight: this.totalWeight
+					totalWeight: this.totalWeight,
+					isSaved: true
 				})
-				.then(res => {
-					axios
-						.get("/api/recipes")
-						.then(({ data }) => this.$emit("customRecipe", data))
-						.catch(err => console.log(err.response));
-				})
+				.then(() => this.$store.dispatch("fetchRecipes"))
 				.catch(err => console.log(err.response));
 		}
 	}

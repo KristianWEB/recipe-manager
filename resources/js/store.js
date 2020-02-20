@@ -7,7 +7,8 @@ export default {
         currentUser: user,
         isLoggedIn: !!user,
         loading: false,
-        auth_error: null
+        auth_error: null,
+        savedRecipes: null
     },
     getters: {
         isLoading(state) {
@@ -21,6 +22,9 @@ export default {
         },
         authError(state) {
             return state.auth_error;
+        },
+        savedRecipes(state) {
+            return state.savedRecipes;
         }
     },
     mutations: {
@@ -31,6 +35,9 @@ export default {
         register(state) {
             state.loading = true;
             state.auth_error = null;
+        },
+        recipes(state, savedRecipes) {
+            state.savedRecipes = savedRecipes;
         },
         loginSuccess(state, payload) {
             state.auth_error = null;
@@ -53,6 +60,11 @@ export default {
         },
         register(context) {
             context.commit("register");
+        },
+        fetchRecipes(context) {
+            axios
+                .get("/api/recipes")
+                .then(({ data }) => context.commit("recipes", data));
         }
     }
 };

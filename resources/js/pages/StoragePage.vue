@@ -2,7 +2,7 @@
 	<div>
 		<NavBar />
 		<RecipeList :savedRecipes="savedRecipes" />
-		<CreateCustomRecipe @customRecipe="customRecipe" />
+		<CreateCustomRecipe />
 	</div>
 </template>
 
@@ -17,20 +17,12 @@ export default {
 		RecipeList,
 		CreateCustomRecipe
 	},
-	data() {
-		return {
-			savedRecipes: []
-		};
-	},
 	created() {
-		axios
-			.get("/api/recipes")
-			.then(({ data }) => (this.savedRecipes = data))
-			.catch(error => console.log(error));
+		this.$store.dispatch("fetchRecipes");
 	},
-	methods: {
-		customRecipe(data) {
-			this.savedRecipes = data;
+	computed: {
+		savedRecipes() {
+			return this.$store.getters.savedRecipes;
 		}
 	}
 };
