@@ -28,6 +28,7 @@ class RecipeController extends Controller
         $attributes['calories'] = request()->input('calories');
         $attributes['weight'] = request()->input('totalWeight');
         $attributes['url'] = request()->input('url');
+        $attributes['is_saved'] = request()->input('isSaved');
 
         auth()->user()->recipes()->create($attributes);
     } // 
@@ -41,7 +42,19 @@ class RecipeController extends Controller
         $attributes['calories'] = request()->input('calories');
         $attributes['weight'] = request()->input('totalWeight');
         $attributes['url'] = request()->input('url');
+        $attributes['is_saved'] = request()->input('isSaved');
 
         auth()->user()->recipes()->create($attributes);
     } // 
+
+    public function delete()
+    {
+        $recipe = Recipe::where('id', request()->input("id"))->first();
+
+        if ($recipe) {
+            $recipe->delete();
+
+            return "recipe deleted";
+        }
+    }
 }

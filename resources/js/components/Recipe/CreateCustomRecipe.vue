@@ -13,7 +13,7 @@
 				alt="add-icon"
 			/>
 		</button>
-		<CreateRecipeModal @customRecipe="customRecipeData" />
+		<CreateRecipeModal />
 	</div>
 </template>
 
@@ -26,9 +26,6 @@ export default {
 	methods: {
 		createRecipe() {
 			this.$modal.show("create-recipe");
-		},
-		customRecipeData(data) {
-			this.$emit("customRecipe", data);
 		}
 	}
 };
