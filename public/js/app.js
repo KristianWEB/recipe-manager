@@ -2216,6 +2216,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     createRecipe: function createRecipe() {
       this.$modal.show("create-recipe");
+    },
+    customRecipeData: function customRecipeData(data) {
+      this.$emit("customRecipe", data);
     }
   }
 });
@@ -2339,23 +2342,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      name: "",
+      imageUrl: "",
+      totalWeight: "",
+      totalCalories: "",
       ingredient: {
-        name: "",
+        text: "",
         weight: ""
       },
       ingredients: []
@@ -2364,8 +2359,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     addIngredient: function addIngredient() {
       this.ingredients.push(_objectSpread({}, this.ingredient));
-      this.ingredient.name = "";
+      this.ingredient.text = "";
       this.ingredient.weight = "";
+    },
+    removeIngredient: function removeIngredient(ingr) {
+      return this.ingredients.splice(this.ingredients.indexOf(ingr), 1);
+    },
+    createCustomRecipe: function createCustomRecipe() {
+      var _this = this;
+
+      axios.post("/api/create-recipe", {
+        image: this.imageUrl,
+        label: this.name,
+        ingredients: this.ingredients,
+        calories: this.totalCalories,
+        totalWeight: this.totalWeight
+      }).then(function (res) {
+        axios.get("/api/recipes").then(function (_ref) {
+          var data = _ref.data;
+          return _this.$emit("customRecipe", data);
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      })["catch"](function (err) {
+        return console.log(err.response);
+      });
     }
   }
 });
@@ -2773,6 +2791,11 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       return console.log(error);
     });
+  },
+  methods: {
+    customRecipe: function customRecipe(data) {
+      this.savedRecipes = data;
+    }
   }
 });
 
@@ -21471,7 +21494,7 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("CreateRecipeModal")
+      _c("CreateRecipeModal", { on: { customRecipe: _vm.customRecipeData } })
     ],
     1
   )
@@ -21512,13 +21535,21 @@ var render = function() {
             staticClass:
               "p-6 text-3xl font-bold text-heading-primary text-center"
           },
-          [_vm._v("\n            Create a Custom Recipe\n        ")]
+          [_vm._v("Create a Custom Recipe")]
         )
       ]),
       _vm._v(" "),
       _c(
         "form",
-        { staticClass: "w-full bg-white" },
+        {
+          staticClass: "w-full bg-white",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.createCustomRecipe()
+            }
+          }
+        },
         [
           _c("div", { staticClass: "w-full pt-8 px-5" }, [
             _c(
@@ -21531,13 +21562,30 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.name,
+                  expression: "name"
+                }
+              ],
               staticClass:
-                "appearance-none rounded w-full py-2 px-4\n            leading-tight focus:outline-none bg-light-gray\n            placeholder-input-gray",
+                "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
               attrs: {
                 id: "name",
                 type: "name",
                 placeholder: "Your recipe's name",
-                name: "email"
+                name: "name"
+              },
+              domProps: { value: _vm.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.name = $event.target.value
+                }
               }
             })
           ]),
@@ -21553,6 +21601,14 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.imageUrl,
+                  expression: "imageUrl"
+                }
+              ],
               staticClass:
                 "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
               attrs: {
@@ -21560,6 +21616,15 @@ var render = function() {
                 type: "text",
                 placeholder: "Recipe's image URL",
                 name: "image"
+              },
+              domProps: { value: _vm.imageUrl },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.imageUrl = $event.target.value
+                }
               }
             })
           ]),
@@ -21576,6 +21641,14 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.totalWeight,
+                    expression: "totalWeight"
+                  }
+                ],
                 staticClass:
                   "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
                 attrs: {
@@ -21583,6 +21656,15 @@ var render = function() {
                   type: "text",
                   placeholder: "Total Weight",
                   name: "weight"
+                },
+                domProps: { value: _vm.totalWeight },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.totalWeight = $event.target.value
+                  }
                 }
               })
             ]),
@@ -21598,6 +21680,14 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.totalCalories,
+                    expression: "totalCalories"
+                  }
+                ],
                 staticClass:
                   "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
                 attrs: {
@@ -21605,6 +21695,15 @@ var render = function() {
                   type: "text",
                   placeholder: "Total Calories",
                   name: "calories"
+                },
+                domProps: { value: _vm.totalCalories },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.totalCalories = $event.target.value
+                  }
                 }
               })
             ])
@@ -21637,25 +21736,25 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.ingredient.name,
-                      expression: "ingredient.name"
+                      value: _vm.ingredient.text,
+                      expression: "ingredient.text"
                     }
                   ],
                   staticClass:
                     "appearance-none rounded w-full py-2 px-4 mr-5 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
                   attrs: {
-                    id: "ingredientName",
+                    id: "ingredientText",
                     type: "text",
                     placeholder: "Ingredient's name",
-                    name: "ingredientName"
+                    name: "ingredientText"
                   },
-                  domProps: { value: _vm.ingredient.name },
+                  domProps: { value: _vm.ingredient.text },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.ingredient, "name", $event.target.value)
+                      _vm.$set(_vm.ingredient, "text", $event.target.value)
                     }
                   }
                 }),
@@ -21734,10 +21833,9 @@ var render = function() {
                   "h1",
                   {
                     staticClass:
-                      "appearance-none rounded w-full py-2 px-4 mr-5 leading-tight focus:outline-none border border-dashed border-dark-gray text-heading-primary",
-                    attrs: { id: "ingredientWeight" }
+                      "appearance-none rounded w-full py-2 px-4 mr-5 leading-tight focus:outline-none border border-dashed border-dark-gray text-heading-primary"
                   },
-                  [_vm._v(_vm._s(ingredient.name))]
+                  [_vm._v(_vm._s(ingredient.text))]
                 ),
                 _vm._v(" "),
                 _c(
@@ -21753,7 +21851,13 @@ var render = function() {
                   "button",
                   {
                     staticClass:
-                      "border border-red-600 rounded-full p-1 text-black"
+                      "border border-red-600 rounded-full p-1 text-black",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.removeIngredient(ingredient)
+                      }
+                    }
                   },
                   [
                     _c(
@@ -21800,14 +21904,9 @@ var render = function() {
                   "button",
                   {
                     staticClass:
-                      "shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg",
-                    attrs: { type: "submit" }
+                      "shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg"
                   },
-                  [
-                    _vm._v(
-                      "\n                    Create Recipe\n                "
-                    )
-                  ]
+                  [_vm._v("Create Recipe")]
                 )
               ])
             ]
@@ -22479,7 +22578,7 @@ var render = function() {
       _vm._v(" "),
       _c("RecipeList", { attrs: { savedRecipes: _vm.savedRecipes } }),
       _vm._v(" "),
-      _c("CreateCustomRecipe")
+      _c("CreateCustomRecipe", { on: { customRecipe: _vm.customRecipe } })
     ],
     1
   )
