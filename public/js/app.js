@@ -2216,9 +2216,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     createRecipe: function createRecipe() {
       this.$modal.show("create-recipe");
-    },
-    customRecipeData: function customRecipeData(data) {
-      this.$emit("customRecipe", data);
     }
   }
 });
@@ -2373,14 +2370,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         label: this.name,
         ingredients: this.ingredients,
         calories: this.totalCalories,
-        totalWeight: this.totalWeight
-      }).then(function (res) {
-        axios.get("/api/recipes").then(function (_ref) {
-          var data = _ref.data;
-          return _this.$emit("customRecipe", data);
-        })["catch"](function (err) {
-          return console.log(err.response);
-        });
+        totalWeight: this.totalWeight,
+        isSaved: true
+      }).then(function () {
+        return _this.$store.dispatch("fetchRecipes");
       })["catch"](function (err) {
         return console.log(err.response);
       });
@@ -2399,6 +2392,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
 //
 //
 //
@@ -2451,14 +2453,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["recipe"],
-  data: function data() {
-    return {
-      savedRecipe: false
-    };
-  },
   methods: {
     saveRecipe: function saveRecipe(recipe) {
-      axios.post("/api/save-recipe", recipe)["catch"](function (err) {
+      axios.post("/api/save-recipe", _objectSpread({}, recipe, {
+        isSaved: true
+      }))["catch"](function (err) {
+        return console.log(err.response);
+      });
+    },
+    deleteRecipe: function deleteRecipe(recipe) {
+      var _this = this;
+
+      axios.post("/api/delete-recipe", recipe).then(function () {
+        return _this.$store.dispatch("fetchRecipes");
+      })["catch"](function (err) {
         return console.log(err.response);
       });
     }
@@ -2755,24 +2763,12 @@ __webpack_require__.r(__webpack_exports__);
     RecipeList: _components_Recipe_RecipeList__WEBPACK_IMPORTED_MODULE_1__["default"],
     CreateCustomRecipe: _components_Recipe_CreateCustomRecipe__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  data: function data() {
-    return {
-      savedRecipes: []
-    };
-  },
   created: function created() {
-    var _this = this;
-
-    axios.get("/api/recipes").then(function (_ref) {
-      var data = _ref.data;
-      return _this.savedRecipes = data;
-    })["catch"](function (error) {
-      return console.log(error);
-    });
+    this.$store.dispatch("fetchRecipes");
   },
-  methods: {
-    customRecipe: function customRecipe(data) {
-      this.savedRecipes = data;
+  computed: {
+    savedRecipes: function savedRecipes() {
+      return this.$store.getters.savedRecipes;
     }
   }
 });
@@ -21423,7 +21419,7 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("CreateRecipeModal", { on: { customRecipe: _vm.customRecipeData } })
+      _c("CreateRecipeModal")
     ],
     1
   )
@@ -21887,50 +21883,137 @@ var render = function() {
             "absolute top-0 right-0 text-white flex justify-center items-center"
         },
         [
-          _c(
-            "button",
-            {
-              staticClass: "mr-6 mt-4",
-              on: {
-                click: function($event) {
-                  return _vm.saveRecipe(_vm.recipe)
-                }
-              }
-            },
-            [
-              _c(
-                "svg",
+          !_vm.recipe.is_saved
+            ? _c(
+                "button",
                 {
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    width: "512",
-                    height: "512",
-                    viewBox: "0 0 512 512",
-                    "svg-inline": "",
-                    fill: "#000",
-                    role: "presentation",
-                    focusable: "false",
-                    tabindex: "-1"
+                  staticClass: "mr-6 mt-4",
+                  on: {
+                    click: function($event) {
+                      return _vm.saveRecipe(_vm.recipe)
+                    }
                   }
                 },
                 [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z",
-                      fill: "none",
-                      stroke: "#000",
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      "stroke-width": "32"
-                    }
-                  })
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "512",
+                        height: "512",
+                        viewBox: "0 0 512 512",
+                        "svg-inline": "",
+                        width: "35px",
+                        height: "35px",
+                        role: "presentation",
+                        focusable: "false",
+                        tabindex: "-1"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z",
+                          fill: "none",
+                          stroke: "#fff",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round",
+                          "stroke-width": "32"
+                        }
+                      })
+                    ]
+                  )
                 ]
               )
-            ]
-          ),
+            : _c(
+                "button",
+                {
+                  staticClass: "mr-6 mt-4",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteRecipe(_vm.recipe)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "512",
+                        height: "512",
+                        viewBox: "0 0 512 512",
+                        "svg-inline": "",
+                        fill: "red",
+                        width: "35px",
+                        height: "35px",
+                        role: "presentation",
+                        focusable: "false",
+                        tabindex: "-1"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M256 448a32 32 0 01-18-5.57c-78.59-53.35-112.62-89.93-131.39-112.8-40-48.75-59.15-98.8-58.61-153C48.63 114.52 98.46 64 159.08 64c44.08 0 74.61 24.83 92.39 45.51a6 6 0 009.06 0C278.31 88.81 308.84 64 352.92 64c60.62 0 110.45 50.52 111.08 112.64.54 54.21-18.63 104.26-58.61 153-18.77 22.87-52.8 59.45-131.39 112.8a32 32 0 01-18 5.56z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
           _vm._v(" "),
-          _vm._m(0)
+          _c("button", { staticClass: "mr-6 mt-4" }, [
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "8",
+                  height: "28",
+                  viewBox: "0 0 8 28",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg",
+                  "svg-inline": "",
+                  role: "presentation",
+                  focusable: "false",
+                  tabindex: "-1"
+                }
+              },
+              [
+                _c("ellipse", {
+                  attrs: {
+                    cx: "3.659",
+                    cy: "3.857",
+                    rx: "3.555",
+                    ry: "3.561",
+                    fill: "#fff"
+                  }
+                }),
+                _c("ellipse", {
+                  attrs: {
+                    cx: "3.659",
+                    cy: "13.827",
+                    rx: "3.555",
+                    ry: "3.561",
+                    fill: "#fff"
+                  }
+                }),
+                _c("ellipse", {
+                  attrs: {
+                    cx: "3.659",
+                    cy: "23.797",
+                    rx: "3.555",
+                    ry: "3.561",
+                    fill: "#fff"
+                  }
+                })
+              ]
+            )
+          ])
         ]
       ),
       _vm._v(" "),
@@ -21952,29 +22035,61 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("div", { staticClass: "flex justify-center" }, [
-              _c("img", {
-                staticClass: "pr-1",
-                attrs: {
-                  src: __webpack_require__(/*! ../../../assets/calculator.svg */ "./resources/assets/calculator.svg"),
-                  alt: "calculator",
-                  width: "25",
-                  height: "25"
-                }
-              }),
+              _c(
+                "svg",
+                {
+                  class: "pb-1",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 512 512",
+                    "svg-inline": "",
+                    width: "25",
+                    height: "25",
+                    role: "presentation",
+                    focusable: "false",
+                    tabindex: "-1"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M368 48H144c-26.6 0-48 21.6-48 48v320c0 26.4 21.4 48 48 48h224c26.4 0 48-21.6 48-48V96c0-26.4-21.4-48-48-48zM200 416h-48v-48h48v48zm0-88h-48v-48h48v48zm0-88h-48v-48h48v48zm80 176h-48v-48h48v48zm0-88h-48v-48h48v48zm0-88h-48v-48h48v48zm80 176h-48V280h48v136zm0-176h-48v-48h48v48zm0-96H152V96h208v48z",
+                      fill: "#7b8794"
+                    }
+                  })
+                ]
+              ),
               _vm._v(" "),
               _c("h6", { staticClass: "font-medium text-orange mr-6" }, [
                 _vm._v(_vm._s(Math.round(_vm.recipe.calories)) + "cal")
               ]),
               _vm._v(" "),
-              _c("img", {
-                staticClass: "pr-1",
-                attrs: {
-                  src: __webpack_require__(/*! ../../../assets/weight.svg */ "./resources/assets/weight.svg"),
-                  alt: "weight",
-                  width: "25",
-                  height: "25"
-                }
-              }),
+              _c(
+                "svg",
+                {
+                  class: "pr-1",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 512 512",
+                    "svg-inline": "",
+                    width: "25",
+                    height: "25",
+                    role: "presentation",
+                    focusable: "false",
+                    tabindex: "-1"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M352 144v-39.6C352 82 334 64 311.6 64H200.4C178 64 160 82 160 104.4V144H48v263.6C48 430 66 448 88.4 448h335.2c22.4 0 40.4-18 40.4-40.4V144H352zm-40 0H200v-40h112v40z",
+                      fill: "#7b8794"
+                    }
+                  })
+                ]
+              ),
               _vm._v(" "),
               _vm.recipe.totalWeight
                 ? _c("h6", { staticClass: "font-medium text-orange" }, [
@@ -21992,7 +22107,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "ul",
@@ -22007,13 +22122,30 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "flex" }, [
-                _c("img", {
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../assets/weight.svg */ "./resources/assets/weight.svg"),
-                    width: "20",
-                    height: "20"
-                  }
-                }),
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 512 512",
+                      "svg-inline": "",
+                      width: "20",
+                      height: "20",
+                      role: "presentation",
+                      focusable: "false",
+                      tabindex: "-1"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M352 144v-39.6C352 82 334 64 311.6 64H200.4C178 64 160 82 160 104.4V144H48v263.6C48 430 66 448 88.4 448h335.2c22.4 0 40.4-18 40.4-40.4V144H352zm-40 0H200v-40h112v40z",
+                        fill: "#7b8794"
+                      }
+                    })
+                  ]
+                ),
                 _vm._v(" "),
                 _c(
                   "p",
@@ -22045,19 +22177,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "mr-6 mt-4" }, [
-      _c("img", {
-        attrs: {
-          src: __webpack_require__(/*! ../../../assets/settings-icon.svg */ "./resources/assets/settings-icon.svg"),
-          alt: "settings icon"
-        }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -22513,7 +22632,7 @@ var render = function() {
       _vm._v(" "),
       _c("RecipeList", { attrs: { savedRecipes: _vm.savedRecipes } }),
       _vm._v(" "),
-      _c("CreateCustomRecipe", { on: { customRecipe: _vm.customRecipe } })
+      _c("CreateCustomRecipe")
     ],
     1
   )
@@ -38647,39 +38766,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/assets/calculator.svg":
-/*!*****************************************!*\
-  !*** ./resources/assets/calculator.svg ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/calculator.svg?a07ddc22558225f2056f9e372dc714f2";
-
-/***/ }),
-
-/***/ "./resources/assets/settings-icon.svg":
-/*!********************************************!*\
-  !*** ./resources/assets/settings-icon.svg ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/settings-icon.svg?cbf9d057d0ca661e281ef706be28f2fb";
-
-/***/ }),
-
-/***/ "./resources/assets/weight.svg":
-/*!*************************************!*\
-  !*** ./resources/assets/weight.svg ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/weight.svg?fac9f94c3ef4f2c6cdb0e288ad2d14d9";
-
-/***/ }),
-
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
@@ -39878,7 +39964,8 @@ var user = Object(_helpers_auth__WEBPACK_IMPORTED_MODULE_0__["getLocalUser"])();
     currentUser: user,
     isLoggedIn: !!user,
     loading: false,
-    auth_error: null
+    auth_error: null,
+    savedRecipes: null
   },
   getters: {
     isLoading: function isLoading(state) {
@@ -39892,6 +39979,9 @@ var user = Object(_helpers_auth__WEBPACK_IMPORTED_MODULE_0__["getLocalUser"])();
     },
     authError: function authError(state) {
       return state.auth_error;
+    },
+    savedRecipes: function savedRecipes(state) {
+      return state.savedRecipes;
     }
   },
   mutations: {
@@ -39902,6 +39992,9 @@ var user = Object(_helpers_auth__WEBPACK_IMPORTED_MODULE_0__["getLocalUser"])();
     register: function register(state) {
       state.loading = true;
       state.auth_error = null;
+    },
+    recipes: function recipes(state, savedRecipes) {
+      state.savedRecipes = savedRecipes;
     },
     loginSuccess: function loginSuccess(state, payload) {
       state.auth_error = null;
@@ -39923,6 +40016,12 @@ var user = Object(_helpers_auth__WEBPACK_IMPORTED_MODULE_0__["getLocalUser"])();
     },
     register: function register(context) {
       context.commit("register");
+    },
+    fetchRecipes: function fetchRecipes(context) {
+      axios.get("/api/recipes").then(function (_ref) {
+        var data = _ref.data;
+        return context.commit("recipes", data);
+      });
     }
   }
 });
