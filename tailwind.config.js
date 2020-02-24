@@ -7,6 +7,9 @@ module.exports = {
                 "96": "30rem",
                 card: "26rem"
             },
+            height: {
+                "1/2": "10rem"
+            },
             borderWidth: {
                 "1": "1px"
             },
@@ -21,6 +24,12 @@ module.exports = {
             },
             fontFamily: {
                 roboto: ["Roboto", ...defaultTheme.fontFamily.sans]
+            },
+            screens: {
+                mobileMax: { max: "400px" },
+                mobileMin: { min: "400px" },
+                tabletMin: { min: "565px" },
+                tabletMax: { max: "767px" }
             }
         }
     },

@@ -5,13 +5,15 @@
 				<RecipeCard :recipe="recipe.recipe" />
 			</li>
 		</ul>
-		<div class="flex justify-center">
-			<ul v-if="savedRecipes" class="w-5/6 flex flex-wrap mx-8 mt-8">
-				<li class="w-card mx-4 mb-6" v-for="(recipe, id) in savedRecipes" :key="id">
-					<RecipeCard :recipe="recipe" />
-				</li>
-			</ul>
-		</div>
+		<ul v-if="savedRecipes" class="flex my-4 flex-wrap tabletMax:justify-center">
+			<li
+				class="my-4 tabletMax:w-11/12 mobileMin:w-card md:mx-4"
+				v-for="(recipe, id) in savedRecipes"
+				:key="id"
+			>
+				<RecipeCard :recipe="recipe" />
+			</li>
+		</ul>
 	</div>
 </template>
 
