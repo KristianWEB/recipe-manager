@@ -1,5 +1,5 @@
 <template>
-	<ul class="rounded-lg w-card overflow-hidden shadow font-roboto relative">
+	<div class="rounded-lg w-full overflow-hidden shadow font-roboto relative">
 		<img class="w-full h-64 object-cover" :src="recipe.image" :alt="recipe.label" />
 		<div class="absolute top-0 right-0 text-white flex justify-center items-center">
 			<button v-if="!recipe.is_saved" class="mr-6 mt-4" @click="saveRecipe(recipe)">
@@ -75,7 +75,7 @@
 		<div class="flex justify-end bg-light-gray pr-6 pb-3 pt-2">
 			<a :href="recipe.url" target="_blank" class="font-medium text-orange">READ MORE</a>
 		</div>
-	</ul>
+	</div>
 </template>
 
 <script>
