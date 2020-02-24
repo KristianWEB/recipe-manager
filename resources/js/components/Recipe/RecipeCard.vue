@@ -29,9 +29,23 @@
 			<div class="w-auto bg-white z-10 py-2 px-4 mx-8 -mt-12 shadow rounded-lg">
 				<h1 class="font-bold text-xl text-heading-primary text-center">{{ recipe.label }}</h1>
 				<div class="flex justify-center">
-					<img src="../../../assets/calculator.svg" alt="calculator" width="25" height="25" class="pb-1" />
+					<img
+						svg-inline
+						src="../../../../public/images/calculator.svg"
+						alt="calculator"
+						width="25"
+						height="25"
+						class="pb-1"
+					/>
 					<h6 class="font-medium text-orange mr-6">{{ Math.round(recipe.calories) }}cal</h6>
-					<img src="../../../assets/weight.svg" alt="weight" width="25" height="25" class="pr-1" />
+					<img
+						svg-inline
+						src="../../../../public/images/weight.svg"
+						alt="weight"
+						width="25"
+						height="25"
+						class="pr-1"
+					/>
 					<h6
 						v-if="recipe.totalWeight"
 						class="font-medium text-orange"
@@ -53,7 +67,7 @@
 			>
 				<p class="text-sm text-heading-primary">{{ ingredient.text }}</p>
 				<div class="flex">
-					<img src="../../../assets/weight.svg" width="20" height="20" />
+					<img svg-inline src="../../../../public/images/weight.svg" width="20" height="20" />
 					<p class="text-sm font-bold text-input-gray ml-2">{{ Math.round(ingredient.weight) }}g</p>
 				</div>
 			</li>
