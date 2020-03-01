@@ -2500,6 +2500,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["recipes", "savedRecipes"],
@@ -21388,7 +21392,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "fixed mb-12 mr-12 bg-orange right-0 bottom-0 rounded-full p-2",
+            "fixed mb-12 mr-12 tabletMax:mb-6 tabletMax:mr-6 bg-orange right-0 bottom-0 rounded-full p-2 z-50",
           on: { click: _vm.createRecipe }
         },
         [
@@ -21865,10 +21869,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "ul",
+    "div",
     {
       staticClass:
-        "rounded-lg w-card overflow-hidden shadow font-roboto relative"
+        "rounded-lg w-full overflow-hidden shadow font-roboto relative"
     },
     [
       _c("img", {
@@ -22218,11 +22222,11 @@ var render = function() {
     _vm.recipes
       ? _c(
           "ul",
-          { staticClass: "flex flex-wrap jutify-end mr-4" },
+          { staticClass: "flex flex-wrap justify-center" },
           _vm._l(_vm.recipes, function(recipe, id) {
             return _c(
               "li",
-              { key: id, staticClass: "w-auto m-8" },
+              { key: id, staticClass: "w-card m-4" },
               [_c("RecipeCard", { attrs: { recipe: recipe.recipe } })],
               1
             )
@@ -22234,11 +22238,14 @@ var render = function() {
     _vm.savedRecipes
       ? _c(
           "ul",
-          { staticClass: "flex flex-wrap justify-start mr-24 overflow-y-auto" },
+          { staticClass: "flex my-4 flex-wrap tabletMax:justify-center" },
           _vm._l(_vm.savedRecipes, function(recipe, id) {
             return _c(
               "li",
-              { key: id, staticClass: "w-auto m-8" },
+              {
+                key: id,
+                staticClass: "my-4 tabletMax:justify-center w-card mx-4"
+              },
               [_c("RecipeCard", { attrs: { recipe: recipe } })],
               1
             )

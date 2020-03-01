@@ -26,10 +26,8 @@ module.exports = {
                 roboto: ["Roboto", ...defaultTheme.fontFamily.sans]
             },
             screens: {
-                mobileMax: { max: "400px" },
-                mobileMin: { min: "400px" },
-                tabletMin: { min: "565px" },
-                tabletMax: { max: "767px" }
+                mobileMax: { max: "565px" },
+                tabletMax: { max: "1024px" }
             }
         }
     },
