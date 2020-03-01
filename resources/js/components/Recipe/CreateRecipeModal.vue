@@ -1,7 +1,8 @@
 <template>
-	<modal name="create-recipe" class="shadow-md font-roboto" height="auto">
-		<div class="bg-light-gray rounded-t-lg">
-			<h1 class="p-6 text-3xl font-bold text-heading-primary text-center">Create a Custom Recipe</h1>
+	<modal name="create-recipe" class="shadow-md font-roboto" height="auto" :adaptive="true">
+		<div class="bg-light-gray rounded-t-lg flex justify-between">
+			<h1 class="p-3 text-3xl font-bold text-heading-primary text-center m-auto">Create a Custom Recipe</h1>
+			<button @click="$modal.hide('create-recipe')" class="m-5 text-4xl text-outline">&times;</button>
 		</div>
 		<form class="w-full bg-white" @submit.prevent="createCustomRecipe()">
 			<div class="w-full pt-8 px-5">
