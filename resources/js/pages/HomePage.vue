@@ -1,8 +1,9 @@
 <template>
 	<div>
 		<NavBar />
-		<div class="flex">
-			<FilterForm @searchData="search" />
+		<div class="flex w-full">
+			<FilterForm v-if="!mobile" @searchData="search" class="desktopMax:hidden" />
+			<FilterFormMobile v-if="mobile" @searchData="search" />
 			<RecipeList :recipes="recipes" />
 		</div>
 	</div>
@@ -12,19 +13,24 @@
 import NavBar from "../components/NavBar/NavBar";
 import RecipeList from "../components/Recipe/RecipeList";
 import FilterForm from "../components/FilterForm/FilterForm";
+import FilterFormMobile from "../components/FilterForm/FilterFormMobile";
 export default {
 	name: "home-page",
 	components: {
 		NavBar,
 		RecipeList,
-		FilterForm
+		FilterForm,
+		FilterFormMobile
 	},
 	data() {
 		return {
-			recipes: []
+			recipes: [],
+			mobile: window.innerWidth <= 1280
 		};
 	},
 	created() {
+		addEventListener("resize", () => (this.mobile = innerWidth <= 1280));
+
 		const appId = process.env.MIX_APP_ID;
 		const appKey = process.env.MIX_APP_KEY;
 		axios
