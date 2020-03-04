@@ -11,7 +11,7 @@ import NavBar from "../components/NavBar/NavBar";
 import RecipeList from "../components/Recipe/RecipeList";
 import CreateCustomRecipe from "../components/Recipe/CreateCustomRecipe";
 export default {
-	name: "home-page",
+	name: "storage-page",
 	components: {
 		NavBar,
 		RecipeList,
