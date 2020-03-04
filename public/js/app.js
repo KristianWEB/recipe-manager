@@ -2055,6 +2055,157 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-svg-inline-loader/dist/index.min.js?!./resources/js/components/FilterForm/FilterFormMobile.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-svg-inline-loader/dist/index.min.js??ref--12-0!./resources/js/components/FilterForm/FilterFormMobile.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FilterFormMobileModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FilterFormMobileModal */ "./resources/js/components/FilterForm/FilterFormMobileModal.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    FilterFormMobileModal: _FilterFormMobileModal__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    createRecipe: function createRecipe() {
+      this.$modal.show("detailed-searching");
+    },
+    search: function search(data) {
+      this.$emit("searchData", data);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-svg-inline-loader/dist/index.min.js?!./resources/js/components/FilterForm/FilterFormMobileModal.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-svg-inline-loader/dist/index.min.js??ref--12-0!./resources/js/components/FilterForm/FilterFormMobileModal.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        keyword: "",
+        calories: null,
+        dietLabel: "balanced",
+        cookingTime: null
+      }
+    };
+  },
+  methods: {
+    detailedSearching: function detailedSearching() {
+      var _this = this;
+
+      var appId = "3eb44421";
+      var appKey = "401a316f19eef2099d65b2b30b3747cc";
+      axios.get("https://api.edamam.com/search?q=".concat(this.form.keyword, "&app_id=").concat(appId, "&app_key=").concat(appKey, "&from=0&to=12&calories=").concat(this.form.calories, "&diet=").concat(this.form.dietLabel, "&time=").concat(this.form.cookingTime), {
+        "Access-Control-Allow-Origin": "*"
+      }).then(function (_ref) {
+        var data = _ref.data;
+
+        _this.$emit("searchData", data.hits);
+
+        console.log(data.hits);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-svg-inline-loader/dist/index.min.js?!./resources/js/components/LoginForm/LoginForm.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-svg-inline-loader/dist/index.min.js??ref--12-0!./resources/js/components/LoginForm/LoginForm.vue?vue&type=script&lang=js& ***!
@@ -2339,6 +2490,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2504,6 +2656,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["recipes", "savedRecipes"],
@@ -2639,6 +2795,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/NavBar/NavBar */ "./resources/js/components/NavBar/NavBar.vue");
 /* harmony import */ var _components_Recipe_RecipeList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Recipe/RecipeList */ "./resources/js/components/Recipe/RecipeList.vue");
 /* harmony import */ var _components_FilterForm_FilterForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/FilterForm/FilterForm */ "./resources/js/components/FilterForm/FilterForm.vue");
+/* harmony import */ var _components_FilterForm_FilterFormMobile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/FilterForm/FilterFormMobile */ "./resources/js/components/FilterForm/FilterFormMobile.vue");
 //
 //
 //
@@ -2649,6 +2806,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -2657,16 +2816,21 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     NavBar: _components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_0__["default"],
     RecipeList: _components_Recipe_RecipeList__WEBPACK_IMPORTED_MODULE_1__["default"],
-    FilterForm: _components_FilterForm_FilterForm__WEBPACK_IMPORTED_MODULE_2__["default"]
+    FilterForm: _components_FilterForm_FilterForm__WEBPACK_IMPORTED_MODULE_2__["default"],
+    FilterFormMobile: _components_FilterForm_FilterFormMobile__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
-      recipes: []
+      recipes: [],
+      mobile: window.innerWidth <= 1280
     };
   },
   created: function created() {
     var _this = this;
 
+    addEventListener("resize", function () {
+      return _this.mobile = innerWidth <= 1280;
+    });
     var appId = "3eb44421";
     var appKey = "401a316f19eef2099d65b2b30b3747cc";
     axios.get("https://api.edamam.com/search?q=chocolate&app_id=".concat(appId, "&app_key=").concat(appKey, "&from=0&to=12"), {
@@ -21113,6 +21277,352 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-svg-inline-loader/dist/index.min.js?!./resources/js/components/FilterForm/FilterFormMobile.vue?vue&type=template&id=35bcbc14&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-svg-inline-loader/dist/index.min.js??ref--12-0!./resources/js/components/FilterForm/FilterFormMobile.vue?vue&type=template&id=35bcbc14&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "button",
+        {
+          staticClass:
+            "fixed mb-12 mr-12 tabletMax:mb-6 tabletMax:mr-6 bg-orange right-0 bottom-0 rounded-full p-2 z-50",
+          on: { click: _vm.createRecipe }
+        },
+        [
+          _c(
+            "svg",
+            {
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "512",
+                height: "512",
+                viewBox: "0 0 512 512",
+                "svg-inline": "",
+                fill: "#fff",
+                width: "35px",
+                height: "35px",
+                role: "presentation",
+                focusable: "false",
+                tabindex: "-1"
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z",
+                  fill: "none",
+                  stroke: "#fff",
+                  "stroke-miterlimit": "10",
+                  "stroke-width": "32"
+                }
+              }),
+              _c("path", {
+                attrs: {
+                  fill: "none",
+                  stroke: "#fff",
+                  "stroke-linecap": "round",
+                  "stroke-miterlimit": "10",
+                  "stroke-width": "32",
+                  d: "M338.29 338.29L448 448"
+                }
+              })
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("FilterFormMobileModal", { on: { searchData: _vm.search } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-svg-inline-loader/dist/index.min.js?!./resources/js/components/FilterForm/FilterFormMobileModal.vue?vue&type=template&id=208faa07&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-svg-inline-loader/dist/index.min.js??ref--12-0!./resources/js/components/FilterForm/FilterFormMobileModal.vue?vue&type=template&id=208faa07& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "modal",
+    {
+      staticClass: "w-full font-roboto",
+      attrs: { name: "detailed-searching", height: "auto", adaptive: true }
+    },
+    [
+      _c(
+        "form",
+        {
+          staticClass: "rounded px-8 pt-6 pb-8 mb-4",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.detailedSearching($event)
+            }
+          }
+        },
+        [
+          _c("h3", { staticClass: "text-xl font-medium pb-6 mb-0" }, [
+            _vm._v("Filters")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-dark-gray text-sm font-bold mb-2",
+                attrs: { for: "username" }
+              },
+              [_vm._v("Search by Keyword")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.keyword,
+                  expression: "form.keyword"
+                }
+              ],
+              staticClass:
+                "shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline",
+              attrs: { id: "username", type: "text" },
+              domProps: { value: _vm.form.keyword },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "keyword", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-dark-gray text-sm font-bold mb-2",
+                attrs: { for: "calories" }
+              },
+              [_vm._v("Search by Calories per Serving")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.calories,
+                  expression: "form.calories"
+                }
+              ],
+              staticClass:
+                "shadow appearance-none border rounded w-full py-2 px-3 text-dark-gray leading-tight focus:outline-none focus:shadow-outline",
+              attrs: { id: "calories", type: "number" },
+              domProps: { value: _vm.form.calories },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "calories", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-dark-gray text-sm font-bold mb-2",
+                attrs: { for: "grid-state" }
+              },
+              [_vm._v("Pick a Diet label")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "relative" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.dietLabel,
+                      expression: "form.dietLabel"
+                    }
+                  ],
+                  staticClass:
+                    "shadow border text-dark-gray block appearance-none w-full py-3 px-4 pr-8 rounded leading-tight focus:outline-none",
+                  attrs: { id: "dietLabel" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.form,
+                        "dietLabel",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "balanced" } }, [
+                    _vm._v("Balanced")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "high-protein" } }, [
+                    _vm._v("High-Protein")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "high-fiber" } }, [
+                    _vm._v("High-Fiber")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "low-carb" } }, [
+                    _vm._v("Low-Carb")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "low-fat" } }, [
+                    _vm._v("Low-Fat")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "low-sodium" } }, [
+                    _vm._v("Low-Sodium")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "fill-current h-4 w-4",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        viewBox: "0 0 20 20"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-dark-gray text-sm font-bold mb-2",
+                attrs: { for: "username" }
+              },
+              [_vm._v("Cooking time ( Minutes )")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.cookingTime,
+                  expression: "form.cookingTime"
+                }
+              ],
+              staticClass:
+                "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+              attrs: { id: "cookingTime", type: "text" },
+              domProps: { value: _vm.form.cookingTime },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "cookingTime", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex items-center justify-end" }, [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "py-1 px-4 rounded-lg focus:outline-none focus:shadow-outline border text-outline border-outline font-medium",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Search")]
+            )
+          ])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-svg-inline-loader/dist/index.min.js?!./resources/js/components/LoginForm/LoginForm.vue?vue&type=template&id=64a4e050&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-svg-inline-loader/dist/index.min.js??ref--12-0!./resources/js/components/LoginForm/LoginForm.vue?vue&type=template&id=64a4e050& ***!
@@ -21454,19 +21964,36 @@ var render = function() {
     "modal",
     {
       staticClass: "shadow-md font-roboto",
-      attrs: { name: "create-recipe", height: "auto" }
+      attrs: { name: "create-recipe", height: "auto", adaptive: true }
     },
     [
-      _c("div", { staticClass: "bg-light-gray rounded-t-lg" }, [
-        _c(
-          "h1",
-          {
-            staticClass:
-              "p-6 text-3xl font-bold text-heading-primary text-center"
-          },
-          [_vm._v("Create a Custom Recipe")]
-        )
-      ]),
+      _c(
+        "div",
+        { staticClass: "bg-light-gray rounded-t-lg flex justify-between" },
+        [
+          _c(
+            "h1",
+            {
+              staticClass:
+                "p-3 text-3xl font-bold text-heading-primary text-center m-auto"
+            },
+            [_vm._v("Create a Custom Recipe")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "m-5 text-4xl text-outline",
+              on: {
+                click: function($event) {
+                  return _vm.$modal.hide("create-recipe")
+                }
+              }
+            },
+            [_vm._v("×")]
+          )
+        ]
+      ),
       _vm._v(" "),
       _c(
         "form",
@@ -22222,11 +22749,15 @@ var render = function() {
     _vm.recipes
       ? _c(
           "ul",
-          { staticClass: "flex flex-wrap justify-center" },
+          { staticClass: "flex flex-wrap justify-center my-4" },
           _vm._l(_vm.recipes, function(recipe, id) {
             return _c(
               "li",
-              { key: id, staticClass: "w-card m-4" },
+              {
+                key: id,
+                staticClass:
+                  "tabletMax:justify-center m-4 w-card mobileMax:w-full"
+              },
               [_c("RecipeCard", { attrs: { recipe: recipe.recipe } })],
               1
             )
@@ -22534,9 +23065,18 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "flex" },
+        { staticClass: "flex w-full" },
         [
-          _c("FilterForm", { on: { searchData: _vm.search } }),
+          !_vm.mobile
+            ? _c("FilterForm", {
+                staticClass: "desktopMax:hidden",
+                on: { searchData: _vm.search }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.mobile
+            ? _c("FilterFormMobile", { on: { searchData: _vm.search } })
+            : _vm._e(),
           _vm._v(" "),
           _c("RecipeList", { attrs: { recipes: _vm.recipes } })
         ],
@@ -39024,6 +39564,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_node_modules_vue_svg_inline_loader_dist_index_min_js_ref_12_0_FilterForm_vue_vue_type_template_id_6e478998___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_node_modules_vue_svg_inline_loader_dist_index_min_js_ref_12_0_FilterForm_vue_vue_type_template_id_6e478998___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/FilterForm/FilterFormMobile.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/FilterForm/FilterFormMobile.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FilterFormMobile_vue_vue_type_template_id_35bcbc14_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FilterFormMobile.vue?vue&type=template&id=35bcbc14&scoped=true& */ "./resources/js/components/FilterForm/FilterFormMobile.vue?vue&type=template&id=35bcbc14&scoped=true&");
+/* harmony import */ var _FilterFormMobile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FilterFormMobile.vue?vue&type=script&lang=js& */ "./resources/js/components/FilterForm/FilterFormMobile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FilterFormMobile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FilterFormMobile_vue_vue_type_template_id_35bcbc14_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FilterFormMobile_vue_vue_type_template_id_35bcbc14_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "35bcbc14",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/FilterForm/FilterFormMobile.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/FilterForm/FilterFormMobile.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/FilterForm/FilterFormMobile.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_node_modules_vue_svg_inline_loader_dist_index_min_js_ref_12_0_FilterFormMobile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!../../../../node_modules/vue-svg-inline-loader/dist/index.min.js??ref--12-0!./FilterFormMobile.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-svg-inline-loader/dist/index.min.js?!./resources/js/components/FilterForm/FilterFormMobile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_node_modules_vue_svg_inline_loader_dist_index_min_js_ref_12_0_FilterFormMobile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/FilterForm/FilterFormMobile.vue?vue&type=template&id=35bcbc14&scoped=true&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/FilterForm/FilterFormMobile.vue?vue&type=template&id=35bcbc14&scoped=true& ***!
+  \************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_node_modules_vue_svg_inline_loader_dist_index_min_js_ref_12_0_FilterFormMobile_vue_vue_type_template_id_35bcbc14_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!../../../../node_modules/vue-svg-inline-loader/dist/index.min.js??ref--12-0!./FilterFormMobile.vue?vue&type=template&id=35bcbc14&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-svg-inline-loader/dist/index.min.js?!./resources/js/components/FilterForm/FilterFormMobile.vue?vue&type=template&id=35bcbc14&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_node_modules_vue_svg_inline_loader_dist_index_min_js_ref_12_0_FilterFormMobile_vue_vue_type_template_id_35bcbc14_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_node_modules_vue_svg_inline_loader_dist_index_min_js_ref_12_0_FilterFormMobile_vue_vue_type_template_id_35bcbc14_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/FilterForm/FilterFormMobileModal.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/FilterForm/FilterFormMobileModal.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FilterFormMobileModal_vue_vue_type_template_id_208faa07___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FilterFormMobileModal.vue?vue&type=template&id=208faa07& */ "./resources/js/components/FilterForm/FilterFormMobileModal.vue?vue&type=template&id=208faa07&");
+/* harmony import */ var _FilterFormMobileModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FilterFormMobileModal.vue?vue&type=script&lang=js& */ "./resources/js/components/FilterForm/FilterFormMobileModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FilterFormMobileModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FilterFormMobileModal_vue_vue_type_template_id_208faa07___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FilterFormMobileModal_vue_vue_type_template_id_208faa07___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/FilterForm/FilterFormMobileModal.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/FilterForm/FilterFormMobileModal.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/FilterForm/FilterFormMobileModal.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_node_modules_vue_svg_inline_loader_dist_index_min_js_ref_12_0_FilterFormMobileModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!../../../../node_modules/vue-svg-inline-loader/dist/index.min.js??ref--12-0!./FilterFormMobileModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-svg-inline-loader/dist/index.min.js?!./resources/js/components/FilterForm/FilterFormMobileModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_node_modules_vue_svg_inline_loader_dist_index_min_js_ref_12_0_FilterFormMobileModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/FilterForm/FilterFormMobileModal.vue?vue&type=template&id=208faa07&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/FilterForm/FilterFormMobileModal.vue?vue&type=template&id=208faa07& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_node_modules_vue_svg_inline_loader_dist_index_min_js_ref_12_0_FilterFormMobileModal_vue_vue_type_template_id_208faa07___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!../../../../node_modules/vue-svg-inline-loader/dist/index.min.js??ref--12-0!./FilterFormMobileModal.vue?vue&type=template&id=208faa07& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-svg-inline-loader/dist/index.min.js?!./resources/js/components/FilterForm/FilterFormMobileModal.vue?vue&type=template&id=208faa07&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_node_modules_vue_svg_inline_loader_dist_index_min_js_ref_12_0_FilterFormMobileModal_vue_vue_type_template_id_208faa07___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_node_modules_vue_svg_inline_loader_dist_index_min_js_ref_12_0_FilterFormMobileModal_vue_vue_type_template_id_208faa07___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

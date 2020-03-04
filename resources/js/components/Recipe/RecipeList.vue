@@ -1,7 +1,11 @@
 <template>
 	<div>
-		<ul v-if="recipes" class="flex flex-wrap justify-center">
-			<li class="w-card m-4" v-for="(recipe, id) in recipes" :key="id">
+		<ul v-if="recipes" class="flex flex-wrap justify-center my-4">
+			<li
+				class="tabletMax:justify-center m-4 w-card mobileMax:w-full"
+				v-for="(recipe, id) in recipes"
+				:key="id"
+			>
 				<RecipeCard :recipe="recipe.recipe" />
 			</li>
 		</ul>
