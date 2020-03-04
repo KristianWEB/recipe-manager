@@ -96,10 +96,7 @@ export default {
 						"Access-Control-Allow-Origin": "*"
 					}
 				)
-				.then(({ data }) => {
-					this.$emit("searchData", data.hits);
-					console.log(data.hits);
-				});
+				.then(({ data }) => this.$emit("searchData", data.hits));
 		}
 	}
 };
