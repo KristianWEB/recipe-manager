@@ -1,11 +1,14 @@
 <template>
 	<modal name="detailed-searching" class="w-full font-roboto" height="auto" :adaptive="true">
-		<form class="rounded px-8 pt-6 pb-8 mb-4" @submit.prevent="detailedSearching">
-			<h3 class="text-xl font-medium pb-6 mb-0">Filters</h3>
+		<div class="bg-light-gray w-full flex items-center justify-end">
+			<h3 class="text-xl m-auto font-medium py-3 mb-0">Search for a recipe</h3>
+			<button @click="$modal.hide('detailed-searching')" class="text-4xl text-outline px-3">&times;</button>
+		</div>
+		<form class="rounded px-8 py-5" @submit.prevent="detailedSearching">
 			<div class="mb-4">
 				<label class="block text-dark-gray text-sm font-bold mb-2" for="username">Search by Keyword</label>
 				<input
-					class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+					class="appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray"
 					id="username"
 					type="text"
 					v-model="form.keyword"
@@ -17,7 +20,7 @@
 					for="calories"
 				>Search by Calories per Serving</label>
 				<input
-					class="shadow appearance-none border rounded w-full py-2 px-3 text-dark-gray leading-tight focus:outline-none focus:shadow-outline"
+					class="appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray"
 					id="calories"
 					type="number"
 					v-model="form.calories"
@@ -27,7 +30,7 @@
 				<label class="block text-dark-gray text-sm font-bold mb-2" for="grid-state">Pick a Diet label</label>
 				<div class="relative">
 					<select
-						class="shadow border text-dark-gray block appearance-none w-full py-3 px-4 pr-8 rounded leading-tight focus:outline-none"
+						class="appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray"
 						id="dietLabel"
 						v-model="form.dietLabel"
 					>
@@ -53,15 +56,15 @@
 					for="username"
 				>Cooking time ( Minutes )</label>
 				<input
-					class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					class="appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray"
 					id="cookingTime"
 					type="text"
 					v-model="form.cookingTime"
 				/>
 			</div>
-			<div class="flex items-center justify-end">
+			<div class="flex items-center justify-center">
 				<button
-					class="py-1 px-4 rounded-lg focus:outline-none focus:shadow-outline border text-outline border-outline font-medium"
+					class="shadow text-white py-2 px-8 rounded bg-orange font-medium text-lg"
 					type="submit"
 				>Search</button>
 			</div>
