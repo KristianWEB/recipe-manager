@@ -51,6 +51,15 @@
 				</div>
 			</div>
 			<div class="mb-4">
+				<label class="block text-dark-gray text-sm font-bold mb-2" for="result">How many recipes?</label>
+				<input
+					class="appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray"
+					id="result"
+					type="number"
+					v-model="form.result"
+				/>
+			</div>
+			<div class="mb-4">
 				<label
 					class="block text-dark-gray text-sm font-bold mb-2"
 					for="username"
@@ -80,7 +89,8 @@ export default {
 				keyword: "",
 				calories: null,
 				dietLabel: "balanced",
-				cookingTime: null
+				cookingTime: null,
+				result: null
 			}
 		};
 	},
@@ -91,7 +101,7 @@ export default {
 
 			axios
 				.get(
-					`https://api.edamam.com/search?q=${this.form.keyword}&app_id=${appId}&app_key=${appKey}&from=0&to=12&calories=${this.form.calories}&diet=${this.form.dietLabel}&time=${this.form.cookingTime}`,
+					`https://api.edamam.com/search?q=${this.form.keyword}&app_id=${appId}&app_key=${appKey}&from=0&to=${this.form.result}&calories=${this.form.calories}&diet=${this.form.dietLabel}&time=${this.form.cookingTime}`,
 					{
 						"Access-Control-Allow-Origin": "*"
 					}

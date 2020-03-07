@@ -1935,6 +1935,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -2174,6 +2176,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2195,10 +2200,7 @@ __webpack_require__.r(__webpack_exports__);
         "Access-Control-Allow-Origin": "*"
       }).then(function (_ref) {
         var data = _ref.data;
-
-        _this.$emit("searchData", data.hits);
-
-        console.log(data.hits);
+        return _this.$emit("searchData", data.hits);
       });
     }
   }
@@ -2925,7 +2927,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "home-page",
+  name: "storage-page",
   components: {
     NavBar: _components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_0__["default"],
     RecipeList: _components_Recipe_RecipeList__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -21005,7 +21007,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("router-view")
+  return _c(
+    "keep-alive",
+    { attrs: { include: "home-page" } },
+    [_c("router-view")],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -21381,9 +21388,32 @@ var render = function() {
     },
     [
       _c(
+        "div",
+        { staticClass: "bg-light-gray w-full flex items-center justify-end" },
+        [
+          _c("h3", { staticClass: "text-xl m-auto font-medium py-3 mb-0" }, [
+            _vm._v("Search for a recipe")
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "text-4xl text-outline px-3",
+              on: {
+                click: function($event) {
+                  return _vm.$modal.hide("detailed-searching")
+                }
+              }
+            },
+            [_vm._v("×")]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
         "form",
         {
-          staticClass: "rounded px-8 pt-6 pb-8 mb-4",
+          staticClass: "rounded px-8 py-5",
           on: {
             submit: function($event) {
               $event.preventDefault()
@@ -21392,10 +21422,6 @@ var render = function() {
           }
         },
         [
-          _c("h3", { staticClass: "text-xl font-medium pb-6 mb-0" }, [
-            _vm._v("Filters")
-          ]),
-          _vm._v(" "),
           _c("div", { staticClass: "mb-4" }, [
             _c(
               "label",
@@ -21416,7 +21442,7 @@ var render = function() {
                 }
               ],
               staticClass:
-                "shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline",
+                "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
               attrs: { id: "username", type: "text" },
               domProps: { value: _vm.form.keyword },
               on: {
@@ -21450,7 +21476,7 @@ var render = function() {
                 }
               ],
               staticClass:
-                "shadow appearance-none border rounded w-full py-2 px-3 text-dark-gray leading-tight focus:outline-none focus:shadow-outline",
+                "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
               attrs: { id: "calories", type: "number" },
               domProps: { value: _vm.form.calories },
               on: {
@@ -21487,7 +21513,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "shadow border text-dark-gray block appearance-none w-full py-3 px-4 pr-8 rounded leading-tight focus:outline-none",
+                    "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
                   attrs: { id: "dietLabel" },
                   on: {
                     change: function($event) {
@@ -21586,7 +21612,7 @@ var render = function() {
                 }
               ],
               staticClass:
-                "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+                "appearance-none rounded w-full py-2 px-4 leading-tight focus:outline-none bg-light-gray placeholder-input-gray",
               attrs: { id: "cookingTime", type: "text" },
               domProps: { value: _vm.form.cookingTime },
               on: {
@@ -21600,12 +21626,12 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "flex items-center justify-end" }, [
+          _c("div", { staticClass: "flex items-center justify-center" }, [
             _c(
               "button",
               {
                 staticClass:
-                  "py-1 px-4 rounded-lg focus:outline-none focus:shadow-outline border text-outline border-outline font-medium",
+                  "shadow text-white py-2 px-8 rounded bg-orange font-medium text-lg",
                 attrs: { type: "submit" }
               },
               [_vm._v("Search")]

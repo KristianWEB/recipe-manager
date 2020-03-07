@@ -9,12 +9,8 @@
 				<RecipeCard :recipe="recipe.recipe" />
 			</li>
 		</ul>
-		<ul v-if="savedRecipes" class="flex my-4 flex-wrap tabletMax:justify-center">
-			<li
-				class="my-4 tabletMax:justify-center w-card mx-4"
-				v-for="(recipe, id) in savedRecipes"
-				:key="id"
-			>
+		<ul v-if="savedRecipes" class="flex my-4 flex-wrap desktopMax:justify-center">
+			<li class="m-4 w-card mobileMax:w-full" v-for="(recipe, id) in savedRecipes" :key="id">
 				<RecipeCard :recipe="recipe" />
 			</li>
 		</ul>
