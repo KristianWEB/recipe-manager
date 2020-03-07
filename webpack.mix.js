@@ -19,20 +19,17 @@ mix.js("resources/js/app.js", "public/js")
     .tailwind("./tailwind.config.js")
     .purgeCss()
     .override(config => {
-        // config.module.rules.find(rule =>
-        //     rule.test.test(".svg")
-        // ).exclude = /\.svg$/;
-        // config.module.rules.push({
-        //     test: /\.svg$/,
-        //     use: [{ loader: "html-loader" }]
-        // });
         config.module.rules.push({
-        test: /\.vue$/,
-        use: [{
-            loader: "vue-svg-inline-loader",
-            options: { /* ... */ }
-        }]
-    })
+            test: /\.vue$/,
+            use: [
+                {
+                    loader: "vue-svg-inline-loader",
+                    options: {
+                        /* ... */
+                    }
+                }
+            ]
+        });
     });
 
 if (mix.inProduction()) {

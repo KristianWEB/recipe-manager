@@ -2,9 +2,9 @@
 	<div>
 		<NavBar />
 		<div class="flex w-full">
-			<FilterForm v-if="!mobile" @searchData="search" class="desktopMax:hidden" />
+			<FilterForm v-if="!mobile" @searchData="search" class="desktopMax:hidden w-1/5" />
 			<FilterFormMobile v-if="mobile" @searchData="search" />
-			<RecipeList :recipes="recipes" />
+			<RecipeList :recipes="recipes" class="w-4/5"/>
 		</div>
 	</div>
 </template>

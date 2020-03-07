@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full max-w-xs font-roboto bg-bg-gray">
+	<div class="font-roboto bg-bg-gray">
 		<form class="rounded px-8 pt-6 pb-8 mb-4" @submit.prevent="detailedSearching">
 			<h3 class="text-xl font-medium pb-6 mb-0">Filters</h3>
 			<div class="mb-4">
