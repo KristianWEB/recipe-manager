@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex justify-between bg-white border-b-1">
+  <ul class="flex justify-between bg-white border-b-1 sticky top-0 z-50">
     <li class="ml-6">
       <a class="text-black font-medium text-3xl font-sans" href="#">RM</a>
     </li>
