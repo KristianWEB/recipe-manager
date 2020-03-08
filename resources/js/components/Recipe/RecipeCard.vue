@@ -1,5 +1,7 @@
 <template>
-  <div class="rounded-lg w-full overflow-hidden shadow font-roboto relative">
+  <div
+    class="rounded-lg w-full overflow-hidden shadow font-roboto relative z-4"
+  >
     <img
       class="w-full h-64 object-cover"
       :src="recipe.image"
@@ -29,13 +31,6 @@
           height="35px"
           src="../../../../public/images/heartFill.svg"
           alt="heart icon"
-        />
-      </button>
-      <button class="mr-6 mt-4">
-        <img
-          svg-inline
-          src="../../../../public/images/settings-icon.svg"
-          alt="settings icon"
         />
       </button>
     </div>

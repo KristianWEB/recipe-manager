@@ -4,7 +4,7 @@
     <div class="flex w-full">
       <FilterForm
         v-if="!mobile"
-        class="desktopMax:hidden w-1/5"
+        class="desktopMax:hidden w-1/5 sticky top-0 h-screen"
         @searchData="search"
       />
       <FilterFormMobile v-if="mobile" @searchData="search" />
