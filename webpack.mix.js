@@ -30,6 +30,15 @@ mix.js("resources/js/app.js", "public/js")
                 }
             ]
         });
+        config.module.rules.push({
+            enforce: "pre",
+            test: /\.(js|vue)$/,
+            loader: "eslint-loader",
+            exclude: /node_modules/,
+            options: {
+                fix: true
+            }
+        });
     });
 
 if (mix.inProduction()) {

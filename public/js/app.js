@@ -2006,6 +2006,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2084,6 +2109,40 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2253,6 +2312,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2295,6 +2364,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2379,6 +2449,40 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2594,8 +2698,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["recipe"],
+  props: {
+    recipe: {
+      type: Object,
+      "default": null
+    }
+  },
   methods: {
     saveRecipe: function saveRecipe(recipe) {
       axios.post("/api/save-recipe", _objectSpread({}, recipe, {
@@ -2647,11 +2787,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["recipes", "savedRecipes"],
   components: {
     RecipeCard: _Recipe_RecipeCard__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    recipes: {
+      type: Array,
+      "default": null
+    },
+    savedRecipes: {
+      type: Array,
+      "default": null
+    }
   }
 });
 
@@ -2667,6 +2823,22 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/auth */ "./resources/js/helpers/auth.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2794,12 +2966,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "home-page",
+  name: "HomePage",
   components: {
     NavBar: _components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_0__["default"],
     RecipeList: _components_Recipe_RecipeList__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -2912,19 +3088,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "storage-page",
+  name: "StoragePage",
   components: {
     NavBar: _components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_0__["default"],
     RecipeList: _components_Recipe_RecipeList__WEBPACK_IMPORTED_MODULE_1__["default"],
     CreateCustomRecipe: _components_Recipe_CreateCustomRecipe__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  created: function created() {
-    this.$store.dispatch("fetchRecipes");
-  },
   computed: {
     savedRecipes: function savedRecipes() {
       return this.$store.getters.savedRecipes;
     }
+  },
+  created: function created() {
+    this.$store.dispatch("fetchRecipes");
   }
 });
 
@@ -2942,7 +3118,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#login-page {\r\n\tbackground-color: #ffffff;\r\n\tbackground-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cad5da' fill-opacity='0.24'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");\n}\r\n", ""]);
+exports.push([module.i, "\n#login-page {\n    background-color: #ffffff;\n    background-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cad5da' fill-opacity='0.24'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");\n}\n", ""]);
 
 // exports
 
@@ -2961,7 +3137,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#register-page {\r\n\tbackground-color: #ffffff;\r\n\tbackground-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cad5da' fill-opacity='0.24'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");\n}\r\n", ""]);
+exports.push([module.i, "\n#register-page {\n    background-color: #ffffff;\n    background-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cad5da' fill-opacity='0.24'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");\n}\n", ""]);
 
 // exports
 
@@ -4418,7 +4594,7 @@ var staticRenderFns = [
             "py-1 px-4 rounded-lg focus:outline-none focus:shadow-outline border text-outline border-outline font-medium",
           attrs: { type: "submit" }
         },
-        [_vm._v("Search")]
+        [_vm._v("\n                Search\n            ")]
       )
     ])
   }
@@ -4537,7 +4713,7 @@ var render = function() {
         { staticClass: "bg-light-gray w-full flex items-center justify-end" },
         [
           _c("h3", { staticClass: "text-xl m-auto font-medium py-3 mb-0" }, [
-            _vm._v("Search for a recipe")
+            _vm._v("\n            Search for a recipe\n        ")
           ]),
           _vm._v(" "),
           _c(
@@ -4550,7 +4726,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("×")]
+            [_vm._v("\n            ×\n        ")]
           )
         ]
       ),
@@ -4813,7 +4989,7 @@ var render = function() {
                   "shadow text-white py-2 px-8 rounded bg-orange font-medium text-lg",
                 attrs: { type: "submit" }
               },
-              [_vm._v("Search")]
+              [_vm._v("\n                Search\n            ")]
             )
           ])
         ]
@@ -4946,7 +5122,9 @@ var render = function() {
               "h3",
               { staticClass: "pb-3 text-dark-gray" },
               [
-                _vm._v("\n\t\t\t\tDon't have an account?\n\t\t\t\t"),
+                _vm._v(
+                  "\n                Don't have an account?\n                "
+                ),
                 _c(
                   "router-link",
                   {
@@ -4971,7 +5149,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "bg-light-gray rounded-t-lg" }, [
       _c("h1", { staticClass: "p-6 text-3xl font-bold text-heading-primary" }, [
-        _vm._v("Sign in with your account")
+        _vm._v("\n            Sign in with your account\n        ")
       ])
     ])
   },
@@ -4991,7 +5169,7 @@ var staticRenderFns = [
                 "shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg",
               attrs: { type: "submit" }
             },
-            [_vm._v("Sign in")]
+            [_vm._v("\n                    Sign in\n                ")]
           )
         ])
       ]
@@ -5182,7 +5360,7 @@ var render = function() {
               staticClass:
                 "p-3 text-3xl font-bold text-heading-primary text-center m-auto"
             },
-            [_vm._v("Create a Custom Recipe")]
+            [_vm._v("\n            Create a Custom Recipe\n        ")]
           ),
           _vm._v(" "),
           _c(
@@ -5195,7 +5373,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("×")]
+            [_vm._v("\n            ×\n        ")]
           )
         ]
       ),
@@ -5485,7 +5663,7 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._l(_vm.ingredients, function(ingredient, index) {
+          _vm._l(_vm.ingredients, function(ingr, index) {
             return _c(
               "div",
               { key: index, staticClass: "flex w-full px-5 pt-3" },
@@ -5496,7 +5674,13 @@ var render = function() {
                     staticClass:
                       "appearance-none rounded w-full py-2 px-4 mr-5 leading-tight focus:outline-none border border-dashed border-dark-gray text-heading-primary"
                   },
-                  [_vm._v(_vm._s(ingredient.text))]
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(ingr.text) +
+                        "\n            "
+                    )
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -5505,7 +5689,13 @@ var render = function() {
                     staticClass:
                       "appearance-none rounded w-1/3 py-2 px-4 mr-5 leading-tight focus:outline-none text-center border border-dashed border-dark-gray text-heading-primary"
                   },
-                  [_vm._v(_vm._s(ingredient.weight))]
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(ingr.weight) +
+                        "\n            "
+                    )
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -5516,7 +5706,7 @@ var render = function() {
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
-                        return _vm.removeIngredient(ingredient)
+                        return _vm.removeIngredient(_vm.ingredient)
                       }
                     }
                   },
@@ -5567,7 +5757,11 @@ var render = function() {
                     staticClass:
                       "shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg"
                   },
-                  [_vm._v("Create Recipe")]
+                  [
+                    _vm._v(
+                      "\n                    Create Recipe\n                "
+                    )
+                  ]
                 )
               ])
             ]
@@ -5767,7 +5961,13 @@ var render = function() {
                 staticClass:
                   "font-bold text-xl text-heading-primary text-center"
               },
-              [_vm._v(_vm._s(_vm.recipe.label))]
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.recipe.label) +
+                    "\n            "
+                )
+              ]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "flex justify-center" }, [
@@ -5798,7 +5998,11 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("h6", { staticClass: "font-medium text-orange mr-6" }, [
-                _vm._v(_vm._s(Math.round(_vm.recipe.calories)) + "cal")
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(Math.round(_vm.recipe.calories)) +
+                    "cal\n                "
+                )
               ]),
               _vm._v(" "),
               _c(
@@ -5829,13 +6033,21 @@ var render = function() {
               _vm._v(" "),
               _vm.recipe.totalWeight
                 ? _c("h6", { staticClass: "font-medium text-orange" }, [
-                    _vm._v(_vm._s(Math.round(_vm.recipe.totalWeight)) + "g")
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(Math.round(_vm.recipe.totalWeight)) +
+                        "g\n                "
+                    )
                   ])
                 : _vm._e(),
               _vm._v(" "),
               _vm.recipe.weight
                 ? _c("h6", { staticClass: "font-medium text-orange" }, [
-                    _vm._v(_vm._s(Math.round(_vm.recipe.weight)) + "g")
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(Math.round(_vm.recipe.weight)) +
+                        "g\n                "
+                    )
                   ])
                 : _vm._e()
             ])
@@ -5854,7 +6066,11 @@ var render = function() {
             { key: index, staticClass: "flex flex-col w-1/2 pr-3 pb-3" },
             [
               _c("p", { staticClass: "text-sm text-heading-primary" }, [
-                _vm._v(_vm._s(ingredient.text))
+                _vm._v(
+                  "\n                " +
+                    _vm._s(ingredient.text) +
+                    "\n            "
+                )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "flex" }, [
@@ -5886,7 +6102,13 @@ var render = function() {
                 _c(
                   "p",
                   { staticClass: "text-sm font-bold text-input-gray ml-2" },
-                  [_vm._v(_vm._s(Math.round(ingredient.weight)) + "g")]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(Math.round(ingredient.weight)) +
+                        "g\n                "
+                    )
+                  ]
                 )
               ])
             ]
@@ -5924,7 +6146,7 @@ var staticRenderFns = [
           staticClass:
             "text-heading-primary text-base font-bold inline pb-1 border-b-1 border-black"
         },
-        [_vm._v("Ingredients")]
+        [_vm._v("\n            Ingredients\n        ")]
       )
     ])
   }
@@ -6188,7 +6410,9 @@ var render = function() {
             "h3",
             { staticClass: "pb-3 text-dark-gray" },
             [
-              _vm._v("\n\t\t\t\tAlready have an account?\n\t\t\t\t"),
+              _vm._v(
+                "\n                Already have an account?\n                "
+              ),
               _c(
                 "router-link",
                 {
@@ -6212,7 +6436,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "bg-light-gray rounded-t-lg" }, [
       _c("h1", { staticClass: "p-6 text-3xl font-bold text-heading-primary" }, [
-        _vm._v("Create an account")
+        _vm._v("\n            Create an account\n        ")
       ])
     ])
   },
@@ -6232,7 +6456,11 @@ var staticRenderFns = [
                 "shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg",
               attrs: { type: "submit" }
             },
-            [_vm._v("Create your account")]
+            [
+              _vm._v(
+                "\n                    Create your account\n                "
+              )
+            ]
           )
         ])
       ]
@@ -6382,7 +6610,7 @@ var render = function() {
     [
       _c("NavBar"),
       _vm._v(" "),
-      _c("RecipeList", { attrs: { savedRecipes: _vm.savedRecipes } }),
+      _c("RecipeList", { attrs: { "saved-recipes": _vm.savedRecipes } }),
       _vm._v(" "),
       _c("CreateCustomRecipe")
     ],
@@ -22571,7 +22799,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
   linkExactActiveClass: "border-b-2 border-orange pb-3"
 });
-Object(_helpers_general__WEBPACK_IMPORTED_MODULE_7__["initialize"])(store, router);
+Object(_helpers_general__WEBPACK_IMPORTED_MODULE_7__["initialize"])(store, router); // eslint-disable-next-line no-unused-vars
+
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: "#app",
   router: router,
@@ -23377,7 +23606,7 @@ var login = function login(credentials) {
   return new Promise(function (res, rej) {
     axios.post("/api/auth/login", credentials).then(function (response) {
       return res(response.data);
-    })["catch"](function (err) {
+    })["catch"](function () {
       return rej("Wrong email or password");
     });
   });
@@ -23386,7 +23615,7 @@ var register = function register(credentials) {
   return new Promise(function (res, rej) {
     axios.post("/api/auth/register", credentials).then(function (response) {
       return res(response.data);
-    })["catch"](function (err) {
+    })["catch"](function () {
       return rej("Wrong credentials");
     });
   });
