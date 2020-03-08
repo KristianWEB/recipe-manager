@@ -17,18 +17,19 @@ Vue.use(VueRouter);
 const store = new Vuex.Store(StoreData);
 
 const router = new VueRouter({
-    routes,
-    mode: "history",
-    linkExactActiveClass: "border-b-2 border-orange pb-3"
+  routes,
+  mode: "history",
+  linkExactActiveClass: "border-b-2 border-orange pb-3"
 });
 
 initialize(store, router);
 
+// eslint-disable-next-line no-unused-vars
 const app = new Vue({
-    el: "#app",
-    router,
-    store,
-    components: {
-        App
-    }
+  el: "#app",
+  router,
+  store,
+  components: {
+    App
+  }
 });

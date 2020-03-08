@@ -1,9 +1,9 @@
 <template>
-	<div>
-		<NavBar />
-		<RecipeList :savedRecipes="savedRecipes" />
-		<CreateCustomRecipe />
-	</div>
+  <div>
+    <NavBar />
+    <RecipeList :saved-recipes="savedRecipes" />
+    <CreateCustomRecipe />
+  </div>
 </template>
 
 <script>
@@ -11,19 +11,19 @@ import NavBar from "../components/NavBar/NavBar";
 import RecipeList from "../components/Recipe/RecipeList";
 import CreateCustomRecipe from "../components/Recipe/CreateCustomRecipe";
 export default {
-	name: "storage-page",
-	components: {
-		NavBar,
-		RecipeList,
-		CreateCustomRecipe
-	},
-	created() {
-		this.$store.dispatch("fetchRecipes");
-	},
-	computed: {
-		savedRecipes() {
-			return this.$store.getters.savedRecipes;
-		}
-	}
+  name: "StoragePage",
+  components: {
+    NavBar,
+    RecipeList,
+    CreateCustomRecipe
+  },
+  computed: {
+    savedRecipes() {
+      return this.$store.getters.savedRecipes;
+    }
+  },
+  created() {
+    this.$store.dispatch("fetchRecipes");
+  }
 };
 </script>
