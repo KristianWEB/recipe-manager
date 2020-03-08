@@ -64,8 +64,10 @@ export default {
     fetchRecipes(context) {
       axios
         .get("/api/recipes")
-        .then(({ data }) => context.commit("recipes", data))
-        .catch(err => console.error(err.response));
+        .then(({ data }) => {
+          context.commit("recipes", data);
+        })
+        .catch(err => err.response);
     }
   }
 };
