@@ -44,8 +44,7 @@ export default {
           "Access-Control-Allow-Origin": "*"
         }
       )
-      .then(({ data }) => (this.recipes = data.hits))
-      .catch(error => console.log(error));
+      .then(({ data }) => (this.recipes = data.hits));
   },
   methods: {
     search(searchData) {

@@ -176,8 +176,7 @@ export default {
           totalWeight: this.totalWeight,
           isSaved: true
         })
-        .then(() => this.$store.dispatch("fetchRecipes"))
-        .catch(err => console.log(err.response));
+        .then(() => this.$store.dispatch("fetchRecipes"));
     }
   }
 };

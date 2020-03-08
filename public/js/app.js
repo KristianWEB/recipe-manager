@@ -2029,8 +2029,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2109,8 +2107,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -2320,8 +2316,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2364,8 +2358,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -2580,12 +2572,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2621,8 +2607,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         isSaved: true
       }).then(function () {
         return _this.$store.dispatch("fetchRecipes");
-      })["catch"](function (err) {
-        return console.log(err.response);
       });
     }
   }
@@ -2723,12 +2707,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     recipe: {
@@ -2740,17 +2718,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     saveRecipe: function saveRecipe(recipe) {
       axios.post("/api/save-recipe", _objectSpread({}, recipe, {
         isSaved: true
-      }))["catch"](function (err) {
-        return console.log(err.response);
-      });
+      }));
     },
     deleteRecipe: function deleteRecipe(recipe) {
       var _this = this;
 
       axios.post("/api/delete-recipe", recipe).then(function () {
         return _this.$store.dispatch("fetchRecipes");
-      })["catch"](function (err) {
-        return console.log(err.response);
       });
     }
   }
@@ -2823,10 +2797,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/auth */ "./resources/js/helpers/auth.js");
-//
-//
-//
-//
 //
 //
 //
@@ -3001,8 +2971,6 @@ __webpack_require__.r(__webpack_exports__);
     }).then(function (_ref) {
       var data = _ref.data;
       return _this.recipes = data.hits;
-    })["catch"](function (error) {
-      return console.log(error);
     });
   },
   methods: {
@@ -3118,7 +3086,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#login-page {\n    background-color: #ffffff;\n    background-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cad5da' fill-opacity='0.24'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");\n}\n", ""]);
+exports.push([module.i, "\n#login-page {\r\n  background-color: #ffffff;\r\n  background-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cad5da' fill-opacity='0.24'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");\n}\r\n", ""]);
 
 // exports
 
@@ -3137,7 +3105,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#register-page {\n    background-color: #ffffff;\n    background-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cad5da' fill-opacity='0.24'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");\n}\n", ""]);
+exports.push([module.i, "\n#register-page {\r\n  background-color: #ffffff;\r\n  background-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cad5da' fill-opacity='0.24'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");\n}\r\n", ""]);
 
 // exports
 
@@ -4296,7 +4264,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "keep-alive",
-    { attrs: { include: "home-page" } },
+    { attrs: { include: "HomePage" } },
     [_c("router-view")],
     1
   )
@@ -4594,7 +4562,7 @@ var staticRenderFns = [
             "py-1 px-4 rounded-lg focus:outline-none focus:shadow-outline border text-outline border-outline font-medium",
           attrs: { type: "submit" }
         },
-        [_vm._v("\n                Search\n            ")]
+        [_vm._v("\n        Search\n      ")]
       )
     ])
   }
@@ -4713,7 +4681,7 @@ var render = function() {
         { staticClass: "bg-light-gray w-full flex items-center justify-end" },
         [
           _c("h3", { staticClass: "text-xl m-auto font-medium py-3 mb-0" }, [
-            _vm._v("\n            Search for a recipe\n        ")
+            _vm._v("\n      Search for a recipe\n    ")
           ]),
           _vm._v(" "),
           _c(
@@ -4726,7 +4694,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("\n            ×\n        ")]
+            [_vm._v("\n      ×\n    ")]
           )
         ]
       ),
@@ -4989,7 +4957,7 @@ var render = function() {
                   "shadow text-white py-2 px-8 rounded bg-orange font-medium text-lg",
                 attrs: { type: "submit" }
               },
-              [_vm._v("\n                Search\n            ")]
+              [_vm._v("\n        Search\n      ")]
             )
           ])
         ]
@@ -5122,9 +5090,7 @@ var render = function() {
               "h3",
               { staticClass: "pb-3 text-dark-gray" },
               [
-                _vm._v(
-                  "\n                Don't have an account?\n                "
-                ),
+                _vm._v("\n        Don't have an account?\n        "),
                 _c(
                   "router-link",
                   {
@@ -5149,7 +5115,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "bg-light-gray rounded-t-lg" }, [
       _c("h1", { staticClass: "p-6 text-3xl font-bold text-heading-primary" }, [
-        _vm._v("\n            Sign in with your account\n        ")
+        _vm._v("\n      Sign in with your account\n    ")
       ])
     ])
   },
@@ -5169,7 +5135,7 @@ var staticRenderFns = [
                 "shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg",
               attrs: { type: "submit" }
             },
-            [_vm._v("\n                    Sign in\n                ")]
+            [_vm._v("\n          Sign in\n        ")]
           )
         ])
       ]
@@ -5197,48 +5163,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("ul", { staticClass: "flex justify-between bg-white border-b-1" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "flex justify-center items-center" }, [
-      _c(
-        "li",
-        { staticClass: "mr-12" },
-        [
-          _c(
-            "router-link",
-            { staticClass: "text-black", attrs: { to: "/home" } },
-            [_vm._v("Home")]
-          )
-        ],
-        1
-      ),
+  return _c(
+    "ul",
+    {
+      staticClass: "flex justify-between bg-white border-b-1 sticky top-0 z-50"
+    },
+    [
+      _vm._m(0),
       _vm._v(" "),
-      _c(
-        "li",
-        [
-          _c(
-            "router-link",
-            { staticClass: "text-black", attrs: { to: "/storage" } },
-            [_vm._v("Storage")]
-          )
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    !_vm.currentUser
-      ? _c("li", { staticClass: "mr-6 flex items-center justify-center" }, [
-          _c("a", { staticClass: "text-orange", attrs: { href: "#" } }, [
-            _vm._v("SIGN IN")
+      _c("div", { staticClass: "flex justify-center items-center" }, [
+        _c(
+          "li",
+          { staticClass: "mr-12" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "text-black", attrs: { to: "/home" } },
+              [_vm._v("Home")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
+            _c(
+              "router-link",
+              { staticClass: "text-black", attrs: { to: "/storage" } },
+              [_vm._v("Storage")]
+            )
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      !_vm.currentUser
+        ? _c("li", { staticClass: "mr-6 flex items-center justify-center" }, [
+            _c("a", { staticClass: "text-orange", attrs: { href: "#" } }, [
+              _vm._v("SIGN IN")
+            ])
           ])
-        ])
-      : _c("li", { staticClass: "mr-6 flex items-center justify-center" }, [
-          _c("a", { staticClass: "text-orange", attrs: { href: "#" } }, [
-            _vm._v(_vm._s(_vm.currentUser.username))
+        : _c("li", { staticClass: "mr-6 flex items-center justify-center" }, [
+            _c("a", { staticClass: "text-orange", attrs: { href: "#" } }, [
+              _vm._v(_vm._s(_vm.currentUser.username))
+            ])
           ])
-        ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -5360,7 +5332,7 @@ var render = function() {
               staticClass:
                 "p-3 text-3xl font-bold text-heading-primary text-center m-auto"
             },
-            [_vm._v("\n            Create a Custom Recipe\n        ")]
+            [_vm._v("\n      Create a Custom Recipe\n    ")]
           ),
           _vm._v(" "),
           _c(
@@ -5373,7 +5345,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("\n            ×\n        ")]
+            [_vm._v("\n      ×\n    ")]
           )
         ]
       ),
@@ -5674,13 +5646,7 @@ var render = function() {
                     staticClass:
                       "appearance-none rounded w-full py-2 px-4 mr-5 leading-tight focus:outline-none border border-dashed border-dark-gray text-heading-primary"
                   },
-                  [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(ingr.text) +
-                        "\n            "
-                    )
-                  ]
+                  [_vm._v("\n        " + _vm._s(ingr.text) + "\n      ")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -5689,13 +5655,7 @@ var render = function() {
                     staticClass:
                       "appearance-none rounded w-1/3 py-2 px-4 mr-5 leading-tight focus:outline-none text-center border border-dashed border-dark-gray text-heading-primary"
                   },
-                  [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(ingr.weight) +
-                        "\n            "
-                    )
-                  ]
+                  [_vm._v("\n        " + _vm._s(ingr.weight) + "\n      ")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -5757,11 +5717,7 @@ var render = function() {
                     staticClass:
                       "shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg"
                   },
-                  [
-                    _vm._v(
-                      "\n                    Create Recipe\n                "
-                    )
-                  ]
+                  [_vm._v("\n          Create Recipe\n        ")]
                 )
               ])
             ]
@@ -5798,7 +5754,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "rounded-lg w-full overflow-hidden shadow font-roboto relative"
+        "rounded-lg w-full overflow-hidden shadow font-roboto relative z-4"
     },
     [
       _c("img", {
@@ -5895,55 +5851,7 @@ var render = function() {
                     ]
                   )
                 ]
-              ),
-          _vm._v(" "),
-          _c("button", { staticClass: "mr-6 mt-4" }, [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  width: "8",
-                  height: "28",
-                  viewBox: "0 0 8 28",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  "svg-inline": "",
-                  role: "presentation",
-                  focusable: "false",
-                  tabindex: "-1"
-                }
-              },
-              [
-                _c("ellipse", {
-                  attrs: {
-                    cx: "3.659",
-                    cy: "3.857",
-                    rx: "3.555",
-                    ry: "3.561",
-                    fill: "#fff"
-                  }
-                }),
-                _c("ellipse", {
-                  attrs: {
-                    cx: "3.659",
-                    cy: "13.827",
-                    rx: "3.555",
-                    ry: "3.561",
-                    fill: "#fff"
-                  }
-                }),
-                _c("ellipse", {
-                  attrs: {
-                    cx: "3.659",
-                    cy: "23.797",
-                    rx: "3.555",
-                    ry: "3.561",
-                    fill: "#fff"
-                  }
-                })
-              ]
-            )
-          ])
+              )
         ]
       ),
       _vm._v(" "),
@@ -5961,13 +5869,7 @@ var render = function() {
                 staticClass:
                   "font-bold text-xl text-heading-primary text-center"
               },
-              [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(_vm.recipe.label) +
-                    "\n            "
-                )
-              ]
+              [_vm._v("\n        " + _vm._s(_vm.recipe.label) + "\n      ")]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "flex justify-center" }, [
@@ -5999,9 +5901,9 @@ var render = function() {
               _vm._v(" "),
               _c("h6", { staticClass: "font-medium text-orange mr-6" }, [
                 _vm._v(
-                  "\n                    " +
+                  "\n          " +
                     _vm._s(Math.round(_vm.recipe.calories)) +
-                    "cal\n                "
+                    "cal\n        "
                 )
               ]),
               _vm._v(" "),
@@ -6034,9 +5936,9 @@ var render = function() {
               _vm.recipe.totalWeight
                 ? _c("h6", { staticClass: "font-medium text-orange" }, [
                     _vm._v(
-                      "\n                    " +
+                      "\n          " +
                         _vm._s(Math.round(_vm.recipe.totalWeight)) +
-                        "g\n                "
+                        "g\n        "
                     )
                   ])
                 : _vm._e(),
@@ -6044,9 +5946,9 @@ var render = function() {
               _vm.recipe.weight
                 ? _c("h6", { staticClass: "font-medium text-orange" }, [
                     _vm._v(
-                      "\n                    " +
+                      "\n          " +
                         _vm._s(Math.round(_vm.recipe.weight)) +
-                        "g\n                "
+                        "g\n        "
                     )
                   ])
                 : _vm._e()
@@ -6066,11 +5968,7 @@ var render = function() {
             { key: index, staticClass: "flex flex-col w-1/2 pr-3 pb-3" },
             [
               _c("p", { staticClass: "text-sm text-heading-primary" }, [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(ingredient.text) +
-                    "\n            "
-                )
+                _vm._v("\n        " + _vm._s(ingredient.text) + "\n      ")
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "flex" }, [
@@ -6104,9 +6002,9 @@ var render = function() {
                   { staticClass: "text-sm font-bold text-input-gray ml-2" },
                   [
                     _vm._v(
-                      "\n                    " +
+                      "\n          " +
                         _vm._s(Math.round(ingredient.weight)) +
-                        "g\n                "
+                        "g\n        "
                     )
                   ]
                 )
@@ -6117,20 +6015,22 @@ var render = function() {
         0
       ),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "flex justify-end bg-light-gray pr-6 pb-3 pt-2" },
-        [
-          _c(
-            "a",
-            {
-              staticClass: "font-medium text-orange",
-              attrs: { href: _vm.recipe.url, target: "_blank" }
-            },
-            [_vm._v("READ MORE")]
+      _vm.recipe.url
+        ? _c(
+            "div",
+            { staticClass: "flex justify-end bg-light-gray pr-6 pb-3 pt-2" },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "font-medium text-orange",
+                  attrs: { href: _vm.recipe.url, target: "_blank" }
+                },
+                [_vm._v("READ MORE")]
+              )
+            ]
           )
-        ]
-      )
+        : _vm._e()
     ]
   )
 }
@@ -6146,7 +6046,7 @@ var staticRenderFns = [
           staticClass:
             "text-heading-primary text-base font-bold inline pb-1 border-b-1 border-black"
         },
-        [_vm._v("\n            Ingredients\n        ")]
+        [_vm._v("\n      Ingredients\n    ")]
       )
     ])
   }
@@ -6410,9 +6310,7 @@ var render = function() {
             "h3",
             { staticClass: "pb-3 text-dark-gray" },
             [
-              _vm._v(
-                "\n                Already have an account?\n                "
-              ),
+              _vm._v("\n        Already have an account?\n        "),
               _c(
                 "router-link",
                 {
@@ -6436,7 +6334,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "bg-light-gray rounded-t-lg" }, [
       _c("h1", { staticClass: "p-6 text-3xl font-bold text-heading-primary" }, [
-        _vm._v("\n            Create an account\n        ")
+        _vm._v("\n      Create an account\n    ")
       ])
     ])
   },
@@ -6456,11 +6354,7 @@ var staticRenderFns = [
                 "shadow text-white py-2 px-16 rounded bg-orange font-medium text-lg",
               attrs: { type: "submit" }
             },
-            [
-              _vm._v(
-                "\n                    Create your account\n                "
-              )
-            ]
+            [_vm._v("\n          Create your account\n        ")]
           )
         ])
       ]
@@ -6499,7 +6393,7 @@ var render = function() {
         [
           !_vm.mobile
             ? _c("FilterForm", {
-                staticClass: "desktopMax:hidden w-1/5",
+                staticClass: "desktopMax:hidden w-1/5 sticky top-0 h-screen",
                 on: { searchData: _vm.search }
               })
             : _vm._e(),
@@ -22825,8 +22719,6 @@ var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
   window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
-} else {
-  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
 }
 
 /***/ }),
@@ -24105,7 +23997,9 @@ var user = Object(_helpers_auth__WEBPACK_IMPORTED_MODULE_0__["getLocalUser"])();
     fetchRecipes: function fetchRecipes(context) {
       axios.get("/api/recipes").then(function (_ref) {
         var data = _ref.data;
-        return context.commit("recipes", data);
+        context.commit("recipes", data);
+      })["catch"](function (err) {
+        return err.response;
       });
     }
   }

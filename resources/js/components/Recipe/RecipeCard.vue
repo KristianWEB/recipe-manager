@@ -118,18 +118,15 @@ export default {
   },
   methods: {
     saveRecipe(recipe) {
-      axios
-        .post("/api/save-recipe", {
-          ...recipe,
-          isSaved: true
-        })
-        .catch(err => console.log(err.response));
+      axios.post("/api/save-recipe", {
+        ...recipe,
+        isSaved: true
+      });
     },
     deleteRecipe(recipe) {
       axios
         .post("/api/delete-recipe", recipe)
-        .then(() => this.$store.dispatch("fetchRecipes"))
-        .catch(err => console.log(err.response));
+        .then(() => this.$store.dispatch("fetchRecipes"));
     }
   }
 };
