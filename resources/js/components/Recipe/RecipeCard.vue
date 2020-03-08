@@ -102,7 +102,10 @@
         </div>
       </li>
     </ul>
-    <div class="flex justify-end bg-light-gray pr-6 pb-3 pt-2">
+    <div
+      v-if="recipe.url"
+      class="flex justify-end bg-light-gray pr-6 pb-3 pt-2"
+    >
       <a :href="recipe.url" target="_blank" class="font-medium text-orange"
         >READ MORE</a
       >
