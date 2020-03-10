@@ -51,6 +51,8 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'user' => $this->guard()->user(),
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 1440
         ]);
     }
     public function guard()

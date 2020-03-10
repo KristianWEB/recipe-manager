@@ -8,7 +8,7 @@
         @searchData="search"
       />
       <FilterFormMobile v-if="mobile" @searchData="search" />
-      <RecipeList :recipes="recipes" class="w-4/5" />
+      <RecipeList :recipes="recipes" class="xl:w-4/5" />
     </div>
   </div>
 </template>

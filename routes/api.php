@@ -18,7 +18,7 @@ Route::group(['prefix' => 'auth'], function ($router) {
     Route::post('login', 'AuthController@login');
 });
 
-Route::group(['middleware' => 'jwt.verify'], function ($router) {
+Route::group(['middleware' => 'jwt.auth'], function ($router) {
     Route::post('save-recipe', 'RecipeController@store');
     Route::post('create-recipe', 'RecipeController@create');
     Route::post('delete-recipe', 'RecipeController@delete');

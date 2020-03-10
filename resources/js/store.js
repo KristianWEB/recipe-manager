@@ -36,6 +36,11 @@ export default {
       state.loading = true;
       state.auth_error = null;
     },
+    logout(state) {
+      localStorage.removeItem("user");
+      state.isLoggedIn = false;
+      state.currentUser = null;
+    },
     recipes(state, savedRecipes) {
       state.savedRecipes = savedRecipes;
     },
