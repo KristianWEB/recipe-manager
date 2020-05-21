@@ -1,6 +1,14 @@
 # Recipe Manager
 ![Backend](https://github.com/KristianWEB/recipe-manager/workflows/Backend/badge.svg) ![Frontend](https://github.com/KristianWEB/recipe-manager/workflows/Frontend/badge.svg)
 
+# Screenshots
+**Home page:**
+![Home page](https://github.com/KristianWEB/recipe-manager/blob/master/public/images/home.PNG)
+
+**Storage page:**
+![Storage page](https://github.com/KristianWEB/recipe-manager/blob/master/public/images/storage.PNG)
+
+
 Recipe Manager is a web application which helps you find and store your best meals:
  * **First:** the app provides you decent ` chocolate ` recipes just to show you how it's done
  
@@ -10,7 +18,7 @@ Recipe Manager is a web application which helps you find and store your best mea
  
  * **Cross-platform:** The app is ` fully responsive ` and that means that you can use it from your phone exactly before cooking a meal or on your computer when you want to research what you are going to cook in the future.
  
- ### [Figma file](https://www.figma.com/file/057VEmJbHkhO1pCIvRvdrq/Recipe-Manager-Recipes?node-id=0%3A1)
+ ### [UI Design done with Figma](https://www.figma.com/file/057VEmJbHkhO1pCIvRvdrq/Recipe-Manager-Recipes?node-id=0%3A1)
  
  ## Local installation
  > You need the following tools before cloning:
@@ -52,6 +60,3 @@ Using the pre-made ` .env.example ` duplicate it and create a ` .env ` file and 
 
   * By using php integrated server ( ` php artisan serve ` )
   * [By using XAMPP + apache vhosts + hosts setup](youtube.com/watch?v=H3uRXvwXz1o)
-  
- ### This is the first full-stack project that I've completed successfully. My main focus is currently the UI but you can't develop something good without the other so I don't really have a choice. Any constructive criticism would be really appreciated from other point of view. Enjoy the app!
-    
